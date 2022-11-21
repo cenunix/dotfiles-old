@@ -16,6 +16,7 @@ These dotfiles are curated for Hyprland on arch linux, however many other distro
 - **File Manager** - [ranger](https://github.com/ranger/ranger)
 - **Audio Visualizer** - [cava](https://github.com/karlstav/cava)
 - **Resource Monitor** - [btop](https://github.com/aristocratos/btop)
+- **PDF Viewer** - [zathura](https://github.com/pwmt/zathura)
 - **Wallpapers** - Can be found in a separate repo [here](https://github.com/selmer443/wallpapers)
 
 
@@ -24,8 +25,8 @@ These dotfiles are curated for Hyprland on arch linux, however many other distro
 
 
 ## Screenshots
-![alt text](./assets/screenshot1.png)
-![alt text](./assets/screenshot.png)
+![alt text](./assets/1screenshot.png)
+![alt text](./assets/0screenshot.png)
 
 
 ## Installation
