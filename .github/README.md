@@ -16,7 +16,7 @@ These dotfiles are curated for Hyprland on arch linux, however many other distro
 - **File Manager** - [ranger](https://github.com/ranger/ranger)
 - **Audio Visualizer** - [cava](https://github.com/karlstav/cava)
 - **Resource Monitor** - [btop](https://github.com/aristocratos/btop)
-- **Wallpapers** - Can be found in a separate repo [here] (https://github.com/selmer443/wallpapers)
+- **Wallpapers** - Can be found in a separate repo [here](https://github.com/selmer443/wallpapers)
 
 
 
