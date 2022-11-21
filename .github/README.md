@@ -6,7 +6,7 @@ These dotfiles are curated for Hyprland on arch linux, however many other distro
 
 ## Details
 - **Compositor** - [Hyprland](https://hyprland.org)
-- **Shell** - [zsh](https://wiki.archlinux.org/title/zsh) (zap plugin manager)(https://www.zapzsh.org/)
+- **Shell** - [zsh](https://wiki.archlinux.org/title/zsh) [(zap plugin manager)](https://www.zapzsh.org/)
 - **Terminal** - [kitty](https://github.com/kovidgoyal/kitty)
 - **Bar and Widgets** - [waybar](https://github.com/Alexays/Waybar/wiki/Modules)
 - **Launcher** - [rofi](https://github.com/davatorium/rofi)
