@@ -1,4 +1,8 @@
 [ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
+HISTFILE="$HOME/.config/zsh/.zsh_history"
+HISTSIZE=1000
+SAVEHIST=1000
+setopt appendhistory
 # Example install plugins
 plug "zap-zsh/supercharge"
 plug "zsh-users/zsh-autosuggestions"
