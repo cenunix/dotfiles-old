@@ -24,7 +24,7 @@ These dotfiles are curated for Hyprland on arch linux, however many other distro
 
 
 ## Screenshots
-![alt text](./assets/screenshot-1.png)
+![alt text](./assets/screenshot1.png)
 ![alt text](./assets/screenshot.png)
 
 
