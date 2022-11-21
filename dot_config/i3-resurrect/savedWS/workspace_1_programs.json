@@ -1,0 +1,26 @@
+[
+  {
+    "command": [
+      "/usr/bin/kitty"
+    ],
+    "working_directory": "/home/selmer"
+  },
+  {
+    "command": [
+      "/usr/bin/kitty"
+    ],
+    "working_directory": "/home/selmer"
+  },
+  {
+    "command": [
+      "/usr/bin/kitty"
+    ],
+    "working_directory": "/home/selmer"
+  },
+  {
+    "command": [
+      "/usr/bin/kitty"
+    ],
+    "working_directory": "/home/selmer"
+  }
+]

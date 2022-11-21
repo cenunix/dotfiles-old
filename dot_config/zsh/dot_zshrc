@@ -1,0 +1,17 @@
+[ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
+path+=('/home/user/.scripts/')
+# Example install plugins
+plug "zap-zsh/supercharge"
+plug "zsh-users/zsh-autosuggestions"
+plug "zsh-users/zsh-syntax-highlighting"
+
+# Example theme
+plug "zap-zsh/zap-prompt"
+
+# Example install completion
+plug "esc/conda-zsh-completion"
+
+# alias screenshot="grim -g \"$(slurp)\" $HOME/Pictures/screenshots/$(date +'%s_grim.png')"
+alias ryujinx="__GL_THREADED_OPTIMIZATIONS=0 __GL_SYNC_TO_VBLANK=0 COMPlus_EnableAlternateStackCheck=1 GDK_BACKEND=x11 /home/user/.local/share/Ryujinx/Ryujinx"
+
+unimatrix -c blue -s 98 -w

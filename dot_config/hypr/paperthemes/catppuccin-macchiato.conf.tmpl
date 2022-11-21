@@ -1,0 +1,14 @@
+# machine-specific configuration
+{{- if eq .chezmoi.hostname "archlaptop" }}
+# this will only be included in ~/.config/hypr/hyprpaper.conf on archlaptop
+preload = ~/Pictures/wallpapers/BlackAndWhite/bw029.jpg
+wallpaper = eDP-1,~/Pictures/wallpapers/BlackAndWhite/bw029.jpg
+{{ else }}
+preload = ~/Pictures/wallpapers/BlackAndWhite/bw029.jpg
+wallpaper = DP-2,~/Pictures/wallpapers/BlackAndWhite/bw029.jpg
+wallpaper = DP-1,~/Pictures/wallpapers/BlackAndWhite/bw029.jpg
+{{- end }}
+
+
+
+

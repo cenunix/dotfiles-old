@@ -1,0 +1,27 @@
+/**
+ * @name        Nordic
+ * @author      orblazer#9152
+ * @version     3.11.4
+ * @description Complete theme for Nordic (https://www.nordtheme.com/)
+ * @source      https://github.com/orblazer/discord-nordic
+ * @donate      https://www.paypal.me/orblazer
+ * @authorId    179681974879911946
+*/
+
+/**
+ * SOURCE CODE
+ * /!\ DON'T TOUCH ! /!\
+ */
+@import url('https://orblazer.github.io/discord-nordic/base.css');
+
+/**
+ * CUSTOMIZATION
+ */
+:root {
+}
+
+.theme-dark {
+}
+
+.theme-light {
+}

@@ -1,0 +1,135 @@
+{
+  "border": "normal",
+  "current_border_width": -1,
+  "floating": "auto_off",
+  "fullscreen_mode": 1,
+  "geometry": {
+    "x": 0,
+    "y": 0,
+    "width": 0,
+    "height": 0
+  },
+  "layout": "splith",
+  "marks": [],
+  "name": "1",
+  "orientation": "horizontal",
+  "percent": 0.5,
+  "scratchpad_state": "none",
+  "sticky": false,
+  "type": "workspace",
+  "workspace_layout": "default",
+  "nodes": [
+    {
+      "border": "pixel",
+      "current_border_width": 6,
+      "floating": "auto_off",
+      "fullscreen_mode": 0,
+      "geometry": {
+        "x": 0,
+        "y": 0,
+        "width": 821,
+        "height": 1302
+      },
+      "layout": "splith",
+      "marks": [],
+      "name": "selmer@arch:~",
+      "orientation": "none",
+      "percent": 0.25,
+      "scratchpad_state": "none",
+      "sticky": false,
+      "type": "con",
+      "workspace_layout": "default",
+      "swallows": [
+        {
+          "class": "^kitty$",
+          "instance": "^kitty$",
+          "title": "^selmer@arch:\\~$"
+        }
+      ]
+    },
+    {
+      "border": "pixel",
+      "current_border_width": 6,
+      "floating": "auto_off",
+      "fullscreen_mode": 0,
+      "geometry": {
+        "x": 0,
+        "y": 0,
+        "width": 1238,
+        "height": 1302
+      },
+      "layout": "splith",
+      "marks": [],
+      "name": "~",
+      "orientation": "none",
+      "percent": 0.25,
+      "scratchpad_state": "none",
+      "sticky": false,
+      "type": "con",
+      "workspace_layout": "default",
+      "swallows": [
+        {
+          "class": "^kitty$",
+          "instance": "^kitty$",
+          "title": "^\\~$"
+        }
+      ]
+    },
+    {
+      "border": "pixel",
+      "current_border_width": 6,
+      "floating": "auto_off",
+      "fullscreen_mode": 0,
+      "geometry": {
+        "x": 0,
+        "y": 0,
+        "width": 608,
+        "height": 1302
+      },
+      "layout": "splith",
+      "marks": [],
+      "name": "~/.config/i3-resurrect",
+      "orientation": "none",
+      "percent": 0.25,
+      "scratchpad_state": "none",
+      "sticky": false,
+      "type": "con",
+      "workspace_layout": "default",
+      "swallows": [
+        {
+          "class": "^kitty$",
+          "instance": "^kitty$",
+          "title": "^\\~/\\.config/i3\\-resurrect$"
+        }
+      ]
+    },
+    {
+      "border": "pixel",
+      "current_border_width": 6,
+      "floating": "auto_off",
+      "fullscreen_mode": 0,
+      "geometry": {
+        "x": 0,
+        "y": 0,
+        "width": 1238,
+        "height": 1302
+      },
+      "layout": "splith",
+      "marks": [],
+      "name": "/usr/share/fonts",
+      "orientation": "none",
+      "percent": 0.25,
+      "scratchpad_state": "none",
+      "sticky": false,
+      "type": "con",
+      "workspace_layout": "default",
+      "swallows": [
+        {
+          "class": "^kitty$",
+          "instance": "^kitty$",
+          "title": "^/usr/share/fonts$"
+        }
+      ]
+    }
+  ]
+}

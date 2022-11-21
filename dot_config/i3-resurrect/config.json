@@ -1,0 +1,14 @@
+{
+  "directory": "~/.config/i3-resurrect/savedWS/",
+  "window_command_mappings": [
+    {
+      "class": "Gnome-terminal",
+      "command": "gnome-terminal"
+    }
+  ],
+  "window_swallow_criteria": {},
+  "terminals": [
+    "Gnome-terminal",
+    "Alacritty"
+  ]
+}

@@ -1,0 +1,100 @@
+#!/bin/sh
+
+# rofi theme
+theme="$HOME/.config/rofi/main_without_icons.rasi"
+
+get_options() {
+  echo "  Selected area screenshot"
+  echo "  Full screen screenshot"
+  echo "  Left screen screenshot"
+  echo "  Right screen screenshot"
+  echo "  Stop Recording"
+  echo "  Selected area video"
+  echo "  Full screen video"
+  echo "  Record audio (microphone)"
+  echo "  Record audio (desktop)"
+  echo "  Selected area video with audio (microphone)"
+  echo "  Full screen video with audio (microphone)"
+  echo "  Selected area video with audio (desktop)"
+  echo "  Full screen video with audio (desktop)"
+  echo "  Left monitor video"
+  echo "  Left monitor video with audio(desktop)"
+  echo "  Left monitor video with audio(microphone)"
+  echo "  Right monitor video"
+  echo "  Right monitor video with audio(desktop)"
+  echo "  Right monitor video with audio(microphone)"
+}
+
+main() {
+
+  # get choice from rofi
+  choice=$( (get_options) | rofi -dmenu -i -fuzzy -p "" -theme "$theme")
+
+  # run the selected command
+  case $choice in
+  '  Selected area screenshot')
+    screenshot -sa
+    ;;
+  '  Full screen screenshot')
+    screenshot -sf
+    ;;
+  '  Left screen screenshot')
+    screenshot -sl
+    ;;
+  '  Right screen screenshot')
+    screenshot -sr
+    ;;
+  '  Stop Recording')
+    screenshot -s
+    ;;
+  '  Selected area video')
+    screenshot -va
+    ;;
+  '  Full screen video')
+    screenshot -vf
+    ;;
+  '  Record audio (microphone)')
+    screenshot -am
+    ;;
+  '  Record audio (desktop)')
+    screenshot -ad
+    ;;
+  '  Selected area video with audio (microphone)')
+    screenshot -vaam
+    ;;
+  '  Full screen video with audio (microphone)')
+    screenshot -vfam
+    ;;
+  '  Selected area video with audio (desktop)')
+    screenshot -vsad
+    ;;
+  '  Full screen video with audio (desktop)')
+    screenshot -vfad
+    ;;
+  '  Left monitor video')
+    screenshot -vl
+    ;;
+  '  Left monitor video with audio(desktop)')
+    screenshot -vlad
+    ;;
+  '  Left monitor video with audio (microphone)')
+    screenshot -vlam
+    ;;
+  '  Right monitor video')
+    screenshot -vr
+    ;;
+  '  Right monitor video with audio(desktop)')
+    screenshot -vrad
+    ;;
+  '  Right monitor video with audio(microphone)')
+    screenshot -vram
+    ;;
+  esac
+
+  # done
+  set -e
+}
+
+main &
+
+exit 0

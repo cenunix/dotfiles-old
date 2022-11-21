@@ -1,0 +1,23 @@
+[
+  {
+    "command": [
+      "/usr/bin/kitty",
+      "spotify_player"
+    ],
+    "working_directory": "/home/selmer"
+  },
+  {
+    "command": [
+      "/usr/bin/kitty",
+      "btop"
+    ],
+    "working_directory": "/home/selmer"
+  },
+  {
+    "command": [
+      "/usr/bin/kitty",
+      "cava"
+    ],
+    "working_directory": "/home/selmer"
+  }
+]

@@ -1,0 +1,5 @@
+export ZDOTDIR="$HOME/.config/zsh"
+export HISTFILE="$HOME/.config/zsh/.zsh_history"
+export CARGO_HOME="$HOME/langs/.cargo"
+export GOPATH="$HOME/langs/go"
+export MOZ_ENABLE_WAYLAND=1

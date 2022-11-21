@@ -1,0 +1,23 @@
+# pack-refs with: peeled fully-peeled sorted 
+cf8974c85fe29cbe25e9c48ea3ebf446c7a969e5 refs/remotes/origin/3.32
+bbc9df3075f5422c120ddb943a0f0b376861033b refs/remotes/origin/42
+321728200b8b77da6ade1b53a0ee092dff83aded refs/remotes/origin/bluish-accent
+c172de4a89fcdeac73e9ca4d04440faf90fe6efe refs/remotes/origin/bluish-accent-standard-buttons
+6088729e3b5f59fbbd55228d3a927d1a112cb2cc refs/remotes/origin/darker
+9f1dead75e6f4ae122a4602779b5104781f21739 refs/remotes/origin/darker-standard-buttons
+3c654dde65b14ab76171fbfd30bbabbe40ef25a5 refs/remotes/origin/dependabot/npm_and_yarn/copy-props-2.0.5
+bfc1bd54ec9ca5fed558a1df61597759d4ece460 refs/remotes/origin/dependabot/npm_and_yarn/path-parse-1.0.7
+a19fc78a606a648eb0658d70507bc95acf4de100 refs/remotes/origin/dependabot/npm_and_yarn/yargs-parser-5.0.1
+750b3cbfc87dfcc5bfd4a3374b93df1512d48539 refs/remotes/origin/master
+b3af65d8a96e5c2354bbd05b16f79eb93a1e0d1f refs/remotes/origin/otis
+e35ba8d54ebe83f97d59fe0c2169b7b3a79f32d2 refs/remotes/origin/standard-buttons
+2b6557a3656775fe60d7aa6e4b8a827761987751 refs/remotes/origin/xfce
+9a98c05f4d4f6c9e701ac20b0bf5c18284ad0015 refs/tags/2.0.0
+1315a16616b99d173c04128d959ca9df2725e80e refs/tags/V1.8.1
+e11dc8bc238714cc1c8c62eb3c2c576da0e123b8 refs/tags/v1.2.1
+5f31988dd7f24268cb9489898fe423b57f952050 refs/tags/v1.3.0
+5168d6b8868adb63fefa011d8440db66f4015e53 refs/tags/v1.5.4
+750c7192708725bd126a0470b3a38e920274895e refs/tags/v1.6.5
+380b2d15550ab8fbcee4cfcb095df37d24d897c6 refs/tags/v1.9.0
+0112af91943b8819f7a1af9a508cda7fe3d74051 refs/tags/v2.1.0
+bb5e31ec1488b1fd5641aa10f65f36d8714b5dba refs/tags/v2.2.0

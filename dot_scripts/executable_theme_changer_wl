@@ -1,0 +1,155 @@
+#!/usr/bin/env bash
+
+# Directory
+hypr_dir="$HOME/.config/hypr/themes"
+rofi_dir="$HOME/.config/rofi/colors"
+kitty_dir="$HOME/.config/kitty"
+waybar_dir="$HOME/.config/waybar/themes"
+waybar_dest="$HOME/.config/waybar"
+nvim_settings="$HOME/.config/nvim/lua/user/themes"
+nvim_dir="$HOME/.config/nvim/lua/user"
+discord="$HOME/.config/BetterDiscord/themes"
+discord_dest="$HOME/.config/BetterDiscord/data/stable"
+code_oss="$HOME/.config/Code\ -\ OSS/User/settings.json"
+hyprpaper_dir="$HOME/.config/hypr/paperthemes"
+# prompt="dmenu -l 9 "
+prompt="rofi -dmenu -theme ~/.config/rofi/main.rasi"
+
+# Theme
+cancel="窱 Cancel"
+theme1=" Catppuccin (Macchiato)"
+theme2=" Cozy-Night"
+theme3=" Dracula"
+theme4=" Gruvbox"
+theme5=" Nord"
+theme6=" Everforest"
+
+# Variable to pass to dmenu or rofi
+option="$cancel\n$theme1\n$theme2\n$theme3\n$theme4\n$theme5\n$theme6"
+
+
+change_theme()
+{
+	# cp ${hypr_dir}/$1.conf ${hypr_dir}/color.conf
+	cp ${rofi_dir}/$1.rasi ${rofi_dir}/colors.rasi
+	# cp ${kitty_dir}/colorscheme/$1.conf ${kitty_dir}/color.conf
+	cp ${waybar_dir}/$1.css ${waybar_dest}/style.css
+	# sed -i "s/\(workbench.colorTheme \)\(.*\)/\1hello]]/" $code-oss
+	# cp ${nvim_settings}/$1.lua ${nvim_dir}/colorscheme.lua
+	cp ${hyprpaper_dir}/$1.conf ${hyprpaper_dir}/../hyprpaper.conf
+	cp ${discord}/$1.theme.css ${discord_dest}/custom.css
+if [[ "$1" == "tokyonight" ]]; then
+	# nvim
+	sed -i "s/\(workbench.colorTheme\":\)\(.*\)/\1 \"Tokyo Night\",/" ~/.config/Code\ -\ OSS/User/settings.json
+	sed -i 's/\(colorscheme =\)\(.*\)/\1\ "tokyonight\"/' ~/.config/lvim/config.lua
+	sed -i 's/\(include \)\(.*\)/\1tokyonight.conf/' ~/.config/kitty/kitty.conf
+
+elif [[ "$1" == "catppuccin-macchiato" ]]; then
+	# nvim
+		sed -i "s/\(workbench.colorTheme\":\)\(.*\)/\1 \"Catppuccin Macchiato\",/" ~/.config/Code\ -\ OSS/User/settings.json
+		sed -i 's/\(colorscheme =\)\(.*\)/\1\ "catppuccin-macchiato\"/' ~/.config/lvim/config.lua
+		sed -i 's/\(include \)\(.*\)/\1catppuccin-macchiato.conf/' ~/.config/kitty/kitty.conf
+
+elif [[ "$1" == "nord" ]]; then
+	#waybar
+		sed -i "s/\(workbench.colorTheme\":\)\(.*\)/\1 \"Nord\",/" ~/.config/Code\ -\ OSS/User/settings.json
+		sed -i 's/\(colorscheme =\)\(.*\)/\1\ "nordic\"/' ~/.config/lvim/config.lua
+		sed -i 's/\(include \)\(.*\)/\1nord.conf/' ~/.config/kitty/kitty.conf
+
+
+elif [[ "$1" == "dracula" ]]; then
+	#waybar
+		sed -i "s/\(workbench.colorTheme\":\)\(.*\)/\1 \"Dracula\",/" ~/.config/Code\ -\ OSS/User/settings.json
+		sed -i 's/\(colorscheme =\)\(.*\)/\1\ "dracula\"/' ~/.config/lvim/config.lua
+		sed -i 's/\(include \)\(.*\)/\1dracula.conf/' ~/.config/kitty/kitty.conf
+
+elif [[ "$1" == "gruvbox" ]]; then
+	#waybar
+		sed -i "s/\(workbench.colorTheme\":\)\(.*\)/\1 \"Gruvbox Dark Medium\",/" ~/.config/Code\ -\ OSS/User/settings.json
+		sed -i 's/\(colorscheme =\)\(.*\)/\1\ "gruvbox\"/' ~/.config/lvim/config.lua
+		sed -i 's/\(include \)\(.*\)/\1gruvbox_dark.conf/' ~/.config/kitty/kitty.conf
+
+elif [[ "$1" == "everforest" ]]; then
+	#waybar
+		sed -i "s/\(workbench.colorTheme\":\)\(.*\)/\1 \"Everforest Dark\",/" ~/.config/Code\ -\ OSS/User/settings.json
+		sed -i 's/\(colorscheme =\)\(.*\)/\1\ "everforest\"/' ~/.config/lvim/config.lua
+		sed -i 's/\(include \)\(.*\)/\1everforest_dark_medium.conf/' ~/.config/kitty/kitty.conf
+	fi
+}
+
+
+
+change_gtk_theme() 
+{
+   sed -e "s/^gtk-theme-name=.*/gtk-theme-name="$@"/" -i $HOME/.config/gtk-3.0/settings.ini
+   sed -e "s/^gtk-theme-name=.*/gtk-theme-name=\""$@"\"/" -i $HOME/.gtkrc-2.0 
+}
+
+select="$(echo -e "$option" | $prompt -p "Choose a theme: " )"
+case $select in
+	$theme1)
+		change_theme catppuccin-macchiato
+		change_gtk_theme Catppuccin-Macchiato
+		$HOME/.scripts/gtk2gsetting.sh
+		pkill waybar
+		waybar
+		pkill hyprpaper
+		hyprpaper
+		hyprctl reload # restart hyprland
+		;;
+	$theme2)
+		hyprctl hyprpaper preload "~/Pictures/wallpapers/astronaut.png" && hyprctl hyprpaper wallpaper "DP-2,~/Pictures/wallpapers/astronaut.png"
+		change_theme tokyonight
+		change_gtk_theme Tokyonight-Dark-B
+		$HOME/.scripts/gtk2gsetting.sh
+		pkill waybar
+		waybar
+		pkill hyprpaper
+		hyprpaper
+		hyprctl reload # restart hyprland
+		;;
+	$theme3)
+		# hyprpaper -m fill -i $HOME/Pictures/Backgrounds/arch/Artix.png &
+		change_theme dracula
+		change_gtk_theme Dracula
+		$HOME/.scripts/gtk2gsetting.sh
+		pkill waybar
+		waybar
+		pkill hyprpaper
+		hyprpaper
+		hyprctl reload # restart hyprland
+		;;
+	$theme4)
+		# hyprpaper -m fill -i $HOME/Pictures/Backgrounds/gruvbox/mountain.jpeg &
+		change_theme gruvbox
+		change_gtk_theme Gruvbox-Dark-B
+		$HOME/.scripts/gtk2gsetting.sh
+		pkill waybar
+		waybar
+		pkill hyprpaper
+		hyprpaper
+		hyprctl reload # restart hyprland
+		;;
+	$theme5)
+		# hyprpaper -m fill -i $HOME/.config/wallpaper/mist_forest_nord.jpg &
+		change_theme nord
+		change_gtk_theme Nordic
+		$HOME/.scripts/gtk2gsetting.sh
+		pkill waybar
+		waybar
+		pkill hyprpaper
+		hyprpaper
+		hyprctl reload # restart hyprland
+		;;
+	$theme6)
+		# hyprpaper -m fill -i $HOME/.config/wallpaper/everforest.jpg &
+		change_theme everforest
+		change_gtk_theme Everforest-Dark-B
+		$HOME/.scripts/gtk2gsetting.sh
+		pkill waybar
+		waybar
+		pkill hyprpaper
+		hyprpaper
+		hyprctl reload # restart hyprland
+		;;
+	esac

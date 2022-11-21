@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# rofi theme
+theme="$HOME/.config/rofi/main_without_icons.rasi"
+
+get_options() {
+  echo " Lunar Vim"
+}
+
+main() {
+
+  # get choice from rofi
+  choice=$( (get_options) | rofi -dmenu -i -fuzzy -p "" -theme "$theme")
+
+  # run the selected command
+  case $choice in
+  ' Lunar Vim')
+    lvim-gui
+    ;;
+  esac
+
+  # done
+  set -e
+}
+
+main &
+
+exit 0

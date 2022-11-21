@@ -1,0 +1,8 @@
+[
+  {
+    "command": [
+      "/usr/lib/firefox/firefox"
+    ],
+    "working_directory": "/home/selmer"
+  }
+]
