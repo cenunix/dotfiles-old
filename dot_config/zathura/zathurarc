@@ -17,12 +17,12 @@ set zoom-min 10
 set guioptions ""
 
 # set font "Roboto mono 15"
-set default-bg "#1a1a1a"
-set default-fg "#E6ECFE"
+set default-bg "#24273A"
+set default-fg "#CAD3F5"
 
 set recolor "true"
-set recolor-lightcolor "#1a1a1a"
-set recolor-darkcolor "#E6ECFE"
+set recolor-lightcolor "#24273A"
+set recolor-darkcolor "#CAD3F5"
 set recolor-reverse-video "true"
 set recolor-keephue "true"
 
@@ -33,4 +33,4 @@ unmap f
 map f toggle_fullscreen
 map [fullscreen] f toggle_fullscreen
 
-include catppuccin-mocha
+include catppuccin-macchiato
