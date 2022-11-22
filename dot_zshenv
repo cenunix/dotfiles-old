@@ -3,3 +3,16 @@ export CARGO_HOME="$HOME/langs/.cargo"
 export GOPATH="$HOME/langs/go"
 export MOZ_ENABLE_WAYLAND=1
 
+
+
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+#Cleanup
+
+export NPM_CONFIG_USERCONFIG="$HOME/langs/npm/config"
+export NPM_CONFIG_CACHE="$HOME/langs/npm/"
+export NPM_CONFIG_TMP="$HOME/langs/npm/"
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/.gtkrc-2.0
+export WGETRC="$XDG_CONFIG_HOME/wget/.wgetrc"
