@@ -51,9 +51,9 @@ window#waybar.hidden {
     color: #ca9ee6;
 }
 
-#workspaces button.active {
+/* #workspaces button.active {
   color: #ca9ee6;
-}
+} */
 
 #workspaces button.urgent {
   background-color: #e78284;

@@ -82,10 +82,7 @@
       "custom/search",
       "wlr/workspaces",
       "custom/lock",
-      "custom/weather",
-      "custom/todo",
-      "backlight",
-      "battery"
+      "custom/weather"
     ],
     "modules-right": [
       "pulseaudio",
@@ -121,8 +118,8 @@
       "active-only": false,
       "format": "{icon}",
       "format-icons": {
-        "active": " 󰮯",
-        "default": ""
+        "active": "󰐾",
+        "default": "󰐽"
       },
       "on-click": "activate"
     }

@@ -1,8 +1,22 @@
 [ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
+source "$ZDOTDIR//plugins/catppuccin_macchiato-zsh-syntax-highlighting.zsh"
+export NVM_DIR="$HOME/langs/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[[ -r $NVM_DIR/zsh_completion ]] && \. $NVM_DIR/zsh_completion
+
+
+path+=('/home/user/.scripts/')
+path+=('/home/user/langs/')
+
+
+
 HISTFILE="$HOME/.config/zsh/.zsh_history"
 HISTSIZE=1000
 SAVEHIST=1000
 setopt appendhistory
+
+GRIM_DEFAULT_DIR="$HOME/Pictures/screenshots"
+
 # Example install plugins
 plug "zap-zsh/supercharge"
 plug "zsh-users/zsh-autosuggestions"
@@ -16,5 +30,6 @@ plug "esc/conda-zsh-completion"
 
 # alias screenshot="grim -g \"$(slurp)\" $HOME/Pictures/screenshots/$(date +'%s_grim.png')"
 alias ryujinx="__GL_THREADED_OPTIMIZATIONS=0 __GL_SYNC_TO_VBLANK=0 COMPlus_EnableAlternateStackCheck=1 GDK_BACKEND=x11 /home/user/.local/share/Ryujinx/Ryujinx"
-
-unimatrix -c blue -s 98 -w
+alias imcool="unimatrix -c blue -s 97 -f -a"
+alias screenclip='grim -g "$(slurp)" $GRIM_DEFAULT_DIR/$(date +"%s_grim.png") - | wl-copy -t'
+# unimatrix -c blue -s 99 -w -a 
