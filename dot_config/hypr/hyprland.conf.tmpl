@@ -67,8 +67,9 @@ general {
     {{- end }}
     
     border_size=2
+    col.active_border = rgb(8aadf4) rgb(24273A) rgb(24273A) rgb(8aadf4) 45deg
     col.inactive_border=rgb(24273A)
-    col.active_border=rgb(8aadf4)
+    #col.active_border=rgb(8aadf4)
     
     apply_sens_to_raw=0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
 
@@ -90,7 +91,7 @@ decoration {
     col.shadow= 0x33000000
     col.shadow_inactive=0x22000000
     rounding=6
-    multisample_edges=1
+    multisample_edges=true
     blur_ignore_opacity=true
     blur=false
     blur_size=10 # minimum 1
@@ -140,8 +141,8 @@ misc {
 #windowrule=pseudo,abc
 #windowrule=monitor 0,xyz
 
-#windowrule=tile,^(neovide)$
-#windowrule=forceinput,^(neovide)$
+windowrule=tile,^(neovide)$
+windowrule=forceinput,^(neovide)$
 #windowrule=tile,^(waybar)$
 #windowrule=opaque,^(firefox)$
 #windowrule=workspace 6,^(csgo_linux64)$
@@ -158,7 +159,7 @@ bindm=SUPER,mouse:272,movewindow
 bindm=SUPER,mouse:273,resizewindow
 
 # example binds
-bind=SUPER,RETURN,exec,kitty 
+bind=SUPER,RETURN,exec,kitty
 bind=SUPER,Q,killactive,
 bind=SUPER,M,exit,
 bind=SUPER,E,exec,dolphin
@@ -172,7 +173,8 @@ bind=SUPER,D,exec,rofi -show drun -no-default-config -config ~/.config/rofi/main
 bind=SUPER,S,exec,rofi -show drun -no-default-config -config ~/.config/rofi/full_screen.rasi
 bind=SUPER,Z,exec,rofi-shortcuts
 bind=SUPER,X,exec,rofi-powermenu
-bind=SUPER,C,exec,rofi-wayland-screenshot
+bind=SUPER,C,exec,wayland-screenshot
+bind=SUPER,V,exec,theme_changer_wl
 
 bind=,XF86MonBrightnessUp,exec,light -A 2 && light -O && brightness &
 bind=,XF86MonBrightnessDown,exec,light -U 2 && light -O && brightness &

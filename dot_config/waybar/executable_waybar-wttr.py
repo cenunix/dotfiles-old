@@ -33,12 +33,12 @@ WEATHER_CODES = {
     '314': '🌧️',
     '317': '🌧️',
     '320': '🌨️',
-    '323': '🌨️',
+    '323': ' 󰖘',
     '326': '🌨️',
-    '329': '❄️ ',
-    '332': '❄️ ',
-    '335': '❄️ ',
-    '338': '❄️ ',
+    '329': '❄️',
+    '332': '❄️',
+    '335': '❄️',
+    '338': '❄️',
     '350': '🌧️',
     '353': '🌧️',
     '356': '🌧️',
@@ -96,7 +96,7 @@ if tempint > 0 and tempint < 10:
 data['text'] = ' '+WEATHER_CODES[weather['current_condition'][0]['weatherCode']] + \
     "\n "+extrachar+weather['current_condition'][0]['FeelsLikeF']+"°"
 
-data['tooltip'] = f"<b>{weather['current_condition'][0]['weatherDesc'][0]['value']} {weather['current_condition'][0]['temp_C']}°</b>\n"
+data['tooltip'] = f"<b>{weather['current_condition'][0]['weatherDesc'][0]['value']} {weather['current_condition'][0]['temp_F']}°</b>\n"
 data['tooltip'] += f"Feels like: {weather['current_condition'][0]['FeelsLikeF']}°\n"
 data['tooltip'] += f"Wind: {weather['current_condition'][0]['windspeedKmph']}Km/h\n"
 data['tooltip'] += f"Humidity: {weather['current_condition'][0]['humidity']}%\n"

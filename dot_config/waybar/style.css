@@ -4,7 +4,7 @@
 }
 
 window#waybar {
-  background-color: #24273a;
+  background-color: #181926;
   border-radius: 0px;
   color: #c6d0f5;
   font-size: 20px;
@@ -18,7 +18,7 @@ window#waybar.hidden {
 
 #workspaces {
   font-size: 15px;
-  background-color: #414559;
+  background-color: #363a4f;
 }
 
 #network {
@@ -29,7 +29,7 @@ window#waybar.hidden {
 #custom-weather,
 #clock {
   color: #c6d0f5;
-  background-color: #414559;
+  background-color: #363a4f;
 }
 
 #workspaces button {
@@ -79,7 +79,7 @@ window#waybar.hidden {
 #pulseaudio {
   border-radius: 15px;
   margin: 0px 7px 0px 7px;
-  background-color: #414559;
+  background-color: #363a4f;
   padding: 10px 0px 10px 0px;
 }
 

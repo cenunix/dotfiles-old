@@ -4,7 +4,15 @@ export NVM_DIR="$HOME/langs/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [[ -r $NVM_DIR/zsh_completion ]] && \. $NVM_DIR/zsh_completion
 
-path+=('/home/user/.scripts/')
+export EMAIL="caden.hargrave@gmail.com"
+export PASS="blwbgeztfljtjchu"
+export SMTP="smtp.gmail.com"
+export PORT=587
+export SMS_GATEWAY="5096374830@txt.att.net"
+export IMAP_HOST="imap.gmail.com:993"
+
+
+path+=('/home/user/.local/.scripts')
 path+=('/home/user/langs/')
 
 HISTFILE="$HOME/.config/zsh/.zsh_history"

@@ -18,7 +18,7 @@ prompt="rofi -dmenu -theme ~/.config/rofi/main.rasi"
 # Theme
 cancel="窱 Cancel"
 theme1=" Catppuccin (Macchiato)"
-theme2=" Cozy-Night"
+theme2=" TokyoNight (Night)"
 theme3=" Dracula"
 theme4=" Gruvbox"
 theme5=" Nord"
@@ -41,7 +41,7 @@ change_theme()
 if [[ "$1" == "tokyonight" ]]; then
 	# nvim
 	sed -i "s/\(workbench.colorTheme\":\)\(.*\)/\1 \"Tokyo Night\",/" ~/.config/Code\ -\ OSS/User/settings.json
-	sed -i 's/\(colorscheme =\)\(.*\)/\1\ "tokyonight\"/' ~/.config/lvim/config.lua
+	sed -i 's/\(colorscheme =\)\(.*\)/\1\ "tokyonight-night\"/' ~/.config/lvim/config.lua
 	sed -i 's/\(include \)\(.*\)/\1tokyonight.conf/' ~/.config/kitty/kitty.conf
 
 elif [[ "$1" == "catppuccin-macchiato" ]]; then
@@ -88,9 +88,10 @@ change_gtk_theme()
 select="$(echo -e "$option" | $prompt -p "Choose a theme: " )"
 case $select in
 	$theme1)
+		hyprctl hyprpaper preload "~/Pictures/wallpapers/fool_moon.jpg" && hyprctl hyprpaper wallpaper "DP-2,~/Pictures/wallpapers/fool_moon.jpg"
 		change_theme catppuccin-macchiato
 		change_gtk_theme Catppuccin-Macchiato
-		$HOME/.scripts/gtk2gsetting.sh
+		$HOME/.local/.scripts/gtk2gsetting.sh
 		pkill waybar
 		waybar
 		pkill hyprpaper
@@ -101,7 +102,7 @@ case $select in
 		hyprctl hyprpaper preload "~/Pictures/wallpapers/astronaut.png" && hyprctl hyprpaper wallpaper "DP-2,~/Pictures/wallpapers/astronaut.png"
 		change_theme tokyonight
 		change_gtk_theme Tokyonight-Dark-B
-		$HOME/.scripts/gtk2gsetting.sh
+		$HOME/.local/.scripts/gtk2gsetting.sh
 		pkill waybar
 		waybar
 		pkill hyprpaper
@@ -112,7 +113,7 @@ case $select in
 		# hyprpaper -m fill -i $HOME/Pictures/Backgrounds/arch/Artix.png &
 		change_theme dracula
 		change_gtk_theme Dracula
-		$HOME/.scripts/gtk2gsetting.sh
+		$HOME/.local/.scripts/gtk2gsetting.sh
 		pkill waybar
 		waybar
 		pkill hyprpaper
@@ -123,7 +124,7 @@ case $select in
 		# hyprpaper -m fill -i $HOME/Pictures/Backgrounds/gruvbox/mountain.jpeg &
 		change_theme gruvbox
 		change_gtk_theme Gruvbox-Dark-B
-		$HOME/.scripts/gtk2gsetting.sh
+		$HOME/.local/.scripts/gtk2gsetting.sh
 		pkill waybar
 		waybar
 		pkill hyprpaper
@@ -134,7 +135,7 @@ case $select in
 		# hyprpaper -m fill -i $HOME/.config/wallpaper/mist_forest_nord.jpg &
 		change_theme nord
 		change_gtk_theme Nordic
-		$HOME/.scripts/gtk2gsetting.sh
+		$HOME/.local/.scripts/gtk2gsetting.sh
 		pkill waybar
 		waybar
 		pkill hyprpaper
@@ -145,7 +146,7 @@ case $select in
 		# hyprpaper -m fill -i $HOME/.config/wallpaper/everforest.jpg &
 		change_theme everforest
 		change_gtk_theme Everforest-Dark-B
-		$HOME/.scripts/gtk2gsetting.sh
+		$HOME/.local/.scripts/gtk2gsetting.sh
 		pkill waybar
 		waybar
 		pkill hyprpaper
