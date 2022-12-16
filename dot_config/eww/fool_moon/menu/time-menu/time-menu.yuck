@@ -1,0 +1,99 @@
+(defvar eww "eww -c ~/.config/eww/fool_moon/menu")
+
+(defwidget time-menu-main[]
+    (box :class "menu time-menu"
+         :orientation "v"
+         :space-evenly false
+         :spacing 15
+          :hexpand true
+      (cal)
+      (weather)
+      (notif-menu-main)))
+
+(defvar time-vis false)
+
+(defwidget time[]
+  (box :class "time-box"
+       :orientation "v"
+    (box :orientation "v"
+         :space-evenly false
+         :valign "center" 
+         :vexpand true
+      (label :class "date" :halign "center" :text date))))
+
+(defpoll time :interval "1s" "date +'%I:%M'")
+(defpoll date :interval "1s" "date +'%B'")
+
+(defwidget cal[]
+  (box :class "cal-box"
+       :orientation "v"
+       :space-evenly false
+    (time)
+    (box :class "cal-header" "S" "M" "T" "W" "T" "F" "S")
+    (calendar :class "cal"
+              :valign "center"
+              :vexpand true
+              :active false
+              :show-heading false
+              :show-day-names false)))
+
+(defwidget weather[]
+  (box :class "weather"
+       :orientation "h"
+       :spacing 15
+    (label :class "weather-icon" :text {weather.icon})
+    (box :class "weather-details"
+         :orientation "v"
+         :space-evenly false
+         :valign "center"
+      (label :class "weather-temp" :halign "start" :text "${weather.temp}°F")
+      (label :class "weather-name" :halign "start" :text {weather.name}))))
+
+
+(defpoll weather :interval "30m" :timeout "5s" "scripts/weather") 
+
+(defwidget notif-menu-main[]
+  (box :class "menu notif-menu"
+       :orientation "v"
+       :vexpand true
+    (notifs-box)))
+
+(defwidget notification-card [summary body image application ?class ?urgency ?SL ?M ?L ?R]
+  (eventbox :class "notification-card-eventbox ${class}" :onclick L :onmiddleclick M :onrightclick R 
+    (box :class "notification-card" :orientation "h" :space-evenly false 
+      (box :class "notifification-left"
+        (box :class "notification-image" :style "background-image: url(\"${image}\")"))
+      (box :class "notification-middle" :orientation "v"
+           :space-evenly false
+           :hexpand true
+        (label :class "notification-summary" :halign "start" :limit-width 25 :tooltip summary :text summary) 
+        (label :class "notification-body" :halign "start"  :limit-width 30 :wrap true :tooltip body :text body))
+      (box :class "notification-end"
+        (button :class "notification-card-notify-close" :halign "end" :onclick "~/.local/.scripts/notifs rm_id ${SL}" 
+          (label :text "" :tooltip "Dismiss"))))))
+
+(defwidget notifs-box[]
+  (box :class "notifications-box" :orientation "v" :hexpand true :vexpand true :space-evenly false
+    (label :class "notification-headers-label" :hexpand true :text "Notifications")
+    (box :class "notification-headers"
+         :orientation "v"
+         :space-evenly false
+         :vexpand true
+      (literal :content notifications-cards :class "notification-literal" :vexpand true)) 
+    (button :onclick "~/.local/.scripts/notifs clear" :hexpand true :valign "end" :tooltip "Clear Notifications" :class "notification-headers-clear" "")))
+
+(deflisten notifications-cards "~/.local/.scripts/notifs subscribe")
+
+(defwindow time-menu0 
+  :monitor 0
+  :geometry (geometry :x "5px" :y "2px" :width "384px" :height "74%" :anchor "top right")
+  :windowtype "dock"
+  :wm-ignore false
+  (time-menu-main))
+
+(defwindow time-menu1 
+  :monitor 1
+  :geometry (geometry :x "5px" :y "2px" :width "384px" :height "74%" :anchor "top right")
+  :windowtype "dock"
+  :wm-ignore false
+  (time-menu-main))

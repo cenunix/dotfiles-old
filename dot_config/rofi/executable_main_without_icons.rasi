@@ -25,7 +25,7 @@ window {
     text-color:                     @fg;
 	border:							2px;
 	border-color:					@br;
-    // border-radius:                  20px;
+    border-radius:                  20px;
 	height:						    28%;
 	width:							25%;
     location:                       center;

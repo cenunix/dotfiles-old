@@ -16,8 +16,8 @@ path+=('/home/user/.local/.scripts')
 path+=('/home/user/langs/')
 
 HISTFILE="$HOME/.config/zsh/.zsh_history"
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=100000
+SAVEHIST=100000
 setopt appendhistory
 
 GRIM_DEFAULT_DIR="$HOME/Pictures/screenshots"

@@ -1,0 +1,136 @@
+(defwidget clock-main[]
+  (box :class "dashboard clock"
+    (box :class "minutes-box"
+      (circular-progress :class "time-ring"
+                         :thickness 20
+                         :value min-perc 
+                         :start-at 75
+        (box :class "clock-lbl"
+             :orientation "v"
+             :space-evenly false
+             :valign "center"
+          (label :class "clock-time" :text "${round(hours, 0) < 10 ? '0' : ''}${round(hours, 0)}:${round(min, 0) < 10 ? '0' : ''}${round(min, 0)}")
+          (label :class "clock-date" :text clock-date))))))
+
+(deflisten min-perc "scripts/clock min_percent")
+(deflisten hours "scripts/clock hours")
+(deflisten min "scripts/clock min")
+(defpoll clock-date :interval "1s" "date +'%A %B %d'")
+
+(defwidget power-main[]
+  (box :class "dashboard power-main"
+       :spacing 15
+    (button :class "power-btn lock" :onclick "../common/scripts/power lock" :tooltip "Lock" "")
+    (button :class "power-btn logout" :onclick "../common/scripts/power logout" :tooltip "Exit BSPWM" "")
+    (button :class "power-btn reboot" :onclick "../common/scripts/power reboot" :tooltip "Restart" "")
+    (button :class "power-btn shutdown" :onclick "../common/scripts/power shutdown" :tooltip "Shutdown" "")))
+
+(defwidget media-main[]
+  (box :class "dashboard media-main"
+       :hexpand true
+    (user)
+    (media-player)))
+
+(defwidget user[]
+  (box :class "user"
+       :halign "start"
+       :space-evenly false
+       :spacing 15
+    (box :class "user-pfp" :halign "center" :valign "center" :style "background-image: url('assets/pfp.jpg');") 
+    (box :class "user-details"
+         :orientation "v"
+         :space-evenly false
+      (label :class "user-name" :halign "start" :text uname)
+      (label :class "user-uptime" :halign "start" :text uptime)
+      (label :class "user-pkgs" :halign "start" :text "${pkgs} packages"))))
+
+(defpoll uname :interval "1h" "echo $USER")
+(defpoll uptime :interval "30s" "uptime -p")
+(defpoll pkgs :interval "1m" "pacman -Q | wc -l")
+
+(defwidget media-player[]
+  (box :class "media-box"
+       :orientation "v"
+       :space-evenly false
+       :spacing 5
+       :halign "end"
+    (label :class "media-title" :halign "end" :limit-width 40 :text "${media-title} - ${media-artist}")
+    (box :class "media-controls"
+         :space-evenly false
+         :spacing 15
+         :halign "end"
+      (button :class "media-prev" :onclick "~/.scripts/media prev" "")
+      (button :class "media-play" :onclick "~/.scripts/media play" "")
+      (button :class "media-pause" :onclick "~/.scripts/media pause" "")
+      (button :class "media-stop" :onclick "~/.scripts/media stop" "")
+      (button :class "media-next" :onclick "~/.scripts/media next" ""))
+    (scale :class "media-track" :min 0 :max 101 :value media-track :active false)))
+    ;(box :class "media-time"
+      ;(label :halign "start" :class "media-curr" :text media-curr)
+      ;(label :halign "end" :class "media-total" :text media-total))))
+
+(defpoll media-title :interval "1s" "~/.scripts/media title")
+(defpoll media-artist :interval "1s" "~/.scripts/media artist")
+(defpoll media-curr :interval "1s" "~/.scripts/media current-time")
+(defpoll media-total :interval "1s" "~/.scripts/media total-time")
+(defpoll media-track :interval "1s" "~/.scripts/media percent")
+
+
+(defwidget darken-main[]
+  (box :class "darken"))
+
+(defwindow clock1 
+  :monitor 1
+  :geometry (geometry :x "0px" :y "0px" :anchor "center")
+  :windowtype "dock"
+  :wm-ignore false
+  (clock-main))
+
+(defwindow power1
+  :monitor 1
+  :geometry (geometry :x "0px" :y "0px" :anchor "bottom left")
+  :windowtype "dock"
+  :wm-ignore false
+  (power-main))
+
+(defwindow media1
+  :monitor 1
+  :geometry (geometry :x "0px" :y "0px" :width "100%" :anchor "top left")
+  :windowtype "dock"
+  :wm-ignore false
+  (media-main))
+
+(defwindow darken1
+  :monitor 1
+  :geometry (geometry :x "0px" :y "0px" :width "100%" :height "100%" :anchor "center")
+  :windowtype "dock"
+  :wm-ignore false
+  (darken-main))
+
+(defwindow clock 
+  :monitor 0
+  :geometry (geometry :x "0px" :y "0px" :anchor "center")
+  :windowtype "dock"
+  :wm-ignore false
+  (clock-main))
+
+(defwindow power 
+  :monitor 0
+  :geometry (geometry :x "0px" :y "0px" :anchor "bottom left")
+  :windowtype "dock"
+  :wm-ignore false
+  (power-main))
+
+(defwindow media
+  :monitor 0
+  :geometry (geometry :x "0px" :y "0px" :width "100%" :anchor "top left")
+  :windowtype "dock"
+  :wm-ignore false
+  (media-main))
+
+(defwindow darken
+  :monitor 0
+  :geometry (geometry :x "0px" :y "0px" :width "100%" :height "100%" :anchor "center")
+  :windowtype "dock"
+  :wm-ignore false
+  (darken-main))

@@ -40,8 +40,12 @@ window#waybar.hidden {
     #network,
     #disk,
     #cpu,
+    #custom-search,
     #tray {
-  padding: 3px 3px;
+      border-radius: 15px;
+      margin: 0px 7px 0px 7px;
+      background-color: #363a4f;
+      padding: 10px 0px 10px 0px;
 }
 #memory {
   padding-right: 10px;
@@ -64,6 +68,14 @@ window#waybar.hidden {
 #window,
 #workspaces {
   margin: 0 0px;
+}
+
+#custom-search {
+  background-image: url("/home/user/Downloads/sakura.png");
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 7px;
 }
 
 #window label:not(:hover){ animation: fadeIn 5s; }

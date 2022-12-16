@@ -1,0 +1,39 @@
+#!/bin/bash
+
+animate="$HOME/.config/eww/fool_moon/common/scripts/animations"
+
+function minutes() {
+	local min=$(date +%M)
+	$animate run -i "clock" -s $min
+	while sleep 0.5; do
+		local nm=$(date +%M)
+		[[ $min -ne $nm ]] && min=$nm && echo $nm
+	done
+}
+
+function hours() {
+	local hour=$(date +%I)
+	$animate run -i "clock" -s $hour
+	while sleep 0.5; do
+		local nh=$(date +%I)
+		[[ $hour -ne $nh ]] && hour=$nh && echo $nh
+	done
+}
+
+function minutes_percent() {
+	local min=$(date +%M)
+	local perc=$(echo "$min / 60 * 100" | bc -l)
+	$animate run -i "clock" -s $perc
+	while sleep 0.5; do
+		local nm=$(date +%M)
+		[[ $min -ne $nm ]] && min=$nm && perc=$(echo "$min / 60 * 100" | bc -l) && echo $perc
+	done
+}
+
+case "$1" in
+	hours) hours;;
+	min) minutes;;
+	min_percent) minutes_percent;;
+	*) echo "unknown command" && exit 1;;
+esac
+

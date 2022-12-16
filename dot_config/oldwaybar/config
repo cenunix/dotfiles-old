@@ -7,27 +7,24 @@
   "spacing": 6,
   "width": 0,
 
-    "modules-left": ["wlr/workspaces", "hyprland/window"],
+    "modules-left": ["custom/search", "wlr/workspaces", "hyprland/window"],
     "modules-center": ["clock"],
     "modules-right": ["network", "temperature", "memory"],
   
   
   "wlr/workspaces": {
+    "active-only": false,
     "format": "{icon}",
-    "on-click": "activate",
     "format-icons": {
-      "1": "一",
-      "2": "二",
-      "3": "三",
-      "4": "四",
-      "5": "五",
-      "6": "六",
-      "7": "七",
-      "8": "八",
-      "9": "九",
-      "10": "十"
-    }
-    
+      "active": "󰐾",
+      "default": "󰐽"
+    },
+    "on-click": "activate"
+  },
+  "custom/search": {
+    "format": " ",
+    "on-click": "killall rofi || rofi -show drun -no-default-config -config ~/.config/rofi/main.rasi",
+    "tooltip": false
   },
   "clock": {
     "format": " {:%I:%M %p}",
