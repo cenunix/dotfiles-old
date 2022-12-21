@@ -88,12 +88,12 @@
         (button :class "media-toggle ${media-toggle-class}" :onclick "scripts/media toggle" media-toggle-icon)
         (button :class "media-next" :onclick "scripts/media next" "")))))
 
-(defpoll media-title :interval "1s" "~/.scripts/media title")
-(defpoll media-artist :interval "1s" "~/.scripts/media artist")
-(defpoll media-time :interval "1s" "~/.scripts/media time")
-(defpoll media-track :interval "1s" "~/.scripts/media percent")
-(deflisten media-toggle-icon "~/.scripts/media icon")
-(deflisten media-toggle-class "~/.scripts/media class")
+(defpoll media-title :interval "1s" "scripts/media title")
+(defpoll media-artist :interval "1s" "scripts/media artist")
+(defpoll media-time :interval "1s" "scripts/media time")
+(defpoll media-track :interval "1s" "scripts/media percent")
+(deflisten media-toggle-icon "scripts/media icon")
+(deflisten media-toggle-class "scripts/media class")
 
 (defwidget sliders[]
   (box :class "sliders"
