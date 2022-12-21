@@ -28,7 +28,7 @@ get_options() {
 main() {
 
   # get choice from rofi
-  choice=$( (get_options) | rofi -dmenu -i -fuzzy -p "" -theme "$theme")
+  choice=$( (get_options) | wofi -dmenu -i -p "")
 
   # run the selected command
   case $choice in
@@ -37,12 +37,6 @@ main() {
     ;;
   '  Full screen screenshot')
     screenshot -sf
-    ;;
-  '  Left screen screenshot')
-    screenshot -sl
-    ;;
-  '  Right screen screenshot')
-    screenshot -sr
     ;;
   '  Stop Recording')
     screenshot -s

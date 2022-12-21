@@ -1,6 +1,0 @@
-#!/usr/bin/bash
-
-# grim -g "$(slurp)" - | wl-copy
-ACTIVEMON = hyprctl monitors | grep -B 10 "focused: yes" | awk 'NR==3 {print $1}' RS='(' FS=')'
-grim -g "$(slurp)" - | swappy -f - -o ~/Pictures/Screenshots/screenshot$(date +%s).png
-# grim -g "0,0 2048x1280" - | swappy -f - -o ~/Pictures/Screenshots/screenshot$(date +%s).png

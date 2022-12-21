@@ -1,9 +1,10 @@
 # indicator
 # no-unlock-indicator
 # daemonize
+
 indicator-caps-lock
 # datestr=%A
-image=$HOME/Pictures/wallpapers/fool_moon.jpg
+# image=$("cat ~/.config/hypr/scripts/variables/temp/background")
 scaling=fill
 font=JetBrainsMono
 font-size=20

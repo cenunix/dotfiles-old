@@ -4,14 +4,6 @@ export NVM_DIR="$HOME/langs/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [[ -r $NVM_DIR/zsh_completion ]] && \. $NVM_DIR/zsh_completion
 
-export EMAIL="caden.hargrave@gmail.com"
-export PASS="blwbgeztfljtjchu"
-export SMTP="smtp.gmail.com"
-export PORT=587
-export SMS_GATEWAY="5096374830@txt.att.net"
-export IMAP_HOST="imap.gmail.com:993"
-
-
 path+=('/home/user/.local/.scripts')
 path+=('/home/user/langs/')
 
@@ -38,4 +30,5 @@ alias ryujinx="__GL_THREADED_OPTIMIZATIONS=0 __GL_SYNC_TO_VBLANK=0 COMPlus_Enabl
 alias imcool="unimatrix -c blue -s 97 -f -a"
 alias screenclip='grim -g "$(slurp)" $GRIM_DEFAULT_DIR/$(date +"%s_grim.png") - | wl-copy -t'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+alias vim='lvim-gui .'
 # unimatrix -c blue -s 99 -w -a 

@@ -10,22 +10,32 @@ lvim.plugins = {
     "Mofiqul/dracula.nvim",
     "sainnhe/everforest",
     "andersevenrud/nordic.nvim",
+    "Selmer443/colorscheme-file.nvim",
 }
 
-vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
-require("catppuccin").setup {
-    -- transparent_background = true,
-    custom_highlights = {
-        DashboardHeader = { fg = "#8AADF4"},
-        DashboardCenter = { fg = "#8AADF4"},
-        -- HarpoonWindow = { ctermbg = 238 },
-        -- HarpoonBorder = { fg = "#8AADF4" },
-        -- Comment = { fg = colors.flamingo },
-        -- TSConstBuiltin = { fg = colors.peach, style = {} },
-        -- TSConstant = { fg = colors.sky },
-        -- TSComment = { fg = colors.surface2, style = { "italic" } }
-    }
+require('colorscheme-file').setup {
+    fallback = "catppuccin-macchiato",   -- fallback colorscheme if the one in the file doesn't work
+    -- path = "~/.local/share/nvim/colorscheme-file", -- path to file (defaults to stdpath('data')/colorscheme-file)
+    silent = false,          -- doesn't send error messages when enabled (defaults to false)
+    aliases = {             -- table of strings that can be used in place of the full colorscheme name
+        cm = 'catppuccin-macchiato',
+    },
 }
+
+-- vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
+-- require("catppuccin").setup {
+--     -- transparent_background = true,
+--     custom_highlights = {
+--         DashboardHeader = { fg = "#8AADF4"},
+--         DashboardCenter = { fg = "#8AADF4"},
+--         -- HarpoonWindow = { ctermbg = 238 },
+--         -- HarpoonBorder = { fg = "#8AADF4" },
+--         -- Comment = { fg = colors.flamingo },
+--         -- TSConstBuiltin = { fg = colors.peach, style = {} },
+--         -- TSConstant = { fg = colors.sky },
+--         -- TSComment = { fg = colors.surface2, style = { "italic" } }
+--     }
+-- }
 
 
 lvim.builtin.alpha.dashboard.section.header.opts.hl = "DashboardHeader"
