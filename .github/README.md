@@ -8,12 +8,12 @@ These dotfiles are curated for Hyprland on arch linux, however many other distro
 - **Compositor** - [Hyprland](https://hyprland.org)
 - **Shell** - [zsh](https://wiki.archlinux.org/title/zsh) [(zap plugin manager)](https://www.zapzsh.org/)
 - **Terminal** - [kitty](https://github.com/kovidgoyal/kitty)
-- **Bar and Widgets** - [waybar](https://github.com/Alexays/Waybar/wiki/Modules)
-- **Launcher** - [rofi](https://github.com/davatorium/rofi)
+- **Bar and Widgets** - [eww](https://github.com/elkowar/eww)
+- **Launcher** - [wofi](https://github.com/uncomfyhalomacro/wofi)
 - **Notifications** - [dunst](https://github.com/dunst-project/dunst)
-- **Text Editor** - [Lunar Vim](https://www.lunarvim.org/)
+- **Text Editor/IDE** - [Lunar Vim](https://www.lunarvim.org/)
 - **Spotify TUI App** - [spotify-player](https://github.com/aome510/spotify-player)
-- **File Manager** - [ranger](https://github.com/ranger/ranger)
+- **File Manager** - [lf](https://github.com/gokcehan/lf)
 - **Audio Visualizer** - [cava](https://github.com/karlstav/cava)
 - **Resource Monitor** - [btop](https://github.com/aristocratos/btop)
 - **PDF Viewer** - [zathura](https://github.com/pwmt/zathura)
@@ -25,8 +25,8 @@ These dotfiles are curated for Hyprland on arch linux, however many other distro
 
 
 ## Screenshots
-![alt text](./assets/1screenshot.png)
-![alt text](./assets/0screenshot.png)
+![alt text](./assets/screenshot.png)
+![alt text](./assets/screenshot1.png)
 
 
 ## Installation
