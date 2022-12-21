@@ -99,7 +99,7 @@ selection_foreground = "#CAD3F5"
 
 [themes.component_style]
 block_title = { fg = "Cyan"  }
-playback_track = { fg = "Magenta", modifiers = ["Bold"] }
+playback_track = { fg = "Blue", modifiers = ["Bold"] }
 playback_album = { fg = "Blue" }
 playback_metadata = { fg = "Blue" }
 playback_progress_bar = { bg = "SelectionBackground", fg = "Cyan" }
