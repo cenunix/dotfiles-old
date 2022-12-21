@@ -83,8 +83,8 @@ general {
 decoration {
     blur_new_optimizations = true
     drop_shadow = false
-    active_opacity = 0.8
-    inactive_opacity = 0.8
+    active_opacity = 1.0
+    inactive_opacity = 1.0
     fullscreen_opacity = 1.0
     shadow_range=0
     shadow_render_power=0
@@ -178,6 +178,7 @@ bind=SUPER,V,exec,theme_changer_wl
 bind=SUPER_SHIFT,V,exec,cliphist list | head -80 | cut -d' ' -f2- | wofi -n --show dmenu | wl-copy
 bind=SUPER_SHIFT,D,exec,~/.config/hypr/scripts/extra/dictionary
 bind=SUPER_SHIFT,C,exec,~/.config/hypr/scripts/wallpaper_picker
+bind=SUPER_SHIFT,Z,exec,~/.config/hypr/scripts/toggle_opacity
 
 
 bind=,Print,exec,wscreenshot -sf
