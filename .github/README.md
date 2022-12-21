@@ -20,6 +20,12 @@ These dotfiles are curated for Hyprland on arch linux, however many other distro
 - **Wallpapers** - Can be found in a separate repo [here](https://github.com/selmer443/wallpapers)
 
 
+## Notable Features
+- Animated Widgets for managing notifications, volume, input vol, etc.
+- Clipboard history integrated into wofi (keybinding: Super+Shift+V)
+- Dictionary Search using dictd and integrated into wofi (keybinding: Super+Shift+D)
+- Wallpaper picker integrated into wofi and persistent through reboots, using swww for transitions (keybinding: Super+Shift+C)
+- Opacity toggle for all windows using hyprctl, (keybinding: Super+Shift+Z)
 
 
 
