@@ -15,7 +15,7 @@
        :orientation "h"
        :hexpand true
        :spacing 15
-    (box :class "user-pfp" :halign "start" :valign "center" :style "background-image: url('assets/pfp.jpg');") 
+    (box :class "user-pfp" :halign "start" :valign "center" :style "background-image: url('assets/sakurafetch.png');") 
     (box :class "user-details"
          :orientation "v"
          :space-evenly false
@@ -125,15 +125,11 @@
 
 (defwindow sys-menu0 
    :monitor 0
-   :geometry (geometry :x "10px" :y "62px" :width "384px" :anchor "top left")
-   :windowtype "dock"
-   :wm-ignore false
+   :geometry (geometry :x "5px" :y "2px" :width "384px" :anchor "top left")
    (sys-menu-main))
 
 (defwindow sys-menu1 
   :monitor 1
-  :geometry (geometry :x "10px" :y "62px" :width "384px" :anchor "top left")
-  :windowtype "dock"
-  :wm-ignore false
+  :geometry (geometry :x "5px" :y "2px" :width "384px" :anchor "top left")
   (sys-menu-main))
 

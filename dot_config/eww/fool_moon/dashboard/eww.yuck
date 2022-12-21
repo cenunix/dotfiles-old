@@ -36,7 +36,7 @@
        :halign "start"
        :space-evenly false
        :spacing 15
-    (box :class "user-pfp" :halign "center" :valign "center" :style "background-image: url('assets/pfp.jpg');") 
+    (box :class "user-pfp" :halign "center" :valign "center" :style "background-image: url('assets/pfp.png');") 
     (box :class "user-details"
          :orientation "v"
          :space-evenly false
