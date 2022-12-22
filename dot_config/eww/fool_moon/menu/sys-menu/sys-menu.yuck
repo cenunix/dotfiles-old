@@ -58,7 +58,7 @@
          :spacing 15
       (button :class "night night-${night.state}" :tooltip "night light" :onclick "scripts/sys toggle-night" {night.icon})
       (button :class "blue blue-${blue.state}" :tooltip "bluetooth" :onclick "scripts/sys toggle-blue" "")
-      (button :class "scr" :tooltip "take screenshot" :onclick "scripts/sys screenshot" ""))))
+      (button :class "scr" :tooltip "take screenshot" :onclick "~/.config/eww/fool_moon/bar/scripts/widgets toggle-sys ; wscreenshot -sa" ""))))
 
 (deflisten wifi "scripts/sys wifi")
 (deflisten air "scripts/sys air")
