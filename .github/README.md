@@ -28,11 +28,12 @@ These dotfiles are curated for Hyprland on arch linux, however many other distro
 - Opacity toggle for all windows using hyprctl, (keybinding: Super+Shift+Z)
 
 
-
+## Video 
+[![Youtube Video](https://img.youtube.com/vi/fbTBhCGZBOQ/0.jpg)](https://www.youtube.com/watch?v=fbTBhCGZBOQ)
 
 ## Screenshots
-![alt text](./assets/screenshot.png)
-![alt text](./assets/screenshot1.png)
+![Screenshot](./assets/screenshot.png)
+![Screenshot 1](./assets/screenshot1.png)
 
 
 ## Installation
