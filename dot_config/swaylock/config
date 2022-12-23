@@ -6,23 +6,34 @@ indicator-caps-lock
 # datestr=%A
 # image=$("cat ~/.config/hypr/scripts/variables/temp/background")
 scaling=fill
-font=JetBrainsMono
-font-size=20
+font=JetBrainsMono Nerd Font
+font-size=32
+
+screenshots
+clock
+indicator
+
+fade-in=0.2
+effect-blur=8x5
+effect-vignette=0.5:0.5
+timestr=%I:%M:%S
+datestr=%d.%m
 
 
 # Ring
-indicator-radius=100
+indicator-radius=200
+indicator-thickness=20
 # line-uses-ring
-line-color=#3b4252
-text-color=#d8dee9
-inside-color=#2e344098
+line-color=#1e2030
+text-color=#cad3f5
+inside-color=#1e2030
 inside-ver-color=#cad3f5
 line-ver-color=#cad3f5
 ring-ver-color=#cad3f5
-ring-color=#cad3f5
-key-hl-color=#5e81ac
-separator-color=#4c566a
-layout-text-color=#eceff4
+ring-color=#24273a
+key-hl-color=#b7bdf8
+separator-color=#b7bdf8
+layout-text-color=#b7bdf8
 line-wrong-color=#cad3f5
 ring-wrong-color=#cad3f5
 inside-wrong-color=#cad3f5
