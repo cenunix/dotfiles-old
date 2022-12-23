@@ -23,6 +23,11 @@
     (bat)
     (time)))
 
+(defwidget main1 []
+  (box :class "bar"
+    (left1)
+    (right1)))
+
 (defwidget left1[]
   (box :class "left"
         :space-evenly false
@@ -60,8 +65,9 @@
 (defwidget start[]
   (box :class "start-box" 
     (eventbox :class "start-eventbox"
-              :onclick "scripts/widgets toggle-sys"
-              :cursor "pointer"
+              :onclick "scripts/widgets toggle-sys ; scripts/blank"
+              :timeout "60s"
+              ; :cursor "pointer"
               :valign "center"
       (box :class "start"
         (label :class "start-btn" :text "")))))
@@ -69,8 +75,9 @@
 (defwidget start1[]
   (box :class "start-box" 
     (eventbox :class "start-eventbox"
-              :onclick "scripts/widgets toggle-sys"
-              :cursor "pointer"
+              :onclick "scripts/widgets toggle-sys1 ; scripts/blank"
+              :timeout "60s"
+              ; :cursor "pointer"
               :valign "center"
       (box :class "start"
         (label :class "start-btn" :text "")))))
@@ -135,7 +142,7 @@
                     :duration "550ms"
             (label :class "bat-icon" :halign "center" :valign "center" :height 25 :width 25 :text bat-icon)))))))
 
-(defpoll bat-val :initial 0 :interval "1s" "scripts/bat level")
+(defpoll bat-val :initial 0 :interval "1s" "1.0")
 (defpoll bat-class :interval "1s" "scripts/bat class")
 (defvar bat-vis false)
 
@@ -144,7 +151,7 @@
        :halign "center"
        :valign "center"
     (eventbox :class "time-eventbox"
-              :onclick "scripts/widgets toggle-time1"
+              :onclick "scripts/widgets toggle-time1 ; scripts/blank"
               :cursor "pointer"
       (label :class "time-label" :text "   ${time-lbl}"))))
 
@@ -153,7 +160,7 @@
         :halign "center"
         :valign "center"
     (eventbox :class "time-eventbox"
-              :onclick "scripts/widgets toggle-time"
+              :onclick "scripts/widgets toggle-time ; scripts/blank"
               :cursor "pointer"
       (label :class "time-label" :text "   ${time-lbl}"))))
 
@@ -191,7 +198,7 @@
   :vexpand false
   :exclusive true
   :windowtype "dock"
-  (main))
+  (main1))
 
 (defwindow left_bar1
   :monitor 1

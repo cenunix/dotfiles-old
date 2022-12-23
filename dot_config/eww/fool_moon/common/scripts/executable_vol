@@ -35,7 +35,6 @@ function toggle_mute() {
 function follow() {
 	local scalar=$(percent)
 	$animate run -i "vol" -s $scalar -e "ease_out_expo"
-
 	local v=$(percent)
 	echo $v
 	while sleep 0.1; do

@@ -17,6 +17,7 @@ function is_locked() {
 function get_easing() {
 	case "$1" in
 		"ease_out_quart") echo "1-((1-$2/100)^4)" | bc -l;;
+		# "ease_out_expo") [ "$2" = 100 ] && echo 100 || echo $(awk "BEGIN {print 1-(2^(-10*($2/100)))}");;
 		"ease_out_expo") [ "$2" = 100 ] && echo 100 || echo $(awk "BEGIN {print 1-(2^(-10*($2/100)))}");;
 		*) echo "Unknown Easing Function" && exit 1;;
 	esac
@@ -28,7 +29,7 @@ function run() {
 	local ease="ease_out_quart"
 	local follow=false
 	local reverse=false
-
+	
 	while getopts ":i:e:s:f:r" arg; do
 		case "$arg" in
 			"i") id=$OPTARG;;
@@ -46,15 +47,17 @@ function run() {
 
 	if [ $reverse = "true" ];then
 		echo $scalar
-		for (( i=99; i>=0; i-=2 ));do
+		for (( i=99; i>=0; i-=1 ));do
 			local val=$(get_easing $ease $i)
+			# echo "Scalar : $scalar Value: $val i Integer val: $i Type: $ease"
 			echo "$scalar*$val" | bc -l
 			sleep 0.01
 		done
 		echo "0"
 	else
-		for (( i=0; i<=99; i+=2 ));do
+		for (( i=0; i<=99; i+=1 ));do
 			local val=$(get_easing $ease $i)
+			# echo "Scalar : $scalar Value: $val i Integer val: $i Type: $ease"
 			echo "$scalar*$val" | bc -l
 			sleep 0.01
 		done

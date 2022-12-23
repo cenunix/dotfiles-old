@@ -8,10 +8,11 @@ for id in "${NB_MONITORS[@]}"; do
     # make top bar for every display
     bar="bar$id"
     hyprctl dispatch focusmonitor "$id"
-    eww -c $EWW_DIR/bar open "$bar"
-    eww -c $EWW_DIR/menu daemon
-    eww -c $EWW_DIR/dashboard daemon
-    eww -c $EWW_DIR/meters daemon
+    eww -c $EWW_DIR/bar open "$bar" --debug
+    eww -c $EWW_DIR/menu daemon --debug
+    # eww -c $EWW_DIR/menu open "sys-menu$id"
+    eww -c $EWW_DIR/dashboard daemon --debug
+    eww -c $EWW_DIR/meters daemon --debug
     echo $id
 done
 # eww -c $EWW_DIR/bar open bar

@@ -174,23 +174,32 @@ scale.ram-scale trough, scale.cpu-scale trough, scale.dsk-scale trough {
 
 .media-title {
 	font-size: 16px;
-	color: #B8BDC9;
+	font-weight: bold;
+	color: $raisin-black;
 }
 
 .media-artist {
-	font-weight: lighter;
 	margin-bottom: 0.4rem;
+	font-weight: bold;
+	color: $raisin-black;
 }
 
 .media-overview {
 	background-color: $raisin-black;
+	background: radial-gradient(circle, rgba(138, 173, 244,1) 0%, rgba(138, 173, 244,1) 12%, rgba(145, 215, 227,1) 19%, rgba(189,169,247,1) 20%, rgba(182,171,247,1) 24%, rgba(138, 173, 244,1) 36%, rgba(177,172,247,1) 37%, rgba(170,173,248,1) 48%, rgba(125, 196, 228,1) 52%, rgba(166,174,248,1) 52%, rgba(160,175,248,1) 59%, rgba(139, 213, 202,1) 66%, rgba(155,176,248,1) 67%, rgba(152,177,248,1) 68%, rgba(73, 77, 100,1) 77%, rgba(148,178,249,1) 78%, rgba(144,179,250,1) 82%, rgba(180,190,254,1) 83%, rgba(141,179,250,1) 90%, rgba(137,180,250,1) 100%); 
+	background-size: 400% 400%;
+	animation: gradient_f linear infinite;
+	animation-delay: 0s;
+	animation-fill-mode: forwards;
+	animation-duration: 20.0s;
 	border-radius: 8px;
 	padding: 1rem 1.5rem;
 }
 
 .media-playback {
 	font-size: 12px;
-	color: #B8BDC9;
+	font-weight: bold;
+	color: $raisin-black;
 }
 
 .media-prev, .media-toggle, .media-next {
@@ -222,7 +231,8 @@ scale.ram-scale trough, scale.cpu-scale trough, scale.dsk-scale trough {
 }
 
 .media-time {
-	color: #B8BDC9;
+	font-weight: bold;
+	color: $raisin-black;
 }
 
 scale.media-track trough {

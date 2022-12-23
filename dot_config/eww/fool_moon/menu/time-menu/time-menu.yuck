@@ -1,14 +1,20 @@
 (defvar eww "eww -c ~/.config/eww/fool_moon/menu")
 
 (defwidget time-menu-main[]
+  (revealer
+    :transition "slidedown"
+    :reveal time-reveal
+    :duration "1250ms"
     (box :class "menu time-menu"
          :orientation "v"
          :space-evenly false
          :spacing 15
           :hexpand true
+          :vexpand true
       (cal)
       (weather)
-      (notif-menu-main)))
+      (notif-menu-main))))
+(defvar time-reveal false)
 
 (defvar time-vis false)
 
@@ -74,8 +80,9 @@
 
 (defwidget notifs-box[]
   (box :class "notifications-box" :orientation "v" :hexpand true :vexpand true :space-evenly false
-    (label :class "notification-headers-label" :hexpand true :text "Notifications")
+    (label :class "notification-headers-label" :hexpand true :vexpand true :text "Notifications")
     (box :class "notification-headers"
+         :height 300
          :orientation "v"
          :space-evenly false
          :vexpand true
@@ -86,14 +93,14 @@
 
 (defwindow time-menu0 
   :monitor 0
-  :geometry (geometry :x "5px" :y "2px" :width "384px" :height "90%" :anchor "top right")
+  :geometry (geometry :x "5px" :y "2px" :width "1px" :height "1px" :anchor "top right")
   :windowtype "dock"
   :wm-ignore false
   (time-menu-main))
 
 (defwindow time-menu1 
   :monitor 1
-  :geometry (geometry :x "5px" :y "2px" :width "384px" :height "90%" :anchor "top right")
+  :geometry (geometry :x "5px" :y "2px" :width "1px" :height "1px" :anchor "top right")
   :windowtype "dock"
   :wm-ignore false
   (time-menu-main))

@@ -1,5 +1,9 @@
 (defwidget sys-menu-main[]
-  (box :class "menu sys-menu"
+   (revealer
+      :transition "slideleft"
+      :reveal system-menu
+      :duration "650ms"
+   (box :class "menu sys-menu"
        :orientation "v"
        :space-evenly false
        :spacing 15
@@ -7,7 +11,8 @@
     (panel)
     (media)
     (sliders)
-    (powermenu)))
+    (powermenu))))
+(defvar system-menu false)
 
 (defwidget user[] 
   (box :class "user"
@@ -58,7 +63,7 @@
          :spacing 15
       (button :class "night night-${night.state}" :tooltip "night light" :onclick "scripts/sys toggle-night" {night.icon})
       (button :class "blue blue-${blue.state}" :tooltip "bluetooth" :onclick "scripts/sys toggle-blue" "")
-      (button :class "scr" :tooltip "take screenshot" :onclick "~/.config/eww/fool_moon/bar/scripts/widgets toggle-sys ; wscreenshot -sa" ""))))
+      (button :class "scr" :tooltip "take screenshot" :timeout "60s" :onclick "~/.config/eww/fool_moon/bar/scripts/widgets toggle-sys ; wscreenshot -sa" ""))))
 
 (deflisten wifi "scripts/sys wifi")
 (deflisten air "scripts/sys air")
@@ -125,11 +130,13 @@
 
 (defwindow sys-menu0 
    :monitor 0
-   :geometry (geometry :x "5px" :y "2px" :width "384px" :anchor "top left")
+   :stacking "fg"
+   :geometry (geometry :x "5px" :y "2px" :width "1px" :anchor "top left")
    (sys-menu-main))
 
 (defwindow sys-menu1 
   :monitor 1
-  :geometry (geometry :x "5px" :y "2px" :width "384px" :anchor "top left")
+  :stacking "fg"
+  :geometry (geometry :x "5px" :y "2px" :width "1px" :anchor "top left")
   (sys-menu-main))
 
