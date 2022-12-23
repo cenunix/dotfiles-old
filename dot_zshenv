@@ -16,7 +16,8 @@ export NPM_CONFIG_TMP="$HOME/langs/npm/"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/.gtkrc-2.0
 export WGETRC="$XDG_CONFIG_HOME/wget/.wgetrc"
 export PARALLEL_HOME="$XDG_CONFIG_HOME"/parallel
-export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$HOME/langs/java
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$HOME/langs/java"
+export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 
 
 alias svn="svn --config-dir \"$XDG_CONFIG_HOME\"/subversion"
