@@ -13,6 +13,18 @@ tooltip {
 	border: 1px solid $gray;
 }
 
+@keyframes gradient_f {
+	0% {
+		background-position: 0% 200%;
+	}
+    50% {
+        background-position: 200% 0%;
+    }
+	100% {
+		background-position: 400% 200%;
+	}
+}
+
 .menu {
     font-family: Noto Sans, "Font Awesome 6 Free";
     background-color: #181821;

@@ -1,30 +1,29 @@
 # Documentation: https://dunst-project.org/documentation/
 # Config created by selmer443 https://www.github.com/selmer443/dotfiles
 # Copyright (C) 2022 selmer443
-another_action(){
-    i3-msg workspace 3 
-}
 
 [global]
     monitor = 0
     follow = mouse
-    width = (225,300)
-    height = 250
+    width = (0, 500)
+    height = (200, 500)
     origin = top-right
-    offset = 8x47
+    offset = 10x-10
     indicate_hidden = yes
     shrink = no
+    scale = 0
     transparency = 0
     notification_height = 0
     separator_height = 2
     padding = 12
     horizontal_padding = 12
-    frame_width = 2
-    frame_color = "#cad3f5"
+    frame_width = 1
+    frame_color = "#83a598"
     separator_color = frame
+    ; enable_posix_regex = true
     sort = yes
     idle_threshold = -1
-    font = Roboto mono 10
+    font = JetBrains Mono Nerd Font 11
     line_height = 0
     markup = full
     format = "<b>%s</b>\n%b"
@@ -38,43 +37,58 @@ another_action(){
     hide_duplicate_count = false
     show_indicators = no
     icon_position = left
-    min_icon_size = 50
-    max_icon_size = 50
+    min_icon_size = 16
+    max_icon_size = 80
     icon_path = /usr/share/icons/Papirus/16x16/
     sticky_nano = yes
     history_length = 50
     dmenu = /usr/bin/dmenu -p dunst:
-    browser = /usr/bin/brave
-    always_run_script = false
+    browser = /usr/bin/firefox
+    always_run_script = true
     title = Dunst
     class = Dunst
     startup_notification = false
     verbosity = mesg
-    #corner_radius = 20
+    corner_radius = 10
     ignore_dbusclose = true
     force_xinerama = false
     mouse_middle_click = close_all
     mouse_right_click = do_action, close_current
 [experimental]
     per_monitor_dpi = false
+
 [shortcuts]
     close = ctrl+space
     close_all = ctrl+shift+space
     history = ctrl+grave
     context = ctrl+shift+period
 [urgency_low]
-    background = "#1E1E2E"
-    foreground = "#cad3f5"
+    background = "#282828"
+    foreground = "#fbf1c7"
     #script = /home/morpheus/.config/dunst/dunstscript.sh
     timeout = 10
 [urgency_normal]
-    background = "#1E1E2E"
-    foreground = "#cad3f5"
+    background = "#282828"
+    foreground = "#fbf1c7"
     #script = /home/morpheus/.config/dunst/dunstscript.sh
     timeout = 10
 [urgency_critical]
-    background = "#1E1E2E"
-    foreground = "#cad3f5"
-    frame_color = "#f07178"
+    background = "#282828"
+    foreground = "#fbf1c7"
+    frame_color = "#ee99a0"
     timeout = 0  
+[screenshots]
+    summary="Screenshot"
+    max_icon_size = 300
 
+[eww]
+summary = "*"
+script = "~/.local/.scripts/notifs"
+
+[spotify]
+summary = "*"
+script = "~/.local/.scripts/spotify-art"
+
+[spotify-icon]
+appname = "Spotify"
+icon = "~/.cache/temp.png"

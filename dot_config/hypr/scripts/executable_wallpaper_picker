@@ -9,6 +9,7 @@ echo "$wallpaper_folder/$wallpaper_location"
 
 if [[ -d $wallpaper_folder/$wallpaper_location ]]; then
     echo "$wallpaper_folder/$wallpaper_location is a directory"
+    wallpaper_temp="$wallpaper_location"
     sleep2
     wallpaper_location="$(ls $wallpaper_folder/$wallpaper_location | wofi -n --show dmenu)"
 elif [[ -f $wallpaper_folder/$wallpaper_location ]]; then
@@ -18,6 +19,9 @@ else
     exit 1
 fi
 
-$hypr/scripts/variables/set_env background "$wallpaper_folder/$wallpaper_location"
+
+echo "$wallpaper_folder/$wallpaper_temp/$wallpaper_location"
+
+$hypr/scripts/variables/set_env background "$wallpaper_folder/$wallpaper_temp/$wallpaper_location"
 
 $hypr/scripts/wallpaper
