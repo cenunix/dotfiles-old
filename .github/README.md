@@ -3,6 +3,11 @@
 
 These dotfiles are curated for Hyprland on arch linux, however many other distros will probably work fine.
 
+
+## Screenshots
+![Screenshot](./assets/screenshot.png)
+![Screenshot 1](./assets/screenshot1.png)
+
 ## Video 
 [![Youtube Video](https://img.youtube.com/vi/fbTBhCGZBOQ/0.jpg)](https://www.youtube.com/watch?v=fbTBhCGZBOQ)
 
@@ -28,10 +33,6 @@ These dotfiles are curated for Hyprland on arch linux, however many other distro
 - Dictionary Search using dictd and integrated into wofi (keybinding: Super+Shift+D)
 - Wallpaper picker integrated into wofi and persistent through reboots, using swww for transitions (keybinding: Super+Shift+C)
 - Opacity toggle for all windows using hyprctl, (keybinding: Super+Shift+Z)
-
-## Screenshots
-![Screenshot](./assets/screenshot.png)
-![Screenshot 1](./assets/screenshot1.png)
 
 Dependencies, Please let me know if this list is incomplete, I will try my best to keep it up to date.
 
