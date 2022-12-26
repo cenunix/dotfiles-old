@@ -26,10 +26,10 @@
     box-shadow: 2px 0 33px -3px var(--sidebar-shadow-color);
 }
 
-#sidebar-box[sidebarcommand="viewBookmarksSidebar"] #sidebar {
+/* #sidebar-box[sidebarcommand="viewBookmarksSidebar"] #sidebar {
     transform: translateX(0) !important;
     box-shadow: 2px 0 33px -3px var(--sidebar-shadow-color);
-}
+} */
 /* hide sidebar header for tree style tabs sidebar */
 #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
     display: none;

@@ -97,13 +97,13 @@ panel[type="autocomplete-richlistbox"] > .autocomplete-richlistbox {
 /* shotgun approach to undo this selector...
    #BMB_bookmarksPopup menupopup[placespopup="true"]:-moz-lwtheme::part(innerbox)
    ...without being able to use ::part() in userChrome.css */
-[part="innerbox"] {
+/* [part="innerbox"] { */
     /* this could cause side effects elsewhere */
-    box-shadow: none !important;
+    /* box-shadow: none !important;
     margin: 0 !important;
-}
+} */
 
-menupopup menuseparator {
+/* menupopup menuseparator {
     margin: 8px 0 !important;
     padding: 0 !important;
     height: 1px !important;
@@ -139,30 +139,30 @@ menupopup menuitem[disabled="true"],
 menupopup menu[disabled="true"],
 .autocomplete-richlistitem[disabled="true"] {
     opacity: 0.5 !important;
-}
+} */
 
 /* disable vertical menu scroll buttons and use a good ol' scrollbar */
 /* this is a shotgun approach, expect side effects */
-scrollbox[orient=vertical] /* >=71 */ {
-    overflow-y: auto !important;
+scrollbox[orient=vertical] /* >=71*/ { 
+    overflow-y: visible !important;
 }
 
 /* this is a bit depressing... */
 /* work around lack of ::part selector support */
-:root {
+/* :root {
     --scrollbutton-display: -moz-box !important;
-}
+} */
 
 /* hide ancient-looking scrollbuttons in menupopups */
 /* add other selectors here to disable more scrollbuttons */
-menupopup {
+/* menupopup {
     --scrollbutton-display: none !important;
 }
 
 #scrollbutton-up[part],
 #scrollbutton-down[part] {
     display: var(--scrollbutton-display) !important;
-}
+} */
 
 .menuitem-iconic,
 .menu-iconic-icon /* .menu-iconic-icons not necessarily within a .menuitem-iconic (don't ask me why...) */ {

@@ -114,11 +114,11 @@ toolbar:not([customizing="true"])
     z-index: 10 !important;
 } */
 
-#PersonalToolbar {
+/* #PersonalToolbar {
     margin-top: -40px !important;
     opacity: 0;
     transition: all var(--transition-time) var(--ease-out) !important;
-}
+} */
 
 toolbox[id="navigator-toolbox"]:hover #PersonalToolbar {
     opacity: 1;
