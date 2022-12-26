@@ -34,13 +34,13 @@ These dotfiles are curated for Hyprland on arch linux, however many other distro
 - Wallpaper picker integrated into wofi and persistent through reboots, using swww for transitions (keybinding: Super+Shift+C)
 - Opacity toggle for all windows using hyprctl, (keybinding: Super+Shift+Z)
 
+## Installation
+
 Dependencies, Please let me know if this list is incomplete, I will try my best to keep it up to date.
 
 ```bash
   paru -S chezmoi hyprland-git xdg-desktop-portal-hyprland-git grim cava slurp wl-clipboard socat swappy cliphist swaylock-effects-git wofi dunst jq eww-wayland swww-git zathura-pdf-mupdf zathura lf spotify-dev spotify-player neofetch kitty-git btop dictd moreutils pamixer wf-recorder unimatrix-git playerctl pistol-git 
 ```
-
-## Installation
 
 You can either clone this repo and copy configs manually or use chezmoi to copy them all at once.
 It's important to note that some of these configs depend on one another, be aware of this when copying
