@@ -4,6 +4,13 @@
 These dotfiles are curated for Hyprland on arch linux, however many other distros will probably work fine.
 
 
+## Screenshots
+![Screenshot](./assets/screenshot.png)
+![Screenshot 1](./assets/screenshot1.png)
+
+## Video 
+[![Youtube Video](https://img.youtube.com/vi/fbTBhCGZBOQ/0.jpg)](https://www.youtube.com/watch?v=fbTBhCGZBOQ)
+
 ## Details
 - **Compositor** - [Hyprland](https://hyprland.org)
 - **Shell** - [zsh](https://wiki.archlinux.org/title/zsh) [(zap plugin manager)](https://www.zapzsh.org/)
@@ -27,16 +34,13 @@ These dotfiles are curated for Hyprland on arch linux, however many other distro
 - Wallpaper picker integrated into wofi and persistent through reboots, using swww for transitions (keybinding: Super+Shift+C)
 - Opacity toggle for all windows using hyprctl, (keybinding: Super+Shift+Z)
 
-
-## Video 
-[![Youtube Video](https://img.youtube.com/vi/fbTBhCGZBOQ/0.jpg)](https://www.youtube.com/watch?v=fbTBhCGZBOQ)
-
-## Screenshots
-![Screenshot](./assets/screenshot.png)
-![Screenshot 1](./assets/screenshot1.png)
-
-
 ## Installation
+
+Dependencies, Please let me know if this list is incomplete, I will try my best to keep it up to date.
+
+```bash
+  paru -S chezmoi hyprland-git xdg-desktop-portal-hyprland-git grim cava slurp wl-clipboard socat swappy cliphist swaylock-effects-git wofi dunst jq eww-wayland swww-git zathura-pdf-mupdf zathura lf spotify-dev spotify-player neofetch kitty-git btop dictd moreutils pamixer wf-recorder unimatrix-git playerctl pistol-git 
+```
 
 You can either clone this repo and copy configs manually or use chezmoi to copy them all at once.
 It's important to note that some of these configs depend on one another, be aware of this when copying
@@ -50,6 +54,6 @@ Then copy the configs and scripts as you'd like, Or use your favorite AUR helper
 to install chezmoi and run the command below:
 
 ```bash
-  yay -S chezmoi
+  paru -S chezmoi
   chezmoi init --apply https://github.com/Selmer443/dotfiles.git
 ```    
