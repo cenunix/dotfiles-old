@@ -18,6 +18,6 @@ export WGETRC="$XDG_CONFIG_HOME/wget/.wgetrc"
 export PARALLEL_HOME="$XDG_CONFIG_HOME"/parallel
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$HOME/langs/java"
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
-
+export NUGET_PACKAGES="$XDG_CACHE_HOME"/.nuget
 
 alias svn="svn --config-dir \"$XDG_CONFIG_HOME\"/subversion"
