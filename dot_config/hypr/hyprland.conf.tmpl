@@ -21,8 +21,8 @@ monitor= eDP-1,1920x1080,auto,1
 {{ else }}
 # this will be included in ~/.config/hypr/hyprland.conf on any machine other than archlaptop
 
-monitor=DP-2,2560x1440@240,0x0,1
-monitor=DP-1,1920x1080@240,2560x0,1
+monitor=DP-1,2560x1440@240,0x0,1
+monitor=DP-3,1920x1080@240,2560x0,1
 {{- end }}
 
 
@@ -71,7 +71,7 @@ general {
     gaps_out=10
     {{- end }}
     
-    border_size=2 
+    border_size=4 
     apply_sens_to_raw=0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
 
  #   damage_tracking=full # leave it on full unless you hate your GPU and want to make it suffer
@@ -201,8 +201,8 @@ bind=SUPER_SHIFT,left,movewindow,l
 bind=SUPER_SHIFT,right,movewindow,r
 bind=SUPER_SHIFT,up,movewindow,u
 bind=SUPER_SHIFT,down,movewindow,d
-bind=SUPER,B,movecurrentworkspacetomonitor,DP-2
-bind=SUPER_SHIFT,B,movecurrentworkspacetomonitor,DP-1
+bind=SUPER,B,movecurrentworkspacetomonitor,DP-1
+bind=SUPER_SHIFT,B,movecurrentworkspacetomonitor,DP-3
 
 
 
