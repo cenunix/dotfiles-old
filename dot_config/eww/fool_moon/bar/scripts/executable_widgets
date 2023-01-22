@@ -5,28 +5,28 @@ CACHE_DIR="$HOME/.cache/eww"
 focusmon=$(hyprctl monitors -j | jq -r '.[] | select(.focused == true) | .id')
 
 function toggle_sys0() {
-	if [ -f "$CACHE_DIR/sys-menu.lock" ];then
-		rm "$CACHE_DIR/sys-menu.lock"
+	if [ -f "$CACHE_DIR/sys-menu$focusmon.lock" ];then
+		rm "$CACHE_DIR/sys-menu$focusmon.lock"
 		$eww_menu update system-menu=false
 		sleep 0.5
 		# $eww_menu close unfocus
 		$eww_menu close "sys-menu$focusmon"
 	else
-		touch "$CACHE_DIR/sys-menu.lock"
+		touch "$CACHE_DIR/sys-menu$focusmon.lock"
 		$eww_menu open "sys-menu$focusmon"
 		$eww_menu update system-menu=true
 	fi
 }
 
 function toggle_sys1() {
-	if [ -f "$CACHE_DIR/sys-menu1.lock" ];then
-		rm "$CACHE_DIR/sys-menu1.lock"
+	if [ -f "$CACHE_DIR/sys-menu$focusmon.lock" ];then
+		rm "$CACHE_DIR/sys-menu$focusmon.lock"
 		$eww_menu update system-menu=false
 		sleep 0.5
 		# $eww_menu close unfocus1
-		$eww_menu close sys-menu1
+		$eww_menu close "sys-menu$focusmon"
 	else
-		touch "$CACHE_DIR/sys-menu1.lock"
+		touch "$CACHE_DIR/sys-menu$focusmon.lock"
 		$eww_menu open "sys-menu$focusmon"
 		$eww_menu update system-menu=true
 	fi
