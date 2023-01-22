@@ -142,7 +142,7 @@
                     :duration "550ms"
             (label :class "bat-icon" :halign "center" :valign "center" :height 25 :width 25 :text bat-icon)))))))
 
-(defpoll bat-val :initial 0 :interval "1s" "1.0")
+(defpoll bat-val :initial 0 :interval "1s" "scripts/bat level")
 (defpoll bat-class :interval "1s" "scripts/bat class")
 (defvar bat-vis false)
 
