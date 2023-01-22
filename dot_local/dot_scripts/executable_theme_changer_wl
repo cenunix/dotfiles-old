@@ -14,7 +14,7 @@ btop_dir="$HOME/.config/btop/themes"
 code_oss="$HOME/.config/Code\ -\ OSS/User/settings.json"
 hyprpaper_dir="$HOME/.config/hypr/paperthemes"
 # prompt="dmenu -l 9 "
-prompt="wofi -dmenu -always_parse_args=true"
+prompt="wofi -n -dmenu -k "/dev/null" -always_parse_args=true"
 
 # Theme
 cancel="窱 Cancel"

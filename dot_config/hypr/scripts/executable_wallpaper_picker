@@ -3,7 +3,7 @@
 hypr=$HOME/.config/hypr
 wallpaper_folder=$HOME/Pictures/wallpapers
 
-wallpaper_location="$(ls $wallpaper_folder | wofi -n --show dmenu)"
+wallpaper_location="$(ls $wallpaper_folder | wofi -n --show dmenu -k "/dev/null")"
 
 echo "$wallpaper_folder/$wallpaper_location"
 
@@ -11,7 +11,7 @@ if [[ -d $wallpaper_folder/$wallpaper_location ]]; then
     echo "$wallpaper_folder/$wallpaper_location is a directory"
     wallpaper_temp="$wallpaper_location"
     sleep2
-    wallpaper_location="$(ls $wallpaper_folder/$wallpaper_location | wofi -n --show dmenu)"
+    wallpaper_location="$(ls $wallpaper_folder/$wallpaper_location | wofi -n --show dmenu -k "/dev/null")"
 elif [[ -f $wallpaper_folder/$wallpaper_location ]]; then
     echo "$wallpaper_folder/$wallpaper_location is a file"
 else

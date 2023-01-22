@@ -28,7 +28,7 @@ get_options() {
 main() {
 
   # get choice from rofi
-  choice=$( (get_options) | wofi -dmenu -i -p "")
+  choice=$( (get_options) | wofi -n -dmenu -k "/dev/null" -i -p "")
 
   # run the selected command
   case $choice in
