@@ -17,69 +17,75 @@ mkdir "$DUNST_CACHE_DIR" 2>/dev/null
 touch "$DUNST_LOG" 2>/dev/null
 
 function create_cache() {
-    local urgency
-    case "$DUNST_URGENCY" in
-        "LOW"|"NORMAL"|"CRITICAL") urgency="$DUNST_URGENCY";;
-        *) urgency="OTHER";;
-    esac
-
     local summary
     local body
     [ "$DUNST_SUMMARY" = "" ] && summary="Summary unavailable." || summary=${DUNST_SUMMARY//$'\n'}
-    [ "$DUNST_BODY" = "" ] && body="Body unavailable." || body=${"$(print "$DUNST_BODY" | recode html)"//$'\n'}
-
+    [ "$DUNST_BODY" = "" ] && body="Body unavailable." || body=${"$(print "$DUNST_BODY" | sed 's/`/\\`/g' |  recode -s -g html )"//$'\n'}
+    notify-send "This is my summary" "$DUNST_BODY"
     local appname=$(echo "$DUNST_APP_NAME" | awk '{print tolower($0)}')
 
-    # Fix for discord web
-    if [[ $body == *"discord"* ]]
+    if [[ $summary == "Volume" ]]
     then
-        fixed_body=$(echo $DUNST_BODY | awk FNR==3)
-        if [[ ${#fixed_body} -ge 30 ]]
-        then
-            body=$(python -c "print('${fixed_body}' + ' ...')")
-        else
-            body=$fixed_body
-        fi
-    fi
-    echo $body
-    # Fix for spotify
-    if [[ $DUNST_APP_NAME == "Spotify" ]]
-    then
-        if [[ ${#DUNST_BODY} -ge 30 ]]
-        then
-            fixed_body=$(echo $DUNST_BODY | cut -c 1-30)
-            body=$(python -c "print('${fixed_body}' + ' ...')")
-        else
-            body=$DUNST_BODY
-        fi 
-        if [[ ${#DUNST_SUMMARY} -ge 25 ]]
-        then
-            fixed_summary=$(echo $DUNST_SUMMARY | cut -c 1-25)
-            summary=$(python -c "print('${fixed_summary}' + ' ...')")
-        else
-            summary=$DUNST_SUMMARY
-        fi
-    fi
-
-    if [[ $DUNST_ICON_PATH == "" ]]
-    then
-        ICON_PATH=~/.local/share/icons/Tela/scalable/apps/$DUNST_APP_NAME.svg
     else
-        FIXED_ICON_PATH=$(echo ${DUNST_ICON_PATH} | sed 's/32x32/48x48/g')
-        ICON_PATH=$FIXED_ICON_PATH
-    fi
+        local urgency
+        case "$DUNST_URGENCY" in
+            "LOW"|"NORMAL"|"CRITICAL") urgency="$DUNST_URGENCY";;
+            *) urgency="OTHER";;
+        esac
 
-	echo "$DUNST_APP_NAME"
-    if [[ $DUNST_APP_NAME == "Spotify" ]]
-    then
-        ICON_PATH=$HOME/.cache/temp-$SPOTIFY_TITLE.png
-    fi
+        #Fix for discord web
+        # if [[ $appname == *"discord"* ]]
+        # then
+        #     fixed_body=$(echo $DUNST_BODY | awk FNR==3)
+        #     if [[ ${#fixed_body} -ge 30 ]]
+        #     then
+        #         body=$(python -c "print('${fixed_body}' + ' ...')")
+        #     else
+        #         body=$fixed_body
+        #     fi
+        # fi
+        
+        # echo $body
+        # Fix for spotify
+        if [[ $DUNST_APP_NAME == "Spotify" ]]
+        then
+            if [[ ${#DUNST_BODY} -ge 30 ]]
+            then
+                fixed_body=$(echo $DUNST_BODY | cut -c 1-30)
+                body=$(python -c "print('${fixed_body}' + ' ...')")
+            else
+                body=$DUNST_BODY
+            fi 
+            if [[ ${#DUNST_SUMMARY} -ge 25 ]]
+            then
+                fixed_summary=$(echo $DUNST_SUMMARY | cut -c 1-25)
+                summary=$(python -c "print('${fixed_summary}' + ' ...')")
+            else
+                summary=$DUNST_SUMMARY
+            fi
+        fi
 
-  # pipe stdout -> pipe cat stdin (cat conCATs multiple files and sends to stdout) -> absorb stdout from cat
-  # concat: "one" + "two" + "three" -> notice how the order matters i.e. "one" will be prepended
-  print '(notification-card :urgency "'$urgency'" :class "notification-card notification-card-'$DUNST_APP_NAME'" :SL "'$DUNST_ID'" :L "dunstctl history-pop '$DUNST_ID'" :body `'$body'` :summary `'$summary'` :image "'$ICON_PATH'" :application "'$appname'")' \
-      | cat - "$DUNST_LOG" \
-      | sponge "$DUNST_LOG"
+        if [[ $DUNST_ICON_PATH == "" ]]
+        then
+            ICON_PATH=/usr/share/icons/Zafiro-Nord-Dark/apps/scalable/$DUNST_APP_NAME.svg
+        else
+            FIXED_ICON_PATH=$(echo ${DUNST_ICON_PATH} | sed 's/32x32/48x48/g')
+            ICON_PATH=$FIXED_ICON_PATH
+        fi
+
+        echo "$DUNST_APP_NAME"
+        if [[ $DUNST_APP_NAME == "Spotify" ]]
+        then
+            ICON_PATH=$HOME/.cache/temp-$SPOTIFY_TITLE.png
+        fi
+
+        # pipe stdout -> pipe cat stdin (cat conCATs multiple files and sends to stdout) -> absorb stdout from cat
+        # concat: "one" + "two" + "three" -> notice how the order matters i.e. "one" will be prepended
+        print '(notification-card :urgency "'$urgency'" :class "notification-card notification-card-'$DUNST_APP_NAME'" :SL "'$DUNST_ID'" :L "dunstctl history-pop '$DUNST_ID'" :body `'$body'` :summary `'$summary'` :image "'$ICON_PATH'" :application "'$appname'")' \
+        | cat - "$DUNST_LOG" \
+        | sponge "$DUNST_LOG"
+    fi
+    
   }
 
   function compile_caches() { tr '\n' ' ' < "$DUNST_LOG" }

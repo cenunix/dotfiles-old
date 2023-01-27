@@ -68,12 +68,12 @@
   (eventbox :class "notification-card-eventbox ${class}" :onclick L :onmiddleclick M :onrightclick R 
     (box :class "notification-card" :orientation "h" :space-evenly false 
       (box :class "notifification-left"
-        (box :class "notification-image" :style "background-image: url(\"${image}\")"))
+        (box :class "notification-image" :style "background-size: 48px 48px;background-image: url(\"${image}\")"))
       (box :class "notification-middle" :orientation "v"
            :space-evenly false
            :hexpand true
-        (label :class "notification-summary" :halign "start" :limit-width 25 :tooltip summary :text summary) 
-        (label :class "notification-body" :halign "start"  :limit-width 30 :wrap true :tooltip body :text body))
+        (label :class "notification-summary" :halign "baseline" :vexpand true :wrap true :tooltip summary :text summary) 
+        (label :class "notification-body" :halign "baseline" :vexpand true :wrap true :tooltip body :text body))
       (box :class "notification-end"
         (button :class "notification-card-notify-close" :halign "end" :onclick "~/.local/.scripts/notifs rm_id ${SL}" 
           (label :text "" :tooltip "Dismiss"))))))
@@ -82,7 +82,7 @@
   (box :class "notifications-box" :orientation "v" :hexpand true :vexpand true :space-evenly false
     (label :class "notification-headers-label" :hexpand true :vexpand true :text "Notifications")
     (box :class "notification-headers"
-         :height 300
+         :height 490
          :orientation "v"
          :space-evenly false
          :vexpand true
@@ -93,14 +93,14 @@
 
 (defwindow time-menu0 
   :monitor 0
-  :geometry (geometry :x "5px" :y "2px" :width "384px" :height "1px" :anchor "top right")
+  :geometry (geometry :x "5px" :y "2px" :width "584px" :height "1px" :anchor "top right")
   :windowtype "dock"
   :wm-ignore false
   (time-menu-main))
 
 (defwindow time-menu1 
   :monitor 1
-  :geometry (geometry :x "5px" :y "2px" :width "384px" :height "1px" :anchor "top right")
+  :geometry (geometry :x "5px" :y "2px" :width "584px" :height "1px" :anchor "top right")
   :windowtype "dock"
   :wm-ignore false
   (time-menu-main))

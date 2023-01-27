@@ -20,7 +20,7 @@
     frame_width = 1
     frame_color = "#8aadf4"
     separator_color = frame
-    ; enable_posix_regex = true
+    ;enable_posix_regex = true
     sort = yes
     idle_threshold = -1
     font = JetBrains Mono Nerd Font 11
@@ -63,18 +63,21 @@
     history = ctrl+grave
     context = ctrl+shift+period
 [urgency_low]
-    background = "#181926"
+    background = "#24273A"
     foreground = "#cad3f5"
+    highlight = "#cad3f5"
     #script = /home/morpheus/.config/dunst/dunstscript.sh
     timeout = 10
 [urgency_normal]
-    background = "#181926"
+    background = "#24273A"
     foreground = "#cad3f5"
+    highlight = "#cad3f5"
     #script = /home/morpheus/.config/dunst/dunstscript.sh
     timeout = 10
 [urgency_critical]
-    background = "#181926"
+    background = "#24273A"
     foreground = "#cad3f5"
+    highlight = "#cad3f5"
     frame_color = "#ee99a0"
     timeout = 0  
 [screenshots]

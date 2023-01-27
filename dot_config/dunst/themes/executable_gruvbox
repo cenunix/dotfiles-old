@@ -64,16 +64,19 @@
     context = ctrl+shift+period
 [urgency_low]
     background = "#282828"
+    highlight = "#fbf1c7"
     foreground = "#fbf1c7"
     #script = /home/morpheus/.config/dunst/dunstscript.sh
     timeout = 10
 [urgency_normal]
     background = "#282828"
+    highlight = "#fbf1c7"
     foreground = "#fbf1c7"
     #script = /home/morpheus/.config/dunst/dunstscript.sh
     timeout = 10
 [urgency_critical]
     background = "#282828"
+    highlight = "#fbf1c7"
     foreground = "#fbf1c7"
     frame_color = "#ee99a0"
     timeout = 0  

@@ -84,7 +84,7 @@ decoration {
     blur_new_optimizations = true
     active_opacity = 1.0
     inactive_opacity = 1.0
-    fullscreen_opacity = 1.0
+    #fullscreen_opacity = 1.0
     drop_shadow=true
     shadow_range=20
     shadow_render_power=3
@@ -107,7 +107,7 @@ animations {
     enabled=1
     bezier=pace,0.46, 1, 0.29, 0.99
     bezier=overshot,0.13,0.99,0.29,1.1
-    animation=windowsIn,1,10,pace,slide
+    animation=windowsIn,1,10,pace,popin
     animation=windowsOut,1,10,default,slide
     animation=windowsMove,1,10,pace,slide
     animation=fade,1,10,pace
@@ -146,9 +146,11 @@ misc {
 
 windowrule=tile,^(neovide)$
 windowrule=forceinput,^(neovide)$
-windowrulev2 = opacity 0.95 0.6,class:^(wofi)$
+windowrulev2 = opacity 0.8 0.6,class:^(wofi)$
+windowrulev2 = move 30 100,class:^(wofi)$
 #windowrule=opacity,^(waybar)$
-windowrule=opaque,^(firefox)$
+windowrulev2=opaque,title:^(Picture-in-Picture)$
+#windowrule=opaque,^(firefox)$
 windowrule=opaque,^(com.obsproject.Studio)$
 #windowrule=workspace 6,^(csgo_linux64)$
 windowrule=fullscreen,^(csgo_linux64)$
@@ -171,15 +173,16 @@ bind=SUPER,E,exec,dolphin
 bind=SUPER_SHIFT,SPACE,togglefloating,
 bind=SUPER,P,pseudo,
 bind=SUPER,F,fullscreen
-bind=SUPER,N,exec,lvim-gui
+bind=SUPER,N,exec,~/.local/bin/lvim-gui
 bind=SUPER,I,exec,swaylock -i "$(cat ~/.config/hypr/scripts/variables/temp/background)"
 bind=SUPER,D,exec,wofi -n --show drun -k "/dev/null"
-bind=SUPER,X,exec,wofi-powermenu
-bind=SUPER,C,exec,wayland-screenshot
-bind=SUPER,V,exec,theme_changer_wl
+bind=SUPER,X,exec,~/.local/.scripts/wofi-powermenu
+bind=SUPER,C,exec,~/.local/.scripts/wayland-screenshot
+bind=SUPER,V,exec,~/.local/.scripts/theme_changer_wl
 bind=SUPER_SHIFT,V,exec,cliphist list | head -80 | cut -d' ' -f2- | wofi -n --show dmenu -k "/dev/null" | wl-copy
 bind=SUPER_SHIFT,D,exec,~/.config/hypr/scripts/extra/dictionary
 bind=SUPER_SHIFT,C,exec,~/.config/hypr/scripts/wallpaper_picker
+bind=SUPER,Z,toggleopaque
 bind=SUPER_SHIFT,Z,exec,~/.config/hypr/scripts/toggle_opacity
 
 
@@ -187,9 +190,9 @@ bind=,Print,exec,wscreenshot -sf
 
 bind=,XF86MonBrightnessUp,exec,light -A 2 && light -O && brightness &
 bind=,XF86MonBrightnessDown,exec,light -U 2 && light -O && brightness &
-bind=,XF86AudioRaiseVolume,exec,amixer -D pulse sset Master 5%+ && volume &
-bind=,XF86AudioLowerVolume,exec,amixer -D pulse sset Master 5%- && volume &
-bind=,XF86AudioMute,exec,pactl set-sink-mute @DEFAULT_SINK@ toggle && mute &
+bind=,XF86AudioRaiseVolume,exec,~/.config/dunst/scripts/volume up &
+bind=,XF86AudioLowerVolume,exec,~/.config/dunst/scripts/volume down &
+bind=,XF86AudioMute,exec,~/.config/dunst/scripts/volume mute &
 
 bind=SUPER,left,movefocus,l
 bind=SUPER,right,movefocus,r
