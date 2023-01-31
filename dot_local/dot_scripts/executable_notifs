@@ -21,7 +21,7 @@ function create_cache() {
     local body
     [ "$DUNST_SUMMARY" = "" ] && summary="Summary unavailable." || summary=${DUNST_SUMMARY//$'\n'}
     [ "$DUNST_BODY" = "" ] && body="Body unavailable." || body=${"$(print "$DUNST_BODY" | sed 's/`/\\`/g' |  recode -s -g html )"//$'\n'}
-    notify-send "This is my summary" "$DUNST_BODY"
+    # notify-send "This is my summary" "$DUNST_BODY"
     local appname=$(echo "$DUNST_APP_NAME" | awk '{print tolower($0)}')
 
     if [[ $summary == "Volume" ]]
