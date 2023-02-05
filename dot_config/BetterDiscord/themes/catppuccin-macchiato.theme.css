@@ -9,3 +9,8 @@
  * **/
 
  @import url("https://catppuccin.github.io/discord/dist/catppuccin-macchiato.theme.css");
+
+.theme-dark,
+.theme-light {
+  --background-primary: #181926;
+}

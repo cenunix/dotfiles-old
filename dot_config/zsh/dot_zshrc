@@ -5,7 +5,7 @@ export NVM_DIR="$HOME/langs/.nvm"
 [[ -r $NVM_DIR/zsh_completion ]] && \. $NVM_DIR/zsh_completion
 
 path+=('/home/user/.local/.scripts')
-path+=('/home/user/langs/')
+path+=('/home/user/langs/.cargo/bin')
 
 HISTFILE="$HOME/.config/zsh/.zsh_history"
 HISTSIZE=100000

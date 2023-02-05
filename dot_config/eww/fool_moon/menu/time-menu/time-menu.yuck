@@ -68,7 +68,7 @@
   (eventbox :class "notification-card-eventbox ${class}" :onclick L :onmiddleclick M :onrightclick R 
     (box :class "notification-card" :orientation "h" :space-evenly false 
       (box :class "notifification-left"
-        (box :class "notification-image" :style "background-size: 48px 48px;background-image: url(\"${image}\")"))
+        (box :class "notification-image" :style "background-size: 150px 100px;background-image: url(\"${image}\")"))
       (box :class "notification-middle" :orientation "v"
            :space-evenly false
            :hexpand true

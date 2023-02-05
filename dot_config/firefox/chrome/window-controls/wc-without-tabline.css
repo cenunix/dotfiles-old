@@ -1,6 +1,6 @@
 @import "window-controls.css";
 
-:root:not([inFullscreen]) toolbar#nav-bar {
+:root toolbar#nav-bar {
     z-index: 1 !important;
     position: relative !important;
     /* shift toolbar to the right based on initial width */

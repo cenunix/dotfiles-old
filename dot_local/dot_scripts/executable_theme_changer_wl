@@ -19,11 +19,12 @@ prompt="wofi -n -dmenu -k "/dev/null" -always_parse_args=true"
 # Theme
 cancel="窱 Cancel"
 theme1=" Catppuccin (Macchiato)"
-theme2=" TokyoNight (Night)"
-theme3=" Dracula"
-theme4=" Gruvbox"
-theme5=" Nord"
-theme6=" Everforest"
+theme2=" Catppuccin (Mocha)"
+theme3=" TokyoNight (Night)"
+theme4=" Dracula"
+theme5=" Gruvbox"
+theme6=" Nord"
+theme7=" Everforest"
 
 # Variable to pass to dmenu or rofi
 option="$cancel\n$theme1\n$theme2\n$theme3\n$theme4\n$theme5\n$theme6"
@@ -54,6 +55,11 @@ elif [[ "$1" == "catppuccin-macchiato" ]]; then
 		sed -i "s/\(workbench.colorTheme\":\)\(.*\)/\1 \"Catppuccin Macchiato\",/" ~/.config/Code\ -\ OSS/User/settings.json
 		echo catppuccin-macchiato > $nvim_colors
 		# sed -i 's/\(include \)\(.*\)/\1catppuccin-macchiato.conf/' ~/.config/kitty/kitty.conf
+elif [[ "$1" == "catppuccin-mocha" ]]; then
+	# nvim
+	sed -i "s/\(workbench.colorTheme\":\)\(.*\)/\1 \"Catppuccin Mocha\",/" ~/.config/Code\ -\ OSS/User/settings.json
+	echo catppuccin-mocha > $nvim_colors
+	# sed -i 's/\(include \)\(.*\)/\1catppuccin-macchiato.conf/' ~/.config/kitty/kitty.conf
 
 elif [[ "$1" == "nord" ]]; then
 	#waybar
@@ -105,7 +111,20 @@ case $select in
 		killall -s SIGUSR1 kitty
 		killall dunst
 		;;
-	$theme2)
+		$theme2)
+		# hyprctl hyprpaper preload "~/Pictures/wallpapers/fool_moon.jpg" && hyprctl hyprpaper wallpaper "DP-2,~/Pictures/wallpapers/fool_moon.jpg"
+		change_theme catppuccin-mocha
+		change_gtk_theme Catppuccin-Mocha
+		$HOME/.local/.scripts/gtk2gsetting.sh
+		# pkill waybar
+		# waybar
+		# pkill hyprpaper
+		# hyprpaper
+		hyprctl reload # restart hyprland
+		killall -s SIGUSR1 kitty
+		killall dunst
+		;;
+	$theme3)
 		# hyprctl hyprpaper preload "~/Pictures/wallpapers/astronaut.png" && hyprctl hyprpaper wallpaper "DP-2,~/Pictures/wallpapers/astronaut.png"
 		change_theme tokyonight
 		change_gtk_theme Tokyonight-Dark-B
@@ -118,7 +137,7 @@ case $select in
 		killall -s SIGUSR1 kitty
 		killall dunst
 		;;
-	$theme3)
+	$theme4)
 		# hyprpaper -m fill -i $HOME/Pictures/Backgrounds/arch/Artix.png &
 		change_theme dracula
 		change_gtk_theme Dracula
@@ -131,7 +150,7 @@ case $select in
 		killall -s SIGUSR1 kitty
 		killall dunst
 		;;
-	$theme4)
+	$theme5)
 		# hyprpaper -m fill -i $HOME/Pictures/Backgrounds/gruvbox/mountain.jpeg &
 		change_theme gruvbox
 		change_gtk_theme Gruvbox-Dark-B
@@ -144,7 +163,7 @@ case $select in
 		killall -s SIGUSR1 kitty
 		killall dunst
 		;;
-	$theme5)
+	$theme6)
 		# hyprpaper -m fill -i $HOME/.config/wallpaper/mist_forest_nord.jpg &
 		change_theme nord
 		change_gtk_theme Nordic
@@ -157,7 +176,7 @@ case $select in
 		killall -s SIGUSR1 kitty
 		killall dunst
 		;;
-	$theme6)
+	$theme7)
 		# hyprpaper -m fill -i $HOME/.config/wallpaper/everforest.jpg &
 		change_theme everforest
 		change_gtk_theme Everforest-Dark-B

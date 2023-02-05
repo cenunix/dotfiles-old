@@ -76,7 +76,7 @@ selection_foreground = "#C6D0F5"
 [[themes]]
 name = "Catppuccin-macchiato"
 [themes.palette]
-background = "#24273A"
+background = "#181926"
 foreground = "#CAD3F5"
 black = "#24273A"
 blue = "#8AADF4"
@@ -102,7 +102,7 @@ block_title = { fg = "Cyan"  }
 playback_track = { fg = "Blue", modifiers = ["Bold"] }
 playback_album = { fg = "Blue" }
 playback_metadata = { fg = "Blue" }
-playback_progress_bar = { bg = "SelectionBackground", fg = "Cyan" }
+playback_progress_bar = { bg = "Blue", fg = "Cyan" }
 current_playing = { fg = "Blue", modifiers = ["Bold"] }
 page_desc = { fg = "Cyan", modifiers = ["Bold"] }
 table_header = { fg = "Blue" }

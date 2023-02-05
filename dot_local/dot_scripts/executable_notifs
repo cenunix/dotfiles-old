@@ -47,23 +47,23 @@ function create_cache() {
         
         # echo $body
         # Fix for spotify
-        if [[ $DUNST_APP_NAME == "Spotify" ]]
-        then
-            if [[ ${#DUNST_BODY} -ge 30 ]]
-            then
-                fixed_body=$(echo $DUNST_BODY | cut -c 1-30)
-                body=$(python -c "print('${fixed_body}' + ' ...')")
-            else
-                body=$DUNST_BODY
-            fi 
-            if [[ ${#DUNST_SUMMARY} -ge 25 ]]
-            then
-                fixed_summary=$(echo $DUNST_SUMMARY | cut -c 1-25)
-                summary=$(python -c "print('${fixed_summary}' + ' ...')")
-            else
-                summary=$DUNST_SUMMARY
-            fi
-        fi
+        # if [[ $DUNST_APP_NAME == "Spotify" ]]
+        # then
+        #     if [[ ${#DUNST_BODY} -ge 30 ]]
+        #     then
+        #         fixed_body=$(echo $DUNST_BODY | cut -c 1-30)
+        #         body=$(python -c "print('${fixed_body}' + ' ...')")
+        #     else
+        #         body=$DUNST_BODY
+        #     fi 
+        #     if [[ ${#DUNST_SUMMARY} -ge 25 ]]
+        #     then
+        #         fixed_summary=$(echo $DUNST_SUMMARY | cut -c 1-25)
+        #         summary=$(python -c "print('${fixed_summary}' + ' ...')")
+        #     else
+        #         summary=$DUNST_SUMMARY
+        #     fi
+        # fi
 
         if [[ $DUNST_ICON_PATH == "" ]]
         then

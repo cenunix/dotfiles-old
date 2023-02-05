@@ -22,20 +22,25 @@ require('colorscheme-file').setup {
     },
 }
 
--- vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
--- require("catppuccin").setup {
---     -- transparent_background = true,
---     custom_highlights = {
---         DashboardHeader = { fg = "#8AADF4"},
---         DashboardCenter = { fg = "#8AADF4"},
---         -- HarpoonWindow = { ctermbg = 238 },
---         -- HarpoonBorder = { fg = "#8AADF4" },
---         -- Comment = { fg = colors.flamingo },
---         -- TSConstBuiltin = { fg = colors.peach, style = {} },
---         -- TSConstant = { fg = colors.sky },
---         -- TSComment = { fg = colors.surface2, style = { "italic" } }
---     }
--- }
+vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
+require("catppuccin").setup {
+    color_overrides = {
+        macchiato = {
+            base = "#181926",
+        }
+    }
+    -- transparent_background = true,
+    -- custom_highlights = {
+    --     DashboardHeader = { fg = "#8AADF4"},
+    --     DashboardCenter = { fg = "#8AADF4"},
+    --     -- HarpoonWindow = { ctermbg = 238 },
+    --     -- HarpoonBorder = { fg = "#8AADF4" },
+    --     -- Comment = { fg = colors.flamingo },
+    --     -- TSConstBuiltin = { fg = colors.peach, style = {} },
+    --     -- TSConstant = { fg = colors.sky },
+    --     -- TSComment = { fg = colors.surface2, style = { "italic" } }
+    -- }
+}
 
 
 lvim.builtin.alpha.dashboard.section.header.opts.hl = "DashboardHeader"
