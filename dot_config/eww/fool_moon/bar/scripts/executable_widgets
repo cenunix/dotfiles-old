@@ -64,6 +64,18 @@ function toggle_time1() {
 	fi
 }
 
+function toggle_clip() {
+	if [ -f "$CACHE_DIR/clipboard.lock" ];then
+		rm "$CACHE_DIR/clipboard.lock"
+		sleep 0.9
+		# $eww_menu close unfocus
+		$eww_menu close clipboard
+	else
+		touch "$CACHE_DIR/clipboard.lock"
+		$eww_menu open clipboard 
+	fi
+}
+
 if ! [ -d "$CACHE_DIR" ];then
 	mkdir -p "$CACHE_DIR"
 fi
@@ -73,6 +85,7 @@ case "$1" in
 	"toggle-sys1") toggle_sys1;;
 	"toggle-time") toggle_time0;;
 	"toggle-time1") toggle_time1;;
+	"toggle-clip") toggle_clip;;
 	*) echo "Unknown command";;
 esac
 

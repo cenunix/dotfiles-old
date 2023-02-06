@@ -6,6 +6,8 @@ export NVM_DIR="$HOME/langs/.nvm"
 
 path+=('/home/user/.local/.scripts')
 path+=('/home/user/langs/.cargo/bin')
+path+=('/home/user/langs/go/bin')
+
 
 HISTFILE="$HOME/.config/zsh/.zsh_history"
 HISTSIZE=100000

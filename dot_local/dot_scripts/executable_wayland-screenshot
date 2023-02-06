@@ -4,87 +4,60 @@
 theme="$HOME/.config/rofi/main_without_icons.rasi"
 
 get_options() {
-  echo "  Selected area screenshot"
-  echo "  Full screen screenshot"
-  echo "  Left screen screenshot"
-  echo "  Right screen screenshot"
-  echo "  Stop Recording"
-  echo "  Selected area video"
-  echo "  Full screen video"
-  echo "  Record audio (microphone)"
-  echo "  Record audio (desktop)"
-  echo "  Selected area video with audio (microphone)"
-  echo "  Full screen video with audio (microphone)"
-  echo "  Selected area video with audio (desktop)"
-  echo "  Full screen video with audio (desktop)"
-  echo "  Left monitor video"
-  echo "  Left monitor video with audio(desktop)"
-  echo "  Left monitor video with audio(microphone)"
-  echo "  Right monitor video"
-  echo "  Right monitor video with audio(desktop)"
-  echo "  Right monitor video with audio(microphone)"
+  echo "  Selected area screenshot"
+  echo "  Full screen screenshot"
+  echo " Stop Recording"
+  echo "  Selected area video"
+  echo "  Full screen video"
+  echo "  Selected area video with audio (microphone)"
+  echo "  Full screen video with audio (microphone)"
+  echo "  Selected area video with audio (desktop)"
+  echo "  Full screen video with audio (desktop)"
+  echo "  Selected area video with all audio"
+  echo "  Full screen area video with all audio"
 }
 
 main() {
 
   # get choice from rofi
-  choice=$( (get_options) | wofi -n -dmenu -k "/dev/null" -i -p "")
+  choice=$( (get_options) | wofi -n -dmenu -k "/dev/null" -i)
 
   # run the selected command
   case $choice in
-  '  Selected area screenshot')
+  '  Selected area screenshot')
     wscreenshot -sa
     ;;
-  '  Full screen screenshot')
+  '  Full screen screenshot')
     wscreenshot -sf
     ;;
-  '  Stop Recording')
-    screenshot -s
+  ' Stop Recording')
+    wscreenshot -s
     ;;
-  '  Selected area video')
-    screenshot -va
+  '  Selected area video')
+    wscreenshot -va
     ;;
-  '  Full screen video')
-    screenshot -vf
+  '  Full screen video')
+    wscreenshot -vf
     ;;
-  '  Record audio (microphone)')
-    screenshot -am
+  '  Selected area video with audio (microphone)')
+    wscreenshot -vaam
     ;;
-  '  Record audio (desktop)')
-    screenshot -ad
+  '  Full screen video with audio (microphone)')
+    wscreenshot -vfam
     ;;
-  '  Selected area video with audio (microphone)')
-    screenshot -vaam
+  '  Selected area video with audio (desktop)')
+    wscreenshot -vsad
     ;;
-  '  Full screen video with audio (microphone)')
-    screenshot -vfam
+  '  Full screen video with audio (desktop)')
+    wscreenshot -vfad
     ;;
-  '  Selected area video with audio (desktop)')
-    screenshot -vsad
-    ;;
-  '  Full screen video with audio (desktop)')
-    screenshot -vfad
-    ;;
-  '  Left monitor video')
-    screenshot -vl
-    ;;
-  '  Left monitor video with audio(desktop)')
-    screenshot -vlad
-    ;;
-  '  Left monitor video with audio (microphone)')
-    screenshot -vlam
-    ;;
-  '  Right monitor video')
-    screenshot -vr
-    ;;
-  '  Right monitor video with audio(desktop)')
-    screenshot -vrad
-    ;;
-  '  Right monitor video with audio(microphone)')
-    screenshot -vram
-    ;;
+  '  Selected area video with all audio')
+    wscreenshot -vsaa
+  ;;
+  '  Full screen area video with all audio')
+    wscreenshot -vfaa
+  ;;
   esac
-
   # done
   set -e
 }

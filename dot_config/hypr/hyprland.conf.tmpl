@@ -107,11 +107,11 @@ animations {
     enabled=1
     bezier=pace,0.46, 1, 0.29, 0.99
     bezier=overshot,0.13,0.99,0.29,1.1
-    animation=windowsIn,1,10,pace,popin
-    animation=windowsOut,1,10,default,slide
-    animation=windowsMove,1,10,pace,slide
+    animation=windowsIn,1,5,pace,popin
+    animation=windowsOut,1,7,default,slide
+    animation=windowsMove,1,4,pace,slide
     animation=fade,1,10,pace
-    animation=workspaces,1,9,pace,slide
+    animation=workspaces,1,7,pace,slide
     animation=specialWorkspace,1,8,pace,slide
     animation=border,0,3,default
 }
@@ -146,7 +146,7 @@ misc {
 
 windowrule=tile,^(neovide)$
 windowrule=forceinput,^(neovide)$
-windowrulev2 = opacity 0.8 0.6,class:^(wofi)$
+windowrulev2 = opacity 1.0 0.4,class:^(wofi)$
 windowrulev2 = move 30 100,class:^(wofi)$
 #windowrule=opacity,^(waybar)$
 windowrulev2=opaque,title:^(Picture-in-Picture)$

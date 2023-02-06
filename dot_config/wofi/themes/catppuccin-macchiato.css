@@ -2,6 +2,8 @@ window {
     margin: 0px;
     border: 5px solid #181926;
     background-color: rgba(24, 25, 38, 1.0);
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free Solid";
+    font-size: 13px;
   }
   
   @keyframes gradient_f {
