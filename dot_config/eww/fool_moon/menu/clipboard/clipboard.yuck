@@ -1,12 +1,25 @@
 (deflisten clipboard "tail -F /tmp/eww/clipboard/yuck")
 
-(defwindow clipboard
+(defwindow clipboard0
   :monitor 0
-  :stacking "overlay"
+  :focusable true
   :geometry (geometry
     :x "20px"
     :y "20px"
-    :width "550px"
+    :width "500px"
+    :height "900px"
+    :anchor "bottom left"
+  )
+  (clipboard)
+)
+
+(defwindow clipboard1
+  :monitor 1
+  :focusable true
+  :geometry (geometry
+    :x "20px"
+    :y "20px"
+    :width "500px"
     :height "900px"
     :anchor "bottom left"
   )

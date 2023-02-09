@@ -1,13 +1,16 @@
-.clipboard {
+.clipboard0 {
   background: $bg;
   border-radius: 10;
   padding: 0 0.5em;
-  background: transparent;
+}
+.clipboard1 {
+  background: $bg;
+  border-radius: 10;
+  padding: 0 0.5em;
 }
 
-
 .cb-item {
-  border: 1px solid rgba($fg, 30%);
+  border: 1px solid rgba($light-gray, 30%);
   border-radius: 10;
   margin: 4;
   padding: 4;

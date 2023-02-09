@@ -65,14 +65,13 @@ function toggle_time1() {
 }
 
 function toggle_clip() {
-	if [ -f "$CACHE_DIR/clipboard.lock" ];then
-		rm "$CACHE_DIR/clipboard.lock"
-		sleep 0.9
+	if [ -f "$CACHE_DIR/clipboard$focusmon.lock" ];then
+		rm "$CACHE_DIR/clipboard$focusmon.lock"
 		# $eww_menu close unfocus
-		$eww_menu close clipboard
+		$eww_menu close "clipboard$focusmon"
 	else
-		touch "$CACHE_DIR/clipboard.lock"
-		$eww_menu open clipboard 
+		touch "$CACHE_DIR/clipboard$focusmon.lock"
+		$eww_menu open "clipboard$focusmon" 
 	fi
 }
 
