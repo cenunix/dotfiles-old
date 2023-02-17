@@ -1,0 +1,255 @@
+@import "../common/scss/colors.scss";
+
+* {
+	all: unset;
+	transition: 60ms ease-in; 
+}
+
+@keyframes gradient_f {
+	0% {
+		background-position: 0% 200%;
+	}
+    50% {
+        background-position: 200% 0%;
+    }
+	100% {
+		background-position: 400% 200%;
+	}
+}
+
+tooltip {
+	color: #B8BDC9;
+	background-color: $bg;
+	border: 1px solid $gray;
+}
+
+.bar {
+	font-family: Noto Sans, "Font Awesome 6 Free";
+	// background-color: #181926;
+	background: radial-gradient(circle, rgba(138, 173, 244,1) 0%, rgba(138, 173, 244,1) 12%, rgba(145, 215, 227,1) 19%, rgba(189,169,247,1) 20%, rgba(182,171,247,1) 24%, rgba(138, 173, 244,1) 36%, rgba(177,172,247,1) 37%, rgba(170,173,248,1) 48%, rgba(125, 196, 228,1) 52%, rgba(166,174,248,1) 52%, rgba(160,175,248,1) 59%, rgba(139, 213, 202,1) 66%, rgba(155,176,248,1) 67%, rgba(152,177,248,1) 68%, rgba(73, 77, 100,1) 77%, rgba(148,178,249,1) 78%, rgba(144,179,250,1) 82%, rgba(180,190,254,1) 83%, rgba(141,179,250,1) 90%, rgba(137,180,250,1) 100%); 
+	background-size: 200% 200%;
+	animation: gradient_f linear infinite;
+	animation-delay: 0s;
+	animation-fill-mode: forwards;
+	animation-duration: 10.0s;
+	// opacity: 0.7;
+	//background-color: rgba(24, 24, 33, 0.65);
+	// border-bottom: 1px solid $gray;
+    margin: 10px 15px 15px 15px;
+	border-radius: 12px;
+	padding: 4px;
+}
+
+.left-bar, .right-bar {
+}
+
+.start-box {
+	margin-left: 0.5rem;
+}
+
+.start-eventbox {
+	font-size: 16px;
+	color: $bg;
+	background-color: $blue;
+	border-radius: 8px;
+}
+
+.start-eventbox:hover {
+	color: $bg;
+	background-color: $mauve;
+}
+
+.start-btn {
+	padding: 0.45rem 1.1rem;
+}
+
+.works {	
+	font-size: 18px;
+	font-family: "Font Awesome 6 Free Solid";
+	border-radius: 8px;
+
+	button:hover {
+		color: $mauve;
+	}
+	
+	.0 , .01, .02, .03, .04, .05, .06,
+	.011, .022, .033, .044, .055, .066 {
+	}
+
+	/* Unoccupied */
+	.0 {
+		color: #313547;
+	}
+
+	/* Occupied */
+	.01,
+	.02,
+	.03,
+	.04,
+	.05,
+	.06,
+	.07,
+	.08,
+	.09, 
+	.010 {
+		color: $dark-blue;
+	}
+
+	/* Focused */
+	.011,
+	.022,
+	.033,
+	.044,
+	.055,
+	.066,
+	.077,
+	.088,
+	.099,
+	.01010 {
+		color: $blue;
+	}
+}
+
+.cava {
+	font-family: NotoSansMono Nerd Font;
+	color: #B8BDC9;
+	background-color: $raisin-black;
+	border-radius: 8px;
+	padding: 0.1rem 0.5rem;
+}
+
+.cava-label {
+}
+
+.updates {
+	font-weight: bold;
+	color: $bg;
+	background-color: $mint;
+	border-radius: 8px;
+	padding: 0.1rem 0.6rem;
+}
+
+.sys {
+	background-color: $blue;
+	color: $bg;
+	border-radius: 8px;
+	padding: 0.4rem 0.5rem;
+
+	box {
+		padding: 0.4rem 0.6rem;
+	}
+
+	.wifi-on {
+		color: $bg;
+	}
+
+	.wifi-off {
+		color: $gray;
+	}
+}
+
+.sys:hover {
+	background-color: #679df5;
+}
+
+.notifs-eventbox {
+	font-weight: bold;
+	color: $bg;
+	background-color: $blue;
+	border-radius: 8px;
+}
+
+.notifs-eventbox:hover {
+	background-color: #679df5;
+	color: $bg;
+}
+
+.notifs-label {
+	padding: 0.2rem 0.7rem;
+}
+
+.bat-box {
+	color: $bg;
+
+	.bat-icon.high {
+		background-color: $teal;
+	}
+
+	.bat-icon.med {
+		background-color: $yellow;
+	}
+
+	.bat-icon.low {
+		background-color: $red;
+	}
+
+	.bat-label {
+		font-weight: bold;
+	}
+
+	.bat-dark {
+		color: $bg;
+	}
+
+	.bat-light {
+		color: $light-gray;
+	}
+
+	scale.bat-scale trough {
+		all: unset;
+		background-color: $gray;
+		border-radius: 8px;
+		min-height: 25px;
+		min-width: 60px;
+	}
+
+	scale.bat-scale.high trough {
+		background-color: $teal;
+	}
+
+	scale.bat-scale.med trough {
+		background-color: $yellow;
+	}
+
+	scale.bat-scale.low trough {
+		background-color: $red;
+	}
+
+
+	.bat-scale.high trough highlight {
+		background-color: $teal;
+		border-radius: 8px;
+	}
+
+	.bat-scale.med trough highlight {
+		background-color: $yellow;
+		border-radius: 8px;
+	}
+
+	.bat-scale.low trough highlight {
+		background-color: $red;
+		border-radius: 8px;
+	}
+}
+
+.time-box {
+	margin-right: 0.5rem;
+}
+
+.time-eventbox {
+	font-weight: bold;
+	font-size: 14px;
+	color: $bg;
+	background-color: $mauve;
+	border-radius: 8px;
+}
+
+.time-eventbox:hover {
+	color: $bg;
+	background-color: $blue;
+}
+
+.time-label {
+	padding: 0.25rem 0.6rem;
+}
+

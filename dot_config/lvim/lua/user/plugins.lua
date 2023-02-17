@@ -26,7 +26,7 @@ vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
 require("catppuccin").setup {
     color_overrides = {
         macchiato = {
-            base = "#181926",
+            -- base = "#181926",
         }
     }
     -- transparent_background = true,
