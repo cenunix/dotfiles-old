@@ -172,7 +172,7 @@
   :stacking "fg"
   :hexpand false
   :vexpand false
-  :exclusive true
+  :exclusive false
   :windowtype "dock"
   (main))
 
@@ -180,14 +180,14 @@
   :monitor 0
   :geometry (geometry :x "10px" :y "10px" :height "50px" :anchor "top center")
   :stacking "fg"
-  :exclusive true
+  :exclusive false
   (lbar))
 
 (defwindow right_bar0 
   :monitor 0
   :geometry (geometry :x "-10px" :y "10px" :height "50px" :anchor "top center")
   :stacking "fg"
-  :exclusive true
+  :exclusive false
   (rbar))
 
 (defwindow bar1 
@@ -196,7 +196,7 @@
   :stacking "fg"
   :hexpand false
   :vexpand false
-  :exclusive true
+  :exclusive false
   :windowtype "dock"
   (main1))
 
@@ -204,12 +204,12 @@
   :monitor 1
   :geometry (geometry :x "10px" :y "10px" :height "48px" :anchor "top left")
   :stacking "fg"
-  :exclusive true
+  :exclusive false
   (lbar1))
 
 (defwindow right_bar1 
   :monitor 1
   :geometry (geometry :x "-10px" :y "10px" :height "48px" :anchor "top right")
   :stacking "fg"
-  :exclusive true
+  :exclusive false
   (rbar1))

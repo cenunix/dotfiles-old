@@ -131,12 +131,12 @@
 (defwindow sys-menu0 
    :monitor 0
    :stacking "fg"
-   :geometry (geometry :x "5px" :y "2px" :width "1px" :anchor "top left")
+   :geometry (geometry :x "5px" :y "55px" :width "1px" :anchor "top left")
    (sys-menu-main))
 
 (defwindow sys-menu1 
   :monitor 1
   :stacking "fg"
-  :geometry (geometry :x "5px" :y "2px" :width "1px" :anchor "top left")
+  :geometry (geometry :x "5px" :y "55px" :width "1px" :anchor "top left")
   (sys-menu-main))
 

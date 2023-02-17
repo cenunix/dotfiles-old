@@ -93,14 +93,14 @@
 
 (defwindow time-menu0 
   :monitor 0
-  :geometry (geometry :x "5px" :y "2px" :width "584px" :height "1px" :anchor "top right")
+  :geometry (geometry :x "5px" :y "55px" :width "584px" :height "1px" :anchor "top right")
   :windowtype "dock"
   :wm-ignore false
   (time-menu-main))
 
 (defwindow time-menu1 
   :monitor 1
-  :geometry (geometry :x "5px" :y "2px" :width "584px" :height "1px" :anchor "top right")
+  :geometry (geometry :x "5px" :y "55px" :width "584px" :height "1px" :anchor "top right")
   :windowtype "dock"
   :wm-ignore false
   (time-menu-main))
