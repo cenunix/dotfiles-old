@@ -18,10 +18,7 @@ done
 mkdir /tmp/eww
 mkdir /tmp/eww/clipboard
 (~/.config/eww/fool_moon/menu/scripts/clipboard watch > /tmp/eww/clipboard/yuck) &
-# eww -c $EWW_DIR/bar open bar
-# eww -c $EWW_DIR/menu daemon
-# eww -c $EWW_DIR/dashboard daemon
-# eww -c $EWW_DIR/meters daemon
+
 
 # $HOME/.config/eww/fool_moon/menu/scripts/sys restore
 
