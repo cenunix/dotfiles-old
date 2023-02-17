@@ -1,0 +1,48 @@
+#!/bin/sh
+
+# rofi theme
+theme="$HOME/.config/rofi/main_without_icons.rasi"
+
+get_options() {
+  echo " Poweroff"
+  echo " Reboot"
+  echo " Hibernate"
+  echo " Lock"
+  echo " Suspend"
+  echo " Log out"
+}
+
+main() {
+
+  # get choice from rofi
+  choice=$( (get_options) | wofi -n -k "/dev/null" -dmenu)
+
+  # run the selected command
+  case $choice in
+  ' Poweroff')
+    systemctl poweroff
+    ;;
+  ' Reboot')
+    systemctl reboot
+    ;;
+  ' Hibernate')
+    systemctl hibernate
+    ;;
+  ' Lock')
+    swaylock -i "$(cat ~/.config/hypr/scripts/variables/temp/background)"
+    ;;
+  ' Suspend')
+    systemctl suspend
+    ;;
+  ' Log out')
+    hyprctl kill
+    ;;
+  esac
+
+  # done
+  set -e
+}
+
+main &
+
+exit 0

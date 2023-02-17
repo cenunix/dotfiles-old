@@ -1,0 +1,215 @@
+(defvar eww "eww -c ~/.config/eww/fool_moon/bar")
+(deflisten workspace "scripts/workspace")
+(defwidget main []
+  (box :class "bar"
+    (left)
+    (right)))
+
+(defwidget left[]
+  (box :class "left"
+       :space-evenly false
+       :spacing 7 
+       :halign "start"
+    (start)
+    (workspaces)))
+
+(defwidget right[]
+  (box  :class "right" 
+        :space-evenly false
+        :spacing 7 
+        :halign "end"
+    (notifs)
+    (sys)
+    (bat)
+    (time)))
+
+(defwidget main1 []
+  (box :class "bar"
+    (left1)
+    (right1)))
+
+(defwidget left1[]
+  (box :class "left"
+        :space-evenly false
+        :spacing 7 
+        :halign "start"
+    (start1)
+    (workspaces)))
+
+(defwidget right1[]
+  (box  :class "right" 
+        :space-evenly false
+        :spacing 7 
+        :halign "end"
+    (notifs)
+    (sys)
+    (bat)
+    (time1)))
+
+(defwidget lbar[]
+  (box :class "bar left-bar"
+    (left)))
+
+(defwidget rbar[]
+  (box :class "bar right-bar"
+    (right)))
+
+(defwidget lbar1[]
+  (box :class "bar left-bar"
+    (left1)))
+
+(defwidget rbar1[]
+  (box :class "bar right-bar"
+    (right1)))
+
+(defwidget start[]
+  (box :class "start-box" 
+    (eventbox :class "start-eventbox"
+              :onclick "scripts/widgets toggle-sys ; scripts/blank"
+              :timeout "60s"
+              ; :cursor "pointer"
+              :valign "center"
+      (box :class "start"
+        (label :class "start-btn" :text "")))))
+
+(defwidget start1[]
+  (box :class "start-box" 
+    (eventbox :class "start-eventbox"
+              :onclick "scripts/widgets toggle-sys1 ; scripts/blank"
+              :timeout "60s"
+              ; :cursor "pointer"
+              :valign "center"
+      (box :class "start"
+        (label :class "start-btn" :text "")))))
+
+(defwidget workspaces []
+  (literal
+    :content workspace
+  :valign "center"))
+
+; (defwidget cava[]
+;   (box :class "cava"
+;         :valign "center"
+;     (label :class "cava-label" :width 100 :text cava-bars)))
+; 
+; (deflisten cava-bars "scripts/cavabars")
+
+; (defwidget updates[]
+;   (box :class "updates"
+;         :valign "center"
+;         :tooltip "Updates: ${update-count}"
+;     (label :class "updates-label" :text " ${update-count ?: '--'}")))
+; 
+; (defpoll update-count :interval "30m" "checkupdates | wc -l")
+
+(defwidget notifs[]
+  (eventbox :class "notifs-eventbox"
+            :tooltip "Notifications"
+            :valign "center"
+    (label :class "notifs-label" :text "  ${notif-count}")))
+
+(deflisten notif-count :initial "0" "~/.local/.scripts/notifs count")
+
+(defwidget sys[]
+  (box :spacing 10
+       :class "sys"
+       :valign "center"
+    (label :class "vol-icon" :text vol-icon)
+    (label :class "wifi-icon ${wifi-class}" :text "")))
+
+(defpoll vol-icon :interval "1s" "../common/scripts/vol icon")
+(defpoll wifi-class :interval "1s" "scripts/wifi class")
+(defpoll bat-icon :interval "1s" "scripts/bat icon")
+
+(defwidget bat[]
+  (eventbox :class "bat-eventbox"
+            :onhover "${eww} update bat-vis=true"
+            :onhoverlost "${eww} update bat-vis=false"
+    (box :class "bat-box ${bat-class}"
+         :orientation "v"
+         :valign "center"
+      (overlay
+        (scale :class "bat-scale ${bat-class}" :active false :min 0 :max 101 :value bat-val)
+        (box :orientation "v"
+             :space-evenly false
+             :valign "center"
+          (revealer :class "bat-reveal" :reveal bat-vis
+                    :transition "slideup"
+                    :duration "550ms"
+            (label :class "bat-label" :halign "center" :valign "center" :text "${bat-val}%"))
+          (revealer :class "bat-reveal" :reveal {!bat-vis}
+                    :transition "slideup"
+                    :duration "550ms"
+            (label :class "bat-icon" :halign "center" :valign "center" :height 25 :width 25 :text bat-icon)))))))
+
+(defpoll bat-val :initial 0 :interval "1s" "scripts/bat level")
+(defpoll bat-class :interval "1s" "scripts/bat class")
+(defvar bat-vis false)
+
+(defwidget time1[]
+  (box :class "time-box"
+       :halign "center"
+       :valign "center"
+    (eventbox :class "time-eventbox"
+              :onclick "scripts/widgets toggle-time1 ; scripts/blank"
+              :cursor "pointer"
+      (label :class "time-label" :text "   ${time-lbl}"))))
+
+(defwidget time[]
+  (box :class "time-box"
+        :halign "center"
+        :valign "center"
+    (eventbox :class "time-eventbox"
+              :onclick "scripts/widgets toggle-time ; scripts/blank"
+              :cursor "pointer"
+      (label :class "time-label" :text "   ${time-lbl}"))))
+
+(defpoll time-lbl :interval "1s" "date +'%I:%M'")
+
+(defwindow bar0
+  :monitor 0
+  :geometry (geometry :x "0px" :y "0px" :width "100%" :height "50px" :anchor "top center")
+  :stacking "fg"
+  :hexpand false
+  :vexpand false
+  :exclusive true
+  :windowtype "dock"
+  (main))
+
+(defwindow left_bar0
+  :monitor 0
+  :geometry (geometry :x "10px" :y "10px" :height "50px" :anchor "top center")
+  :stacking "fg"
+  :exclusive true
+  (lbar))
+
+(defwindow right_bar0 
+  :monitor 0
+  :geometry (geometry :x "-10px" :y "10px" :height "50px" :anchor "top center")
+  :stacking "fg"
+  :exclusive true
+  (rbar))
+
+(defwindow bar1 
+  :monitor 1
+  :geometry (geometry :x "0px" :y "0px" :width "100%" :height "48px" :anchor "top center")
+  :stacking "fg"
+  :hexpand false
+  :vexpand false
+  :exclusive true
+  :windowtype "dock"
+  (main1))
+
+(defwindow left_bar1
+  :monitor 1
+  :geometry (geometry :x "10px" :y "10px" :height "48px" :anchor "top left")
+  :stacking "fg"
+  :exclusive true
+  (lbar1))
+
+(defwindow right_bar1 
+  :monitor 1
+  :geometry (geometry :x "-10px" :y "10px" :height "48px" :anchor "top right")
+  :stacking "fg"
+  :exclusive true
+  (rbar1))

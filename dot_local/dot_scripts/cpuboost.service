@@ -1,0 +1,17 @@
+[Unit]
+
+Description=Disable Turbo Boost on AMD CPU
+
+[Service]
+
+ExecStart=/bin/sh -c "/usr/bin/echo 0 > \
+/sys/devices/system/cpu/cpufreq/boost"
+
+ExecStop=/bin/sh -c "/usr/bin/echo 1 > \
+/sys/devices/system/cpu/cpufreq/boost"
+
+RemainAfterExit=yes
+
+[Install]
+
+WantedBy=sysinit.target

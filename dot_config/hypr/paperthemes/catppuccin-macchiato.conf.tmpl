@@ -1,0 +1,14 @@
+# machine-specific configuration
+{{- if eq .chezmoi.hostname "archlaptop" }}
+# this will only be included in ~/.config/hypr/hyprpaper.conf on archlaptop
+preload = ~/Pictures/wallpapers/flatppuccin_4k_macchiato.png
+wallpaper = eDP-1,~/Pictures/wallpapers/flatppuccin_4k_macchiato.png
+unload = DP-1,~/Pictures/wallpapers/flatppuccin_4k_macchiato.png
+{{ else }}
+preload = ~/Pictures/wallpapers/flatppuccin_4k_macchiato.png
+wallpaper = DP-2,~/Pictures/wallpapers/flatppuccin_4k_macchiato.png
+wallpaper = DP-1,~/Pictures/wallpapers/flatppuccin_4k_macchiato.png
+unload = DP-1,~/Pictures/wallpapers/flatppuccin_4k_macchiato.png
+{{- end }}
+
+

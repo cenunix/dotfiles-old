@@ -1,0 +1,97 @@
+# Documentation: https://dunst-project.org/documentation/
+# Config created by selmer443 https://www.github.com/selmer443/dotfiles
+# Copyright (C) 2022 selmer443
+
+[global]
+    monitor = 0
+    follow = mouse
+    width = (0, 500)
+    height = (200, 500)
+    origin = top-right
+    offset = 10x-10
+    indicate_hidden = yes
+    shrink = no
+    scale = 0
+    transparency = 0
+    notification_height = 0
+    separator_height = 2
+    padding = 12
+    horizontal_padding = 12
+    frame_width = 1
+    frame_color = "#83a598"
+    separator_color = frame
+    ; enable_posix_regex = true
+    sort = yes
+    idle_threshold = -1
+    font = JetBrains Mono Nerd Font 11
+    line_height = 0
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    vertical_alignment = center
+    show_age_threshold = -1
+    word_wrap = yes
+    ellipsize = middle
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = no
+    icon_position = left
+    min_icon_size = 16
+    max_icon_size = 80
+    icon_path = /usr/share/icons/Papirus/16x16/
+    sticky_nano = yes
+    history_length = 50
+    dmenu = /usr/bin/dmenu -p dunst:
+    browser = /usr/bin/firefox
+    always_run_script = true
+    title = Dunst
+    class = Dunst
+    startup_notification = false
+    verbosity = mesg
+    corner_radius = 10
+    ignore_dbusclose = true
+    force_xinerama = false
+    mouse_middle_click = close_all
+    mouse_right_click = do_action, close_current
+[experimental]
+    per_monitor_dpi = false
+
+[shortcuts]
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history = ctrl+grave
+    context = ctrl+shift+period
+[urgency_low]
+    background = "#282828"
+    highlight = "#fbf1c7"
+    foreground = "#fbf1c7"
+    #script = /home/morpheus/.config/dunst/dunstscript.sh
+    timeout = 10
+[urgency_normal]
+    background = "#282828"
+    highlight = "#fbf1c7"
+    foreground = "#fbf1c7"
+    #script = /home/morpheus/.config/dunst/dunstscript.sh
+    timeout = 10
+[urgency_critical]
+    background = "#282828"
+    highlight = "#fbf1c7"
+    foreground = "#fbf1c7"
+    frame_color = "#ee99a0"
+    timeout = 0  
+[screenshots]
+    summary="Screenshot"
+    max_icon_size = 300
+
+[eww]
+summary = "*"
+script = "~/.local/.scripts/notifs"
+
+[spotify]
+summary = "*"
+script = "~/.local/.scripts/spotify-art"
+
+[spotify-icon]
+appname = "Spotify"
+icon = "~/.cache/temp.png"

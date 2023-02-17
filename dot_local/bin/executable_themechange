@@ -1,0 +1,5 @@
+#!/bin/sh
+
+sleep 0.1
+CURRENT=$(cat ~/.local/share/nvim/colorscheme-file)
+echo $CURRENT > ~/.local/share/nvim/colorscheme-file

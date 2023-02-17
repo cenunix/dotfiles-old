@@ -1,0 +1,65 @@
+(include "../common/yuck/circlemeter.yuck")
+
+(defwidget main[]
+  (box :class "meters"
+       :orientation "v"
+    :space-evenly false
+    (mic)
+    (box
+      :space-evenly false
+      (bright)
+      (vol))))
+
+(defwidget mic[]
+  (box :class "mic-box"
+       :space-evenly false
+       :halign "end"
+    (label :class "mic-label" :valign "center" :text "mic")
+    (box :class "mic-wrapper"
+         :halign "end"
+      (circlemeter :name "mic"
+                   :thickness 6
+                   :val mic-val
+                   :onscroll "../common/scripts/mic change {}"
+                   :icon "${round(mic-val, 0)}%")))) 
+
+(deflisten mic-val :initial 0 "../common/scripts/mic follow")
+
+(defwidget vol[]
+  (box :class "vol-box"
+       :space-evenly false
+       :halign "end"
+    (label :class "vol-label" :valign "center" :text "volume")
+    (box :class "vol-wrapper"
+         :halign "end"
+      (circlemeter :name "vol"
+                   :thickness 6
+                   :val vol-val
+                   :icon "${round(vol-val, 0)}%"
+                   :onscroll "../common/scripts/vol change {}"
+                   :onclick "../common/scripts/vol toggle-mute"))))
+
+(deflisten vol-val :initial 0 "../common/scripts/vol follow")
+
+(defwidget bright[]
+  (box :class "bright-box"
+       :space-evenly false
+       :halign "end"
+    (label :class "bright-label" :valign "center" :text "brightness")
+    (box :class "bright-wrapper"
+         :halign "end"
+      (circlemeter :name "bright"
+                   :thickness 6
+                   :val bright-val
+                   :icon "${round(bright-val, 0)}%"
+                   :onscroll "../common/scripts/bright change {}"))))
+
+(deflisten bright-val :initial 0 "../common/scripts/bright follow")
+
+(defwindow meters 
+  :monitor 1
+  :geometry (geometry :x "0px" :y "0px" :anchor "bottom right")
+  :windowtype "dock"
+  :wm-ignore false
+  (main))
+

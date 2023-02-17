@@ -1,0 +1,67 @@
+#!/bin/sh
+
+# rofi theme
+theme="$HOME/.config/rofi/main_without_icons.rasi"
+
+get_options() {
+  echo "  Selected area screenshot"
+  echo "  Full screen screenshot"
+  echo " Stop Recording"
+  echo "  Selected area video"
+  echo "  Full screen video"
+  echo "  Selected area video with audio (microphone)"
+  echo "  Full screen video with audio (microphone)"
+  echo "  Selected area video with audio (desktop)"
+  echo "  Full screen video with audio (desktop)"
+  echo "  Selected area video with all audio"
+  echo "  Full screen area video with all audio"
+}
+
+main() {
+
+  # get choice from rofi
+  choice=$( (get_options) | wofi -n -dmenu -k "/dev/null" -i)
+
+  # run the selected command
+  case $choice in
+  '  Selected area screenshot')
+    wscreenshot -sa
+    ;;
+  '  Full screen screenshot')
+    wscreenshot -sf
+    ;;
+  ' Stop Recording')
+    wscreenshot -s
+    ;;
+  '  Selected area video')
+    wscreenshot -va
+    ;;
+  '  Full screen video')
+    wscreenshot -vf
+    ;;
+  '  Selected area video with audio (microphone)')
+    wscreenshot -vaam
+    ;;
+  '  Full screen video with audio (microphone)')
+    wscreenshot -vfam
+    ;;
+  '  Selected area video with audio (desktop)')
+    wscreenshot -vsad
+    ;;
+  '  Full screen video with audio (desktop)')
+    wscreenshot -vfad
+    ;;
+  '  Selected area video with all audio')
+    wscreenshot -vsaa
+  ;;
+  '  Full screen area video with all audio')
+    wscreenshot -vfaa
+  ;;
+  esac
+  # done
+  set -e
+}
+
+main &
+
+exit 0

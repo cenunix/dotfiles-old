@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+export LUNARVIM_RUNTIME_DIR="${LUNARVIM_RUNTIME_DIR:-"/home/user/.local/share/lunarvim"}"
+export LUNARVIM_CONFIG_DIR="${LUNARVIM_CONFIG_DIR:-"/home/user/.config/lvim"}"
+export LUNARVIM_CACHE_DIR="${LUNARVIM_CACHE_DIR:-"/home/user/.cache/lvim"}"
+
+export LUNARVIM_BASE_DIR="${LUNARVIM_BASE_DIR:-"/home/user/.local/share/lunarvim/lvim"}"
+
+~/.local/bin/themechange &
+
+exec -a lvim nvim -u "$LUNARVIM_BASE_DIR/init.lua" "$@"

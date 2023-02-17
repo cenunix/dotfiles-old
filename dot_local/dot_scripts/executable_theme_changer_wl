@@ -1,0 +1,145 @@
+#!/usr/bin/env bash
+
+# Directory
+hypr_dir="$HOME/.config/hypr/themes"
+wofi_dir="$HOME/.config/wofi"
+kitty_dir="$HOME/.config/kitty"
+eww_dir="$HOME/.config/eww"
+dunst_dir="$HOME/.config/dunst"
+nvim_colors="$HOME/.local/share/nvim/colorscheme-file"
+nvim_dir="$HOME/.config/nvim/lua/user"
+discord="$HOME/.config/BetterDiscord/themes"
+discord_dest="$HOME/.config/BetterDiscord/data/stable"
+btop_dir="$HOME/.config/btop/themes"
+code_oss="$HOME/.config/Code\ -\ OSS/User/settings.json"
+# prompt="dmenu -l 9 "
+prompt="wofi -n -dmenu -k "/dev/null" -always_parse_args=true"
+
+# Theme
+cancel="窱 Cancel"
+theme1=" Catppuccin (Macchiato)"
+theme2=" Catppuccin (Mocha)"
+theme3=" TokyoNight (Night)"
+theme4=" Dracula"
+theme5=" Gruvbox"
+theme6=" Nord"
+theme7=" Everforest"
+
+# Variable to pass to dmenu or rofi
+option="$cancel\n$theme1\n$theme2\n$theme3\n$theme4\n$theme5\n$theme6"
+
+
+change_theme()
+{
+	cp ${hypr_dir}/$1.conf ${hypr_dir}/color.conf
+	cp ${wofi_dir}/themes/$1.css ${wofi_dir}/style.css
+	cp -r ${eww_dir}/themes/$1/* ${eww_dir}/fool_moon/
+	cp ${kitty_dir}/themes/$1.conf ${kitty_dir}/color.conf
+	cp ${dunst_dir}/themes/$1 ${dunst_dir}/dunstrc
+	cp ${btop_dir}/$1.theme ${btop_dir}/color.theme
+
+	cp ${discord}/$1.theme.css ${discord_dest}/custom.css
+if [[ "$1" == "tokyonight" ]]; then
+	# vscode and nvim
+	sed -i "s/\(workbench.colorTheme\":\)\(.*\)/\1 \"Tokyo Night\",/" ~/.config/Code\ -\ OSS/User/settings.json
+	echo tokyonight-night > $nvim_colors
+
+elif [[ "$1" == "catppuccin-macchiato" ]]; then
+	# vscode and nvim
+		sed -i "s/\(workbench.colorTheme\":\)\(.*\)/\1 \"Catppuccin Macchiato\",/" ~/.config/Code\ -\ OSS/User/settings.json
+		echo catppuccin-macchiato > $nvim_colors
+elif [[ "$1" == "catppuccin-mocha" ]]; then
+	# vscode and nvim
+	sed -i "s/\(workbench.colorTheme\":\)\(.*\)/\1 \"Catppuccin Mocha\",/" ~/.config/Code\ -\ OSS/User/settings.json
+	echo catppuccin-mocha > $nvim_colors
+
+elif [[ "$1" == "nord" ]]; then
+	# vscode and nvim
+		sed -i "s/\(workbench.colorTheme\":\)\(.*\)/\1 \"Nord\",/" ~/.config/Code\ -\ OSS/User/settings.json
+		echo nordic > $nvim_colors
+
+
+elif [[ "$1" == "dracula" ]]; then
+	# vscode and nvim
+		sed -i "s/\(workbench.colorTheme\":\)\(.*\)/\1 \"Dracula\",/" ~/.config/Code\ -\ OSS/User/settings.json
+		echo dracula > $nvim_colors
+
+elif [[ "$1" == "gruvbox" ]]; then
+	# vscode and nvim
+		sed -i "s/\(workbench.colorTheme\":\)\(.*\)/\1 \"Gruvbox Dark Medium\",/" ~/.config/Code\ -\ OSS/User/settings.json
+		echo gruvbox > $nvim_colors
+
+elif [[ "$1" == "everforest" ]]; then
+	# vscode and nvim
+		sed -i "s/\(workbench.colorTheme\":\)\(.*\)/\1 \"Everforest Dark\",/" ~/.config/Code\ -\ OSS/User/settings.json
+		echo everforest > $nvim_colors
+	fi
+}
+
+
+
+change_gtk_theme() 
+{
+   sed -e "s/^gtk-theme-name=.*/gtk-theme-name="$@"/" -i $HOME/.config/gtk-3.0/settings.ini
+   sed -e "s/^gtk-theme-name=.*/gtk-theme-name=\""$@"\"/" -i $HOME/.gtkrc-2.0 
+}
+
+select="$(echo -e "$option" | $prompt -p "Choose a theme: " )"
+case $select in
+	$theme1)
+		change_theme catppuccin-macchiato
+		change_gtk_theme Catppuccin-Macchiato
+		$HOME/.local/.scripts/gtk2gsetting.sh
+		hyprctl reload # restart hyprland
+		killall -s SIGUSR1 kitty
+		killall dunst
+		;;
+		$theme2)
+		change_theme catppuccin-mocha
+		change_gtk_theme Catppuccin-Mocha
+		$HOME/.local/.scripts/gtk2gsetting.sh
+		hyprctl reload # restart hyprland
+		killall -s SIGUSR1 kitty
+		killall dunst
+		;;
+	$theme3)
+		change_theme tokyonight
+		change_gtk_theme Tokyonight-Dark-B
+		$HOME/.local/.scripts/gtk2gsetting.sh
+		hyprctl reload # restart hyprland
+		killall -s SIGUSR1 kitty
+		killall dunst
+		;;
+	$theme4)
+		change_theme dracula
+		change_gtk_theme Dracula
+		$HOME/.local/.scripts/gtk2gsetting.sh
+		hyprctl reload # restart hyprland
+		killall -s SIGUSR1 kitty
+		killall dunst
+		;;
+	$theme5)
+		change_theme gruvbox
+		change_gtk_theme Gruvbox-Dark-B
+		$HOME/.local/.scripts/gtk2gsetting.sh
+		hyprctl reload # restart hyprland
+		killall -s SIGUSR1 kitty
+		killall dunst
+		;;
+	$theme6)
+		change_theme nord
+		change_gtk_theme Nordic
+		$HOME/.local/.scripts/gtk2gsetting.sh
+		hyprctl reload # restart hyprland
+		killall -s SIGUSR1 kitty
+		killall dunst
+		;;
+	$theme7)
+		change_theme everforest
+		change_gtk_theme Everforest-Dark-B
+		$HOME/.local/.scripts/gtk2gsetting.sh
+		hyprctl reload # restart hyprland
+		killall -s SIGUSR1 kitty
+		killall dunst
+		;;
+	esac

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+opacity_val=$(hyprctl getoption decoration:active_opacity | grep float)
+echo "$opacity_val"
+if [[ "$opacity_val" == "	float: 0.700000" ]]; then
+    echo "float 0.7 detected"
+    hyprctl --batch "keyword decoration:active_opacity 1.0 ; keyword decoration:inactive_opacity 1.0 ; keyword decoration:fullscreen_opacity 1.0"
+else
+    echo "float 1.0 detected"
+    hyprctl --batch "keyword decoration:active_opacity 0.7 ; keyword decoration:inactive_opacity 0.7 ; keyword decoration:fullscreen_opacity 0.7"
+fi
+
+

@@ -1,0 +1,161 @@
+# Catppuccin themes for Spotify-player
+
+[[themes]]
+name = "Catppuccin-mocha"
+[themes.palette]
+background = "#1E1E2E"
+foreground = "#cad3f5"
+black = "#1E1E2E"
+blue = "#89B4FA"
+cyan = "#89DCEB"
+green = "#A6E3A1"
+magenta = "#CBA6F7"
+red = "#F38BA8"
+white = "#cad3f5"
+yellow = "#F9E2AF"
+bright_black = "#1E1E2E"
+bright_blue = "#89B4FA"
+bright_cyan = "#89DCEB"
+bright_green = "#A6E3A1"
+bright_magenta = "#CBA6F7"
+bright_red = "#F38BA8"
+bright_white = "#cad3f5"
+bright_yellow = "#F9E2AF"
+selection_background = "#313244"
+selection_foreground = "#cad3f5"
+
+[[themes]]
+name = "Catppuccin-latte"
+[themes.palette]
+background = "#EFF1F5"
+foreground = "#4C4F69"
+black = "#EFF1F5"
+blue = "#1E66F5"
+cyan = "#04A5E5"
+green = "#40A02B"
+magenta = "#8839EF"
+red = "#D20F39"
+white = "#4C4F69"
+yellow = "#DF8E1D"
+bright_black = "#EFF1F5"
+bright_blue = "#1E66F5"
+bright_cyan = "#04A5E5"
+bright_green = "#40A02B"
+bright_magenta = "#8839EF"
+bright_red = "#D20F39"
+bright_white = "#4C4F69"
+bright_yellow = "#DF8E1D"
+selection_background = "#CCD0DA"
+selection_foreground = "#4C4F69"
+
+[[themes]]
+name = "Catppuccin-frappe"
+[themes.palette]
+background = "#303446"
+foreground = "#C6D0F5"
+black = "#303446"
+blue = "#8CAAEE"
+cyan = "#89DCEB"
+green = "#A6D189"
+magenta = "#CA9EE6"
+red = "#E78284"
+white = "#C6D0F5"
+yellow = "#E5C890"
+bright_black = "#303446"
+bright_blue = "#8CAAEE"
+bright_cyan = "#89DCEB"
+bright_green = "#A6D189"
+bright_magenta = "#CA9EE6"
+bright_red = "#E78284"
+bright_white = "#C6D0F5"
+bright_yellow = "#E5C890"
+selection_background = "#414559"
+selection_foreground = "#C6D0F5"
+
+
+[[themes]]
+name = "Catppuccin-macchiato"
+[themes.palette]
+background = "#181926"
+foreground = "#CAD3F5"
+black = "#24273A"
+blue = "#8AADF4"
+cyan = "#91D7E3"
+green = "#A6DA95"
+magenta = "#C6A0F6"
+red = "#ED8796"
+white = "#CAD3F5"
+yellow = "#EED49F"
+bright_black = "#24273A"
+bright_blue = "#8AADF4"
+bright_cyan = "#91D7E3"
+bright_green = "#A6DA95"
+bright_magenta = "#f5bde6"
+bright_red = "#ED8796"
+bright_white = "#CAD3F5"
+bright_yellow = "#EED49F"
+selection_background = "#363A4F"
+selection_foreground = "#CAD3F5"
+
+[themes.component_style]
+block_title = { fg = "Cyan"  }
+playback_track = { fg = "Blue", modifiers = ["Bold"] }
+playback_album = { fg = "Blue" }
+playback_metadata = { fg = "Blue" }
+playback_progress_bar = { bg = "Blue", fg = "Cyan" }
+current_playing = { fg = "Blue", modifiers = ["Bold"] }
+page_desc = { fg = "Cyan", modifiers = ["Bold"] }
+table_header = { fg = "Blue" }
+
+
+# example theme configuration file
+# This file adds two new themes `dracula2` and `solarized_dark`
+# in addition to the default application's themes.
+
+[[themes]]
+name = "dracula2"
+[themes.palette]
+background = "#1e1f29"
+foreground = "#f8f8f2"
+black = "#000000"
+blue = "#bd93f9"
+cyan = "#8be9fd"
+green = "#50fa7b"
+magenta = "#ff79c6"
+red = "#ff5555"
+white = "#bbbbbb"
+yellow = "#f1fa8c"
+bright_black = "#555555"
+bright_blue = "#bd93f9"
+bright_cyan = "#8be9fd"
+bright_green = "#50fa7b"
+bright_magenta = "#ff79c6"
+bright_red = "#ff5555"
+bright_white = "#ffffff"
+bright_yellow = "#f1fa8c"
+selection_background = "#44475a"
+selection_foreground =  "#ffffff"
+
+[[themes]]
+name = "solarized_dark"
+[themes.palette]
+background = "#002b36"
+foreground = "#839496"
+black = "#073642"
+blue = "#268bd2"
+cyan = "#2aa198"
+green = "#859900"
+magenta = "#d33682"
+red = "#dc322f"
+white = "#eee8d5"
+yellow = "#b58900"
+bright_black = "#002b36"
+bright_blue = "#839496"
+bright_cyan = "#93a1a1"
+bright_green = "#586e75"
+bright_magenta = "#6c71c4"
+bright_red = "#cb4b16"
+bright_white = "#fdf6e3"
+bright_yellow = "#657b83"
+selection_background = "#073642"
+selection_foreground =  "#93a1a1"

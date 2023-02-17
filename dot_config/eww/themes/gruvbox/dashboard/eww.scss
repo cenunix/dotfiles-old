@@ -1,0 +1,114 @@
+@import "../common/scss/colors.scss";
+
+* {
+	all: unset;
+	transition: 95ms ease-in;
+}
+
+.dashboard {
+	font-family: Noto Sans, "Font Awesome 6 Free";
+}
+
+.time-ring {
+	background-color: $gray;
+	color: $blue;
+}
+
+.clock-lbl {
+	background-color: $bg;
+	padding: 8rem;
+}
+
+.clock-time {
+	font-size: 72px;
+	color: #B8BDC9;
+}
+
+.clock-date {
+	font-size: 16px;
+	color: $light-gray;
+}
+
+.media-main {
+	font-family: Noto Sans;
+	background-color: rgba(24, 24, 33, 0.85);
+	padding: 1.3rem 1rem;
+}
+
+.media-title, .media-artist {
+	font-size: 16px;
+	color: #B8BDC9;
+}
+
+.media-controls {
+	font-size: 30px;
+}
+
+scale.media-track trough {
+	all: unset;
+	background-color: $gray;
+	min-height: 7px;
+	min-width: 300px;
+}
+
+scale.media-track trough highlight {
+	background-image: linear-gradient(to right, $blue, #678ac2);
+}
+
+.media-time {
+	color: $light-gray;
+}
+
+.user-pfp {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	min-width: 80px;
+	min-height: 80px;
+}
+
+.user-name {
+	font-size: 22px;
+	color: #B8BDC9;
+}
+
+.user-uptime, .user-pkgs {
+	color: $light-gray;
+}
+
+.power-main {
+	margin: 1rem;
+
+	.power-btn {
+		font-size: 32px;
+		color: #B8BDC9;
+		background-color: rgba(24, 24, 33, 0.85);
+		border: 1px solid rgba(24, 24, 33, 0.85);
+		padding: 2rem;
+	}
+
+	.power-btn:hover {
+		//background-color: #181821;
+		//border: 1px solid $gray;
+	}
+
+	.power-btn.lock:hover {
+		color: $blue;
+	}
+
+	.power-btn.logout:hover {
+		color: $purple;
+	}
+
+	.power-btn.reboot:hover {
+		color: $mint;
+	}
+
+	.power-btn.shutdown:hover {
+		color: $red;
+	}
+}
+
+.darken {
+	background-color: rgba(24, 24, 33, 0.25);
+}

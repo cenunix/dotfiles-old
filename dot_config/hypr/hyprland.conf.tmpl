@@ -1,0 +1,232 @@
+# This is an example Hyprland config file.
+# Syntax is the same as in Hypr, but settings might differ.
+#
+# Refer to the wiki for more information.
+
+#
+# Please note not all available settings / options are set here.
+# For a full list, see the wiki (basic and advanced configuring)
+#
+
+exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec-once=systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec-once=/.config/hypr/scripts/launch_portals
+
+# machine-specific configuration
+
+{{- if eq .chezmoi.hostname "archlinux" }}
+# this will only be included in ~/.config/hypr/hyprland.conf on archlaptop
+monitor=DP-1,2560x1440@240,0x0,1
+monitor=DP-3,1920x1080@240,2560x0,1
+{{ else }}
+# this will be included in ~/.config/hypr/hyprland.conf on any machine other than archlaptop
+monitor=,preferred,auto,1
+{{- end }}
+
+
+workspace=DP-2,1
+exec-once=dunst
+exec=~/.config/eww/startup
+#exec-once=wl-clip-persist --clipboard regular &
+#exec-once=wl-paste --watch cliphist store &
+exec=~/.config/hypr/scripts/wallpaper
+
+
+input {
+    kb_file=
+    kb_layout=
+    kb_variant=
+    kb_model=
+    kb_options=
+    kb_rules=
+
+    follow_mouse=1
+
+    touchpad {
+        natural_scroll=no
+    }
+
+    sensitivity=0 # -1.0 - 1.0, 0 means no modification.
+}
+
+source=~/.config/hypr/themes/color.conf #select temp scheme
+
+general {
+    sensitivity=1.0 # for mouse cursor
+    main_mod=SUPER
+  # machine-specific configuration
+
+    {{- if eq .chezmoi.hostname "archlaptop" }}
+    # this will only be included in ~/.config/hypr/hyprland.conf on archlaptop
+    # leave more space for windows on laptop
+    gaps_in=10
+    gaps_out=10
+    {{ else }}
+    # this will be included in ~/.config/hypr/hyprland.conf on any machine other than archlaptop
+
+    gaps_in=10
+    gaps_out=10
+    {{- end }}
+    
+    border_size=4 
+    apply_sens_to_raw=0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
+
+ #   damage_tracking=full # leave it on full unless you hate your GPU and want to make it suffer
+    cursor_inactive_timeout=10
+    layout=dwindle
+}
+#Decoration section in theme file
+
+decoration {
+    blur_new_optimizations = true
+    active_opacity = 1.0
+    inactive_opacity = 1.0
+    #fullscreen_opacity = 1.0
+    drop_shadow=true
+    shadow_range=20
+    shadow_render_power=3
+    col.shadow=rgb(8aadf4)
+    col.shadow_inactive=rgb(8aadf4)
+    rounding=6
+    multisample_edges=true
+    blur_ignore_opacity=true
+    blur=true
+    blur_size=10 # minimum 1
+    blur_passes=3 # minimum 1, more passes = more resource intensive.
+    # Your blur "amount" is blur_size * blur_passes, but high blur_size (over around 5-ish) will produce artifacts.
+    # if you want heavy blur, you need to up the blur_passes.
+    # the more passes, the more you can up the blur_size without noticing artifacts.
+}
+
+
+
+animations {
+    enabled=1
+    bezier=pace,0.46, 1, 0.29, 0.99
+    bezier=overshot,0.13,0.99,0.29,1.1
+    animation=windowsIn,1,5,pace,popin
+    animation=windowsOut,1,7,default,slide
+    animation=windowsMove,1,4,pace,slide
+    animation=fade,1,10,pace
+    animation=workspaces,1,7,pace,slide
+    animation=specialWorkspace,1,8,pace,slide
+    animation=border,0,3,default
+}
+
+
+
+dwindle {
+    pseudotile=0 # enable pseudotiling on dwindle
+}
+
+gestures {
+    workspace_swipe=no
+}
+
+misc {
+    no_vfr=true
+    animate_manual_resizes=true
+}
+
+#debug {
+#    overlay=true
+#}
+
+# example window rules
+# for windows named/classed as abc and xyz
+#windowrule=move 69 420,abc
+#windowrule=size 420 69,abc
+#windowrule=tile,xyz
+#windowrule=float,abc
+#windowrule=pseudo,abc
+#windowrule=monitor 0,xyz
+
+windowrule=tile,^(neovide)$
+windowrule=forceinput,^(neovide)$
+windowrulev2 = opacity 1.0 0.4,class:^(wofi)$
+windowrulev2 = move 30 100,class:^(wofi)$
+#windowrule=opacity,^(waybar)$
+windowrulev2=opaque,title:^(Picture-in-Picture)$
+#windowrule=opaque,^(firefox)$
+windowrule=opaque,^(com.obsproject.Studio)$
+#windowrule=workspace 6,^(csgo_linux64)$
+windowrule=fullscreen,^(csgo_linux64)$
+#windowrule=opaque,^(fivem_b2699_gameprocess.exe)$
+#windowrule=workspace 6,^(fivem_b2699_gameprocess.exe)$
+
+
+
+
+
+# some nice mouse binds
+bindm=SUPER,mouse:272,movewindow
+bindm=SUPER,mouse:273,resizewindow
+
+# example binds
+bind=SUPER,RETURN,exec,kitty
+bind=SUPER,Q,killactive,
+bind=SUPER,M,exit,
+bind=SUPER,E,exec,dolphin
+bind=SUPER_SHIFT,SPACE,togglefloating,
+bind=SUPER,P,pseudo,
+bind=SUPER,F,fullscreen
+bind=SUPER,N,exec,~/.local/bin/lvim-gui
+bind=SUPER,I,exec,swaylock -i "$(cat ~/.config/hypr/scripts/variables/temp/background)"
+bind=SUPER,D,exec,wofi -n --show drun -k "/dev/null"
+bind=SUPER,X,exec,~/.local/.scripts/wofi-powermenu
+bind=SUPER,C,exec,~/.local/.scripts/wayland-screenshot
+bind=SUPER,V,exec,~/.local/.scripts/theme_changer_wl
+bind=SUPER_SHIFT,V,exec,~/.config/eww/fool_moon/bar/scripts/widgets toggle-clip
+bind=SUPER_SHIFT,D,exec,~/.config/hypr/scripts/extra/dictionary
+bind=SUPER_SHIFT,C,exec,~/.config/hypr/scripts/wallpaper_picker
+bind=SUPER,Z,toggleopaque
+bind=SUPER_SHIFT,Z,exec,~/.config/hypr/scripts/toggle_opacity
+
+
+bind=,Print,exec,wscreenshot -sf
+
+bind=,XF86MonBrightnessUp,exec,light -A 2 && light -O && brightness &
+bind=,XF86MonBrightnessDown,exec,light -U 2 && light -O && brightness &
+bind=,XF86AudioRaiseVolume,exec,~/.config/dunst/scripts/volume up &
+bind=,XF86AudioLowerVolume,exec,~/.config/dunst/scripts/volume down &
+bind=,XF86AudioMute,exec,~/.config/dunst/scripts/volume mute &
+
+bind=SUPER,left,movefocus,l
+bind=SUPER,right,movefocus,r
+bind=SUPER,up,movefocus,u
+bind=SUPER,down,movefocus,d
+
+
+bind=SUPER_SHIFT,left,movewindow,l
+bind=SUPER_SHIFT,right,movewindow,r
+bind=SUPER_SHIFT,up,movewindow,u
+bind=SUPER_SHIFT,down,movewindow,d
+bind=SUPER,B,movecurrentworkspacetomonitor,DP-1
+bind=SUPER_SHIFT,B,movecurrentworkspacetomonitor,DP-3
+
+
+
+bind=SUPER,1,workspace,1
+bind=SUPER,2,workspace,2
+bind=SUPER,3,workspace,3
+bind=SUPER,4,workspace,4
+bind=SUPER,5,workspace,5
+bind=SUPER,6,workspace,6
+bind=SUPER,7,workspace,7
+bind=SUPER,8,workspace,8
+bind=SUPER,9,workspace,9
+bind=SUPER,0,workspace,10
+
+bind=SUPER_SHIFT,1,movetoworkspace,1
+bind=SUPER_SHIFT,2,movetoworkspace,2
+bind=SUPER_SHIFT,3,movetoworkspace,3
+bind=SUPER_SHIFT,4,movetoworkspace,4
+bind=SUPER_SHIFT,5,movetoworkspace,5
+bind=SUPER_SHIFT,6,movetoworkspace,6
+bind=SUPER_SHIFT,7,movetoworkspace,7
+bind=SUPER_SHIFT,8,movetoworkspace,8
+bind=SUPER_SHIFT,9,movetoworkspace,9
+bind=SUPER_SHIFT,0,movetoworkspace,10
+
+bind=SUPER,mouse_down,workspace,e+1
+bind=SUPER,mouse_up,workspace,e-1

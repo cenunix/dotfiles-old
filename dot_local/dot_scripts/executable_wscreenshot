@@ -1,0 +1,146 @@
+#!/bin/sh
+
+# screenshot directory
+screenshot_directory="$HOME/Pictures/screenshots"
+videos_directory="$HOME/Videos"
+audio_directory="$HOME/Music"
+
+mkdir -p "$screenshot_directory"
+mkdir -p "$videos_directory"
+mkdir -p "$audio_directory"
+
+activemon=$(hyprctl monitors | grep -B 10 "focused: yes" | awk 'NR==3 {print $1}' RS='(' FS=')')
+mic=$(pactl get-default-source)
+speaker=$(pactl get-default-sink)
+date=$(date '+%d-%m-%Y-%H-%M-%S')
+
+
+screenshot_selected_area(){
+    sleep .5
+    grim -g "$(slurp)" "$screenshot_directory/$date.png"
+    wl-copy -t image/png < "$screenshot_directory/$date.png"
+    notify-send -i "$screenshot_directory/$date.png" "Screenshot" "Area screenshot taken"
+}
+screenshot_full_screen(){
+    sleep .5
+    grim -o "$activemon" "$screenshot_directory/$date.png"
+    wl-copy -t image/png < "$screenshot_directory/$date.png"
+    notify-send -i "$screenshot_directory/$date.png" "Screenshot" "Full screen screenshot taken"
+}
+video_selected_area(){
+    wf-recorder -g "$(slurp)" --file="$videos_directory/$date.mp4"
+    ffmpeg -i "$videos_directory/$date.mp4" -ss 00:00:01.000 -vframes 1 "/tmp/$date.png"
+    notify-send -i "/tmp/$date.png" "Video" "Area video taken"
+}
+video_full_screen(){
+    wf-recorder -o "$activemon" --file="$videos_directory/$date.mp4"
+    ffmpeg -i "$videos_directory/$date.mp4" -ss 00:00:01.000 -vframes 1 "/tmp/$date.png"
+    notify-send -i "/tmp/$date.png" "Video" "Full screen video taken"
+}
+video_selected_area_audio_microphone(){
+    wf-recorder -g "$(slurp)" --audio="$mic" --file="$videos_directory/$date.mp4"
+    ffmpeg -i "$videos_directory/$date.mp4" -ss 00:00:01.000 -vframes 1 "/tmp/$date.png" 
+    notify-send -i "/tmp/$date.png" "Video" "Area video with audio taken"
+}
+video_full_screen_audio_microphone(){
+    wf-recorder -o "$activemon" --audio="$mic" --file="$videos_directory/$date.mp4"
+    ffmpeg -i "$videos_directory/$date.mp4" -ss 00:00:01.000 -vframes 1 "/tmp/$date.png"
+    notify-send -i "/tmp/$date.png" "Video" "Full screen video with audio taken"
+}
+video_selected_area_audio_desktop(){
+    wf-recorder -g "$(slurp)" --audio="$speaker" --file="$videos_directory/$date.mp4"
+    ffmpeg -i "$videos_directory/$date.mp4" -ss 00:00:01.000 -vframes 1 "/tmp/$date.png"
+    notify-send -i "/tmp/$date.png" "Video" "Area video with audio taken"
+}
+video_full_screen_audio_desktop(){
+    wf-recorder -o "$activemon" --audio="$speaker" --file="$videos_directory/$date.mp4"
+    ffmpeg -i "$videos_directory/$date.mp4" -ss 00:00:01.000 -vframes 1 "/tmp/$date.png"
+    notify-send -i "/tmp/$date.png" "Video" "Full screen video taken"
+}
+video_selected_area_all_audio(){
+    wf-recorder -g "$(slurp)" --audio=Combined.monitor --file="$videos_directory/$date.mp4"
+    ffmpeg -i "$videos_directory/$date.mp4" -ss 00:00:01.000 -vframes 1 "/tmp/$date.png"
+    notify-send -i "/tmp/$date.png" "Video" "Full screen video taken"
+}
+video_full_screen_all_audio(){
+    wf-recorder -o "$activemon" --audio=Combined.monitor --file="$videos_directory/$date.mp4"
+    ffmpeg -i "$videos_directory/$date.mp4" -ss 00:00:01.000 -vframes 1 "/tmp/$date.png"
+    notify-send -i "/tmp/$date.png" "Video" "Full screen video taken"
+}
+stop(){
+    killall -s SIGINT wf-recorder
+    sleep 1
+    exit 1
+}
+help(){
+cat << EOF 
+-h | -help | --help
+-s | -stop
+EOF
+}
+main(){
+while [ "$1" != "" ]; do
+    PARAM="$1"
+    case $PARAM in
+    -h | -help | --help)
+        help
+        exit 1
+        ;;
+    -s | -stop)
+        stop
+        exit 1
+        ;;
+    -sa | -screenshot_selected_area)
+        screenshot_selected_area
+        ;;
+    -sf | -screenshot_full_screen)
+        screenshot_full_screen
+        ;;
+    -sl | -screenshot_left_screen)
+        screenshot_left_screen
+        ;;
+    -sr | -screenshot_right_screen)
+        screenshot_right_screen
+        ;;
+    -va | -video_selected_area)
+        video_selected_area
+        ;;
+    -vf | -video_full_screen)
+        video_full_screen
+        ;;
+    -vf_rgba | -video_full_screen_rgba)
+        video_full_screen_rgba
+        ;;
+    -vaam | -video_selected_area_audio_microphone)
+        video_selected_area_audio_microphone
+        ;;
+    -vfam | -video_full_screen_audio_microphone)
+        video_full_screen_audio_microphone
+        ;;
+    -vsad | -video_selected_area_audio_desktop)
+        video_selected_area_audio_desktop
+        ;;
+    -vfad | -video_full_screen_audio_desktop)
+        video_full_screen_audio_desktop
+        ;;
+    -vsaa | -video_selected_area_all_audio)
+        video_selected_area_all_audio
+        ;;
+    -vfaa | -video_full_screen_all_audio)
+        video_full_screen_all_audio
+        ;;
+
+    *)
+        echo "ERROR: unknown parameter \"$PARAM\""
+        help
+        exit 1
+        ;;
+    esac
+    shift
+done
+# done
+set -e
+}
+
+main "$1" &
+exit 0
