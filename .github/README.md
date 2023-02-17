@@ -41,6 +41,14 @@ Dependencies, Please let me know if this list is incomplete, I will try my best 
 ```bash
   paru -S chezmoi hyprland-git xdg-desktop-portal-hyprland-git grim cava slurp wl-clipboard socat swappy cliphist swaylock-effects-git wofi dunst jq eww-wayland swww-git zathura-pdf-mupdf zathura lf spotify-dev spotify-player neofetch kitty-git btop dictd moreutils pamixer wf-recorder unimatrix-git playerctl pistol-git 
 ```
+You will need the themes repo cloned inside ~/.local/share
+```
+cd ~/.local/share
+git clone https://github.com/Selmer443/themes.git
+cd themes
+git submodule init
+git submodule update
+```
 
 You can either clone this repo and copy configs manually or use chezmoi to copy them all at once.
 It's important to note that some of these configs depend on one another, be aware of this when copying
