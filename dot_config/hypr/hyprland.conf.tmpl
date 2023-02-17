@@ -16,8 +16,7 @@ exec-once=/.config/hypr/scripts/launch_portals
 
 {{- if eq .chezmoi.hostname "archlinux" }}
 # this will only be included in ~/.config/hypr/hyprland.conf on archlaptop
-monitor=DP-1,2560x1440@240,0x0,1
-monitor=DP-3,1920x1080@240,2560x0,1
+monitor=,highrr,auto,1
 {{ else }}
 # this will be included in ~/.config/hypr/hyprland.conf on any machine other than archlaptop
 monitor=,preferred,auto,1
