@@ -8,7 +8,7 @@
     width = (0, 500)
     height = (200, 500)
     origin = top-right
-    offset = 10x-10
+    offset = 10x60
     indicate_hidden = yes
     shrink = no
     scale = 0
