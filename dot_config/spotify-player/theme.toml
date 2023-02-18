@@ -76,7 +76,7 @@ selection_foreground = "#C6D0F5"
 [[themes]]
 name = "Catppuccin-macchiato"
 [themes.palette]
-background = "#181926"
+background = "#24273A"
 foreground = "#CAD3F5"
 black = "#24273A"
 blue = "#8AADF4"
