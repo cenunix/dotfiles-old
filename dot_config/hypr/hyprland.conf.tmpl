@@ -20,6 +20,7 @@ monitor=,addreserved,50,0,0,0
 monitor=,highrr,auto,1
 {{ else }}
 # this will be included in ~/.config/hypr/hyprland.conf on any machine other than archlaptop
+monitor=,addreserved,50,0,0,0
 monitor=,preferred,auto,1
 {{- end }}
 
@@ -53,7 +54,6 @@ source=~/.config/hypr/themes/color.conf #select temp scheme
 
 general {
     sensitivity=1.0 # for mouse cursor
-    main_mod=SUPER
   # machine-specific configuration
 
     {{- if eq .chezmoi.hostname "archlaptop" }}
@@ -163,7 +163,16 @@ bindm=SUPER,mouse:272,movewindow
 bindm=SUPER,mouse:273,resizewindow
 
 # example binds
+
+# machine-specific configuration
+
+{{- if eq .chezmoi.hostname "arch-x13s" }}
+# this will only be included in ~/.config/hypr/hyprland.conf on x13s laptop
+bind=SUPER,RETURN,exec,alacritty
+{{ else }}
+# this will be included in ~/.config/hypr/hyprland.conf on any machine other than archlaptop
 bind=SUPER,RETURN,exec,kitty
+{{- end }}
 bind=SUPER,Q,killactive,
 bind=SUPER,M,exit,
 bind=SUPER,E,exec,dolphin

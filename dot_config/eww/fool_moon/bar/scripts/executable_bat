@@ -1,11 +1,15 @@
 #!/bin/sh
 
 function level() {
-	echo $(cat /sys/class/power_supply/BAT0/capacity)
+	energy=$(cat /sys/class/power_supply/qcom-battmgr-bat/energy_now)
+	full=$(cat /sys/class/power_supply/qcom-battmgr-bat/energy_full)
+	newfull=`expr $full / 100`
+	ans=`expr $energy / $newfull`
+	echo $ans
 }
 
 function charging() {
-	[ $(cat /sys/class/power_supply/BAT0/status) = "Charging" ]
+	[ $(cat /sys/class/power_supply/qcom-battmgr-bat/status) = "Charging" ]
 }
 
 function icon() {
@@ -27,7 +31,7 @@ function icon() {
 function class() {
 	if (( $(level) < 20 ));then
 		echo "low"
-	elif (( $(level) < 60 ));then
+	elif (( $(level) < 40 ));then
 		echo "med"
 	else
 		echo "high"
