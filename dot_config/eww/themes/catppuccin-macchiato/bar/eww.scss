@@ -43,6 +43,7 @@ tooltip {
 	color: $bg;
 	background-color: $blue;
 	border-radius: 8px;
+	transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.68);
 }
 
 .start-eventbox:hover {
@@ -100,6 +101,31 @@ tooltip {
 		color: $blue;
 	}
 }
+
+.window-box {
+	font-size: 14px;
+	font-weight: bold;
+	background-color: $blue;
+	color: $bg;
+	border-radius: 8px;
+	padding: 0.25rem 0.6rem;
+	transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.68);
+}
+
+.window-name-label {
+	transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.68);
+}
+
+// .icon-module__icon {
+// 	transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.68);
+// }
+
+// .window-name::before {
+// 	content: "hello";
+// }
+// .window-name::after {
+// 	content: "hello";
+// }
 
 .cava {
 	font-family: NotoSansMono Nerd Font;

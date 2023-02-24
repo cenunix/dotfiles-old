@@ -1,6 +1,7 @@
 (defvar eww "eww -c ~/.config/eww/fool_moon/bar")
 (deflisten workspace "scripts/workspace")
 (deflisten nvidia_listen "./scripts/nvidia.sh")
+(deflisten window_listen "./scripts/window")
 (defpoll updates_poll :initial "" :interval "1m" "./scripts/updates.sh &") 
 (defwidget main []
   (box :class "bar"
@@ -22,7 +23,8 @@
        :spacing 7 
        :halign "start"
     (start)
-    (workspaces)))
+    (workspaces)
+    (window-name)))
 
 (defwidget right[]
   (box  :class "right" 
@@ -50,7 +52,8 @@
         :spacing 7 
         :halign "start"
     (start1)
-    (workspaces)))
+    (workspaces)
+    (window-name)))
 
 (defwidget right1[]
   (box  :class "right" 
@@ -107,6 +110,21 @@
   (literal
     :content workspace
   :valign "center"))
+
+; (defwidget icon-module [icon ?class ?visible]
+;   (box :class "${class} icon-module"
+;         :orientation "h"
+;         :valign "center"
+;         :space-evenly false
+;         :visible {visible ?: true} ; because the argument is optional
+;     (label :class "icon-module__icon" :text "${icon}")
+;     (children)))
+
+(defwidget window-name []
+  (box :class "window-box"
+        :space-evenly false
+        :style "min-width: ${strlength(window_listen) * 10}px;"
+    (label :class "window-name-label" :text window_listen :limit-width 39)))
 
 ; (defwidget cava[]
 ;   (box :class "cava"
