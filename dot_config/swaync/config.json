@@ -44,8 +44,12 @@
   },
   "widgets": [
     "title",
+    "controlls",
+    "brightness",
+    "volume",
     "dnd",
-    "notifications"
+    "notifications",
+    "backlight"
   ],
   "widget-config": {
     "title": {
@@ -59,6 +63,10 @@
     "label": {
       "max-lines": 5,
       "text": "Label Text"
+    },
+    "brightness": {
+      "label": "",
+      "device": "backlight"
     },
     "mpris": {
       "image-size": 96,

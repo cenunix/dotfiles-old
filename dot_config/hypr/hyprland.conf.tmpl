@@ -104,13 +104,14 @@ animations {
     enabled=1
     bezier=pace,0.46, 1, 0.29, 0.99
     bezier=overshot,0.13,0.99,0.29,1.1
-    animation=windowsIn,1,6,overshot,slide
-    animation=windowsOut,1,6,default,slide
-    animation=windowsMove,1,6,overshot,slide
-    animation=fade,1,10,pace
-    animation=workspaces,1,7,overshot,slide
-    animation=specialWorkspace,1,8,pace,slide
-    animation=border,0,3,default
+    bezier = md3_decel, 0.05, 0.7, 0.1, 1
+    animation=windowsIn,1,6,md3_decel,slide
+    animation=windowsOut,1,6,md3_decel,slide
+    animation=windowsMove,1,6,md3_decel,slide
+    animation=fade,1,10,md3_decel
+    animation=workspaces,1,7,md3_decel,slide
+    animation=specialWorkspace,1,8,md3_decel,slide
+    animation=border,0,3,md3_decel
 }
 
 
