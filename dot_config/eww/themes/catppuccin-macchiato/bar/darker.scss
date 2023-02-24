@@ -18,8 +18,8 @@
 }
 
 tooltip {
-	color: #B8BDC9;
-	background-color: $bg;
+	color: $text;
+	background-color: $base;
 	border: 1px solid $gray;
 }
 
@@ -40,14 +40,14 @@ tooltip {
 
 .start-eventbox {
 	font-size: 16px;
-	color: $bg;
-	background-color: $blue;
+	color: $text;
+	background-color: $gray;
 	border-radius: 8px;
 }
 
 .start-eventbox:hover {
-	color: $bg;
-	background-color: $mauve;
+	color: $text;
+	background-color: $light-gray;
 }
 
 .start-btn {
@@ -60,7 +60,7 @@ tooltip {
 	border-radius: 8px;
 
 	button:hover {
-		color: $mauve;
+		color: $text;
 	}
 	
 	.0 , .01, .02, .03, .04, .05, .06,
@@ -69,7 +69,7 @@ tooltip {
 
 	/* Unoccupied */
 	.0 {
-		color: #313547;
+		color: $gray;
 	}
 
 	/* Occupied */
@@ -83,7 +83,7 @@ tooltip {
 	.08,
 	.09, 
 	.010 {
-		color: $dark-blue;
+		color: $light-gray;
 	}
 
 	/* Focused */
@@ -97,13 +97,13 @@ tooltip {
 	.088,
 	.099,
 	.01010 {
-		color: $blue;
+		color: $text;
 	}
 }
 
 .cava {
 	font-family: NotoSansMono Nerd Font;
-	color: #B8BDC9;
+	color: $text;
 	background-color: $raisin-black;
 	border-radius: 8px;
 	padding: 0.1rem 0.5rem;
@@ -113,31 +113,29 @@ tooltip {
 }
 
 .updates {
-	font-size: 14px;
 	font-weight: bold;
-	background-color: $mint;
-	color: $bg;
+	color: $base;
+	background-color: $sky;
 	border-radius: 8px;
-	padding: 0.225rem 0.6rem;
+	padding: 0.1rem 0.6rem;
 }
 
 .sys {
-	font-size: 14px;
-	background-color: $blue;
-	color: $bg;
+	background-color: $gray;
+	color: $text;
 	border-radius: 8px;
-	padding: 0.44rem 0.6rem;
+	padding: 0.4rem 0.5rem;
 
 	box {
 		padding: 0.4rem 0.6rem;
 	}
 
 	.wifi-on {
-		color: $bg;
+		color: $text;
 	}
 
 	.wifi-off {
-		color: $gray;
+		color: $light-gray;
 	}
 }
 
@@ -146,70 +144,43 @@ tooltip {
 }
 
 .ram {
-	font-size: 14px;
 	font-weight: bold;
-	background-color: $blue;
-	color: $bg;
-	border-radius: 8px;
-	padding: 0.25rem 0.6rem;
-}
-
-.nvidia {
 	font-size: 14px;
-	font-weight: bold;
-	background-color: $blue;
-	color: $bg;
+	background-color: $gray;
+	color: $text;
 	border-radius: 8px;
-	padding: 0.235rem 0.6rem;
-}
-
-.cpu {
-	font-size: 14px;
-	font-weight: bold;
-	background-color: $blue;
-	color: $bg;
-	border-radius: 8px;
-	padding: 0.235rem 0.6rem;
-}
-
-.disk {
-	font-size: 14px;
-	font-weight: bold;
-	background-color: $blue;
-	color: $bg;
-	border-radius: 8px;
-	padding: 0.23rem 0.6rem;
+	padding: 0.4rem 0.5rem;
 }
 
 .notifs-eventbox {
 	font-weight: bold;
-	color: $bg;
-	background-color: $blue;
+	color: $text;
+	background-color: $gray;
 	border-radius: 8px;
 }
 
 .notifs-eventbox:hover {
-	background-color: #679df5;
-	color: $bg;
+	background-color: $light-gray;
+	color: $text;
 }
 
 .notifs-label {
-	padding: 0.285rem 0.7rem;
+	padding: 0.2rem 0.7rem;
 }
 
 .bat-box {
-	color: $bg;
+	color: $text;
 
 	.bat-icon.high {
-		background-color: $teal;
+		background-color: $gray;
 	}
 
 	.bat-icon.med {
-		background-color: $yellow;
+		background-color: $gray;
 	}
 
 	.bat-icon.low {
-		background-color: $red;
+		background-color: $gray;
 	}
 
 	.bat-label {
@@ -217,7 +188,7 @@ tooltip {
 	}
 
 	.bat-dark {
-		color: $bg;
+		color: $text;
 	}
 
 	.bat-light {
@@ -228,35 +199,35 @@ tooltip {
 		all: unset;
 		background-color: $gray;
 		border-radius: 8px;
-		min-height: 26px;
+		min-height: 25px;
 		min-width: 60px;
 	}
 
 	scale.bat-scale.high trough {
-		background-color: $teal;
+		background-color: $gray;
 	}
 
 	scale.bat-scale.med trough {
-		background-color: $yellow;
+		background-color: $gray;
 	}
 
 	scale.bat-scale.low trough {
-		background-color: $red;
+		background-color: $gray;
 	}
 
 
 	.bat-scale.high trough highlight {
-		background-color: $teal;
+		background-color: $gray;
 		border-radius: 8px;
 	}
 
 	.bat-scale.med trough highlight {
-		background-color: $yellow;
+		background-color: $gray;
 		border-radius: 8px;
 	}
 
 	.bat-scale.low trough highlight {
-		background-color: $red;
+		background-color: $gray;
 		border-radius: 8px;
 	}
 }
@@ -268,14 +239,14 @@ tooltip {
 .time-eventbox {
 	font-weight: bold;
 	font-size: 14px;
-	color: $bg;
-	background-color: $mauve;
+	color: $text;
+	background-color: $gray;
 	border-radius: 8px;
 }
 
 .time-eventbox:hover {
-	color: $bg;
-	background-color: $blue;
+	color: $text;
+	background-color: $light-gray;
 }
 
 .time-label {

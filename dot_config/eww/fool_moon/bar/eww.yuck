@@ -1,9 +1,20 @@
 (defvar eww "eww -c ~/.config/eww/fool_moon/bar")
 (deflisten workspace "scripts/workspace")
+(deflisten nvidia_listen "./scripts/nvidia.sh")
+(defpoll updates_poll :initial "" :interval "1m" "./scripts/updates.sh &") 
 (defwidget main []
   (box :class "bar"
     (left)
     (right)))
+; Generic icon module foldstart
+(defwidget icon-module [icon ?class ?visible]
+  (box :class "${class} icon-module"
+       :orientation "h"
+       :valign "center"
+       :space-evenly false
+       :visible {visible ?: true} ; because the argument is optional
+    (label :class "icon-module__icon" :text "${icon}")
+    (children)))
 
 (defwidget left[]
   (box :class "left"
@@ -18,10 +29,15 @@
         :space-evenly false
         :spacing 7 
         :halign "end"
-    (notifs)
-    (sys)
-    (bat)
-    (time)))
+      (notifs)
+      (sys)
+      (nvidia)
+      (ram)
+      (cpu)
+      (disk)
+      (updates)
+      (bat)
+      (time)))
 
 (defwidget main1 []
   (box :class "bar"
@@ -43,8 +59,13 @@
         :halign "end"
     (notifs)
     (sys)
+    (nvidia)
+    (ram)
+    (cpu)
+    (disk)
+    (updates)
     (bat)
-    (time1)))
+    (time)))
 
 (defwidget lbar[]
   (box :class "bar left-bar"
@@ -94,14 +115,6 @@
 ; 
 ; (deflisten cava-bars "scripts/cavabars")
 
-; (defwidget updates[]
-;   (box :class "updates"
-;         :valign "center"
-;         :tooltip "Updates: ${update-count}"
-;     (label :class "updates-label" :text " ${update-count ?: '--'}")))
-; 
-; (defpoll update-count :interval "30m" "checkupdates | wc -l")
-
 (defwidget notifs[]
   (eventbox :class "notifs-eventbox"
             :tooltip "Notifications"
@@ -120,6 +133,26 @@
 (defpoll vol-icon :interval "1s" "../common/scripts/vol icon")
 (defpoll wifi-class :interval "1s" "scripts/wifi class")
 (defpoll bat-icon :interval "1s" "scripts/bat icon")
+
+(defwidget ram []
+  (icon-module :class "ram" :icon " " :visible {EWW_RAM.used_mem_perc != ""}
+    (label :text "${round(EWW_RAM.used_mem_perc, 0)}%")))
+
+(defwidget nvidia []
+  (icon-module :class "nvidia" :icon " " 
+    (label :text nvidia_listen))) 
+
+(defwidget cpu []
+  (icon-module :class "cpu" :icon " " 
+    (label :text "${round(EWW_CPU.avg, 0)}%"))) 
+
+(defwidget disk []
+  (icon-module :class "disk" :icon " " 
+    (label :text "${round(EWW_DISK["/home"].used_perc, 0)}%"))) 
+
+(defwidget updates []
+  (icon-module :class "updates" :icon " " :visible {updates_poll != ""}
+    (label :text updates_poll)))
 
 (defwidget bat[]
   (eventbox :class "bat-eventbox"
