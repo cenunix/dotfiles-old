@@ -23,19 +23,16 @@ tooltip {
 	border: 1px solid $gray;
 }
 
+
 .bar {
 	font-family: Noto Sans, "Font Awesome 6 Free";
-	// background-color: #181926;
 	background: radial-gradient(circle, rgba(138, 173, 244,1) 0%, rgba(138, 173, 244,1) 12%, rgba(145, 215, 227,1) 19%, rgba(189,169,247,1) 20%, rgba(182,171,247,1) 24%, rgba(138, 173, 244,1) 36%, rgba(177,172,247,1) 37%, rgba(170,173,248,1) 48%, rgba(125, 196, 228,1) 52%, rgba(166,174,248,1) 52%, rgba(160,175,248,1) 59%, rgba(139, 213, 202,1) 66%, rgba(155,176,248,1) 67%, rgba(152,177,248,1) 68%, rgba(73, 77, 100,1) 77%, rgba(148,178,249,1) 78%, rgba(144,179,250,1) 82%, rgba(180,190,254,1) 83%, rgba(141,179,250,1) 90%, rgba(137,180,250,1) 100%); 
 	background-size: 200% 200%;
 	animation: gradient_f linear infinite;
 	animation-delay: 0s;
 	animation-fill-mode: forwards;
 	animation-duration: 10.0s;
-	// opacity: 0.7;
-	//background-color: rgba(24, 24, 33, 0.65);
-	// border-bottom: 1px solid $gray;
-    margin: 10px 15px 15px 15px;
+  margin: 10px 15px 15px 15px;
 	border-radius: 12px;
 	padding: 4px;
 }
@@ -52,6 +49,7 @@ tooltip {
 	color: $bg;
 	background-color: $blue;
 	border-radius: 8px;
+	transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.68);
 }
 
 .start-eventbox:hover {
@@ -110,6 +108,31 @@ tooltip {
 	}
 }
 
+.window-box {
+	font-size: 14px;
+	font-weight: bold;
+	background-color: $blue;
+	color: $bg;
+	border-radius: 8px;
+	padding: 0.25rem 0.6rem;
+	transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.68);
+}
+
+.window-name-label {
+	transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.68);
+}
+
+// .icon-module__icon {
+// 	transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.68);
+// }
+
+// .window-name::before {
+// 	content: "hello";
+// }
+// .window-name::after {
+// 	content: "hello";
+// }
+
 .cava {
 	font-family: NotoSansMono Nerd Font;
 	color: #B8BDC9;
@@ -122,18 +145,20 @@ tooltip {
 }
 
 .updates {
+	font-size: 14px;
 	font-weight: bold;
-	color: $bg;
 	background-color: $mint;
+	color: $bg;
 	border-radius: 8px;
-	padding: 0.1rem 0.6rem;
+	padding: 0.225rem 0.6rem;
 }
 
 .sys {
+	font-size: 14px;
 	background-color: $blue;
 	color: $bg;
 	border-radius: 8px;
-	padding: 0.4rem 0.5rem;
+	padding: 0.44rem 0.6rem;
 
 	box {
 		padding: 0.4rem 0.6rem;
@@ -152,6 +177,42 @@ tooltip {
 	background-color: #679df5;
 }
 
+.ram {
+	font-size: 14px;
+	font-weight: bold;
+	background-color: $blue;
+	color: $bg;
+	border-radius: 8px;
+	padding: 0.25rem 0.6rem;
+}
+
+.nvidia {
+	font-size: 14px;
+	font-weight: bold;
+	background-color: $blue;
+	color: $bg;
+	border-radius: 8px;
+	padding: 0.235rem 0.6rem;
+}
+
+.cpu {
+	font-size: 14px;
+	font-weight: bold;
+	background-color: $blue;
+	color: $bg;
+	border-radius: 8px;
+	padding: 0.235rem 0.6rem;
+}
+
+.disk {
+	font-size: 14px;
+	font-weight: bold;
+	background-color: $blue;
+	color: $bg;
+	border-radius: 8px;
+	padding: 0.23rem 0.6rem;
+}
+
 .notifs-eventbox {
 	font-weight: bold;
 	color: $bg;
@@ -165,7 +226,7 @@ tooltip {
 }
 
 .notifs-label {
-	padding: 0.2rem 0.7rem;
+	padding: 0.285rem 0.7rem;
 }
 
 .bat-box {
@@ -199,7 +260,7 @@ tooltip {
 		all: unset;
 		background-color: $gray;
 		border-radius: 8px;
-		min-height: 25px;
+		min-height: 26px;
 		min-width: 60px;
 	}
 
