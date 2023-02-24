@@ -166,7 +166,7 @@
 
 (defwidget disk []
   (icon-module :class "disk" :icon " " 
-    (label :text "${round(EWW_DISK["/home"].used_perc, 0)}%"))) 
+    (label :text "${round(EWW_DISK["/"].used_perc, 0)}%"))) 
 
 (defwidget updates []
   (icon-module :class "updates" :icon " " :visible {updates_poll != ""}
