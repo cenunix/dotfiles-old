@@ -17,7 +17,7 @@ These dotfiles are curated for Hyprland on arch linux, however many other distro
 - **Terminal** - [kitty](https://github.com/kovidgoyal/kitty)
 - **Bar and Widgets** - [eww](https://github.com/elkowar/eww)
 - **Launcher** - [wofi](https://github.com/uncomfyhalomacro/wofi)
-- **Notifications** - [dunst](https://github.com/dunst-project/dunst)
+- **Notifications** - [swaync](https://github.com/ErikReider/SwayNotificationCenter)
 - **Text Editor/IDE** - [Lunar Vim](https://www.lunarvim.org/)
 - **Spotify TUI App** - [spotify-player](https://github.com/aome510/spotify-player)
 - **File Manager** - [lf](https://github.com/gokcehan/lf)
@@ -39,7 +39,7 @@ These dotfiles are curated for Hyprland on arch linux, however many other distro
 Dependencies, Please let me know if this list is incomplete, I will try my best to keep it up to date.
 
 ```bash
-  paru -S chezmoi hyprland-git xdg-desktop-portal-hyprland-git grim cava slurp wl-clipboard socat swappy cliphist swaylock-effects-git wofi dunst jq eww-wayland swww-git zathura-pdf-mupdf zathura lf spotify-dev spotify-player neofetch kitty-git btop dictd moreutils pamixer wf-recorder unimatrix-git playerctl pistol-git ttf-material-design-icons-desktop-git pacman-contrib checkupdates+aur
+  paru -S chezmoi hyprland-git xdg-desktop-portal-hyprland-git grim cava slurp wl-clipboard socat swappy cliphist swaylock-effects-git wofi swaync jq eww-wayland swww-git zathura-pdf-mupdf zathura lf spotify-dev spotify-player neofetch kitty-git btop dictd moreutils pamixer wf-recorder unimatrix-git playerctl pistol-git ttf-material-design-icons-desktop-git pacman-contrib checkupdates+aur
 ```
 You will need the themes repo cloned inside ~/.local/share
 ```
