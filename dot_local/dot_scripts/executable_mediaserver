@@ -1,0 +1,12 @@
+#!/bin/sh
+
+rclone-linux mount my-remote: /media --vfs-cache-mode full --dir-cache-time 10s --vfs-cache-max-age 10h --vfs-cache-max-size 200g --allow-other --daemon &
+sleep 2
+sudo systemctl start plexmediaserver.service
+sleep 2 
+sudo systemctl start docker.service 
+sleep 2
+sudo docker-compose -f /home/user/Personal/repos/jackett/docker-compose.yaml up -d &
+sleep 2
+sudo docker run -d --name plex_debrid -v /home/user/Personal/repos/plex_debrid/:/config --net host -ti itstoggle/plex_debrid
+sleep 2
