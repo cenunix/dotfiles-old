@@ -19,29 +19,29 @@ for some information on how to change these variables...
   --ap-secondary-d: 70%;
   --ap-secondary: hsl(var(--ap-secondary-h), var(--ap-secondary-s), var(--ap-secondary-l));
   --ap-base1-h: 232;
-  --ap-base1-s: 23%;
-  --ap-base1-l: 18%;
+  --ap-base1-s: 19%;
+  --ap-base1-l: 15%;
   --ap-base1-d: 10%;
   --ap-base0: hsl(var(--ap-base0-h), var(--ap-base0-s), var(--ap-base0-l));
-  --ap-base0-h: 250;
-  --ap-base0-s: 23%;
-  --ap-base0-l: 5%;
+  --ap-base0-h: 232;
+  --ap-base0-s: 19%;
+  --ap-base0-l: 15%;
   --ap-base0-d: 13%;
   --ap-base1: hsl(var(--ap-base1-h), var(--ap-base1-s), var(--ap-base1-l));
-  --ap-red: #E97193;
-  --ap-green: #AAC5A0;
-  --ap-blue: #A8C5E6;
-  --ap-purple: #DFA7E7;
-  --ap-aqua: #a8e5e6;
-  --ap-yellow: #ece0a8;
-  --ap-orange: #D1A999;
-  --ap-color-strong: #E97193;
-  --ap-color-quote: #E97193;
-  --ap-color-italic: #E97193;
-  --ap-color-tag-background: #24273a;
-  --ap-color-tag-text: #EEEEEE;
-  --ap-code-gray-1: #5b5c5f;
-  --ap-code-gray-2: #45474c;
+  --ap-red: #e2b6b6;
+  --ap-green: #99e6bf;
+  --ap-blue: #7486a9;
+  --ap-purple: #d6b8e0;
+  --ap-aqua: #b6d8e2;
+  --ap-yellow: #e2e2b6;
+  --ap-orange: #facfb8;
+  --ap-color-strong: #e2b6b6;
+  --ap-color-quote: #e2b6b6;
+  --ap-color-italic: #e2b6b6;
+  --ap-color-tag-background: #1f212e;
+  --ap-color-tag-text: #ffffff;
+  --ap-code-gray-1: #242736;
+  --ap-code-gray-2: #282a3b;
   --ap-code-red: var(--ap-red);
   --ap-code-green: var(--ap-green);
   --ap-code-blue: var(--ap-blue);
@@ -107,22 +107,22 @@ for some information on how to change these variables...
 }
 
 :root.incognito {
-  --dark-0: #1C0E34;
-  --dark-base: #20103c;
-  --dark-1: #2F1D4E;
-  --dark-2: #38225D;
-  --dark-3: #4A2D7B;
-  --dark-4: #53338A;
+  --dark-0: #1f212e;
+  --dark-base: #1f212e;
+  --dark-1: #242736;
+  --dark-2: #282a3b;
+  --dark-3: #303347;
+  --dark-4: #34364c;
   --light-0: #CC6B9C;
   --light-base: #B9407C;
   --light-1: #AB3B73;
   --light-2: #9C3569;
   --light-3: #8D305E;
   --light-4: #7D2B54;
-  --accent: #e9207e;
-  --yellow: #C9B336;
-  --green: #36C987;
-  --red: #C9365D;
+  --accent: #b6d8e2;
+  --yellow: #e2e2b6;
+  --green: #99e6bf;
+  --red: #e2b6b6;
   /* --extension-icon-mask: grayscale(85%) invert(13%) sepia(80%) saturate(3107%) hue-rotate(256deg) brightness(84%) contrast(93%); */
 }
 

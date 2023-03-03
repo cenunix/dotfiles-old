@@ -76,7 +76,7 @@ selection_foreground = "#C6D0F5"
 [[themes]]
 name = "Catppuccin-macchiato"
 [themes.palette]
-background = "#24273A"
+background = "#1f212e"
 foreground = "#CAD3F5"
 black = "#24273A"
 blue = "#8AADF4"
@@ -96,6 +96,30 @@ bright_white = "#CAD3F5"
 bright_yellow = "#EED49F"
 selection_background = "#363A4F"
 selection_foreground = "#CAD3F5"
+
+[[themes]]
+name = "Iceberg"
+[themes.palette]
+background = "#1f212e"
+foreground = "#ffffff"
+black = "#1f212e"
+blue = "#7486a9"
+cyan = "#b6d8e2"
+green = "#99e6bf"
+magenta = "#d6b8e0"
+red = "#e2b6b6"
+white = "#ffffff"
+yellow = "#e2e2b6"
+bright_black = "#1f212e"
+bright_blue = "#7486a9"
+bright_cyan = "#b6d8e2"
+bright_green = "#99e6bf"
+bright_magenta = "#d6b8e0"
+bright_red = "#e2b6b6"
+bright_white = "#ffffff"
+bright_yellow = "#e2e2b6"
+selection_background = "#363A4F"
+selection_foreground = "#ffffff"
 
 [themes.component_style]
 block_title = { fg = "Cyan"  }

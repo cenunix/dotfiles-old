@@ -1,5 +1,5 @@
 [ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
-source "$ZDOTDIR//plugins/catppuccin_macchiato-zsh-syntax-highlighting.zsh"
+source "$ZDOTDIR//plugins/iceberg-zsh-syntax-highlighting.zsh"
 export NVM_DIR="$HOME/langs/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [[ -r $NVM_DIR/zsh_completion ]] && \. $NVM_DIR/zsh_completion
@@ -28,6 +28,7 @@ plug "zap-zsh/zap-prompt"
 plug "esc/conda-zsh-completion"
 
 # alias screenshot="grim -g \"$(slurp)\" $HOME/Pictures/screenshots/$(date +'%s_grim.png')"
+alias svn="svn --config-dir \"$XDG_CONFIG_HOME\"/subversion"
 alias ryujinx="__GL_THREADED_OPTIMIZATIONS=0 __GL_SYNC_TO_VBLANK=0 COMPlus_EnableAlternateStackCheck=1 GDK_BACKEND=x11 /home/user/.local/share/Ryujinx/Ryujinx"
 alias imcool="unimatrix -c blue -s 97 -f -a"
 alias screenclip='grim -g "$(slurp)" $GRIM_DEFAULT_DIR/$(date +"%s_grim.png") - | wl-copy -t'

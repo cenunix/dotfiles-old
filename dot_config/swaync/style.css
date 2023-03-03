@@ -3,14 +3,14 @@
  */
 
  @define-color noti-border-color rgba(255, 255, 255, 0.15);
- @define-color noti-bg #24273a;
- @define-color noti-bg-alt #24273a;
- @define-color noti-fg #cad3f5;
- @define-color noti-bg-hover #6e738d;
- @define-color noti-bg-focus #939ab7;
+ @define-color noti-bg #1f212e;
+ @define-color noti-bg-alt #1f212e;
+ @define-color noti-fg #ffffff;
+ @define-color noti-bg-hover #7486a9;
+ @define-color noti-bg-focus #7486a9;
  @define-color noti-close-bg rgba(255, 255, 255, 0.1);
  @define-color noti-close-bg-hover rgba(255, 255, 255, 0.15);
- @define-color noti-urgent #BF616A;
+ @define-color noti-urgent #e2b6b6;
  
  @define-color bg-selected rgb(138, 173, 244);
  
@@ -28,6 +28,7 @@
  }
  
  .notification {
+   transition: all 11500ms ease;
    border-radius: 12px;
    margin: 6px 12px;
    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.7),

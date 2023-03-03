@@ -10,9 +10,10 @@ mkdir -p "$videos_directory"
 mkdir -p "$audio_directory"
 
 activemon=$(hyprctl monitors | grep -B 10 "focused: yes" | awk 'NR==3 {print $1}' RS='(' FS=')')
-mic=$(pactl get-default-source)
-speaker=$(pactl get-default-sink)
+mic="$(pactl get-default-source).monitor"
+speaker="$(pactl get-default-sink).monitor"
 date=$(date '+%d-%m-%Y-%H-%M-%S')
+
 
 
 screenshot_selected_area(){

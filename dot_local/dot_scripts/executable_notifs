@@ -16,12 +16,22 @@ function _unset_vars() {
 mkdir "$DUNST_CACHE_DIR" 2>/dev/null
 touch "$DUNST_LOG" 2>/dev/null
 
+sanitize() {
+  retstr=$(echo $1 | sed 's/\\\\/\\\\\\\\/g' | sed 's/"/\\"/g')
+
+  # echo "original: $1"
+  echo "$retstr"
+  # echo 'sanitized'
+}
+
 function create_cache() {
     local summary
     local body
     [ "$DUNST_SUMMARY" = "" ] && summary="Summary unavailable." || summary=${DUNST_SUMMARY//$'\n'}
-    [ "$DUNST_BODY" = "" ] && body="Body unavailable." || body=${"$(print "$DUNST_BODY" | sed 's/`/\\`/g' |  recode -s -g html )"//$'\n'}
+    [ "$DUNST_BODY" = "" ] && body="Body unavailable." || body=${"$(sanitize "$DUNST_BODY" | recode -s -g html )"//$'\n'}
     # notify-send "This is my summary" "$DUNST_BODY"
+    echo "$body"
+    echo "THE BODY WAS JUST PRINTED"
     
     local appname=$(echo "$DUNST_APP_NAME" | awk '{print toupper( substr( $0, 1, 1 ) ) substr( $0, 2 )}')
     summary=$(echo $summary | awk '{print "'$appname': " ($0)}')
@@ -83,7 +93,7 @@ function create_cache() {
 
         # pipe stdout -> pipe cat stdin (cat conCATs multiple files and sends to stdout) -> absorb stdout from cat
         # concat: "one" + "two" + "three" -> notice how the order matters i.e. "one" will be prepended
-        print '(notification-card :urgency "'$urgency'" :class "notification-card notification-card-'$DUNST_APP_NAME'" :SL "'$DUNST_ID'" :L "dunstctl history-pop '$DUNST_ID'" :body `'$DUNST_BODY'` :summary `'$summary'` :image "'$ICON_PATH'" :application "'$appname'")' \
+        print '(notification-card :urgency "'$urgency'" :class "notification-card notification-card-'$DUNST_APP_NAME'" :SL "'$DUNST_ID'" :L "dunstctl history-pop '$DUNST_ID'" :body `'$body'` :summary `'$summary'` :image "'$ICON_PATH'" :application "'$appname'")' \
         | cat - "$DUNST_LOG" \
         | sponge "$DUNST_LOG"
     fi

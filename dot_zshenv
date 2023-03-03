@@ -1,5 +1,5 @@
 export ZDOTDIR="$HOME/.config/zsh"
-export CARGO_HOME="$HOME/langs/.cargo"
+
 export GOPATH="$HOME/langs/go"
 export MOZ_ENABLE_WAYLAND=1
 
@@ -9,6 +9,8 @@ export XDG_CACHE_HOME="$HOME/.cache"
 
 #Cleanup
 
+export CARGO_HOME="$HOME/langs/.cargo"
+export RUSTUP_HOME="$HOME/langs/.rustup"
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv 
 export NPM_CONFIG_USERCONFIG="$HOME/langs/npm/config"
 export NPM_CONFIG_CACHE="$HOME/langs/npm/"
