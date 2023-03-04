@@ -1,12 +1,30 @@
 #!/bin/sh
 
-rclone-linux mount my-remote: /media --vfs-cache-mode full --dir-cache-time 10s --vfs-cache-max-age 10h --vfs-cache-max-size 200g --allow-other --daemon &
-sleep 2
-sudo systemctl start plexmediaserver.service
-sleep 2 
-sudo systemctl start docker.service 
-sleep 2
-sudo docker-compose -f /home/user/Personal/repos/jackett/docker-compose.yaml up -d &
-sleep 2
-sudo docker run -d --name plex_debrid -v /home/user/Personal/repos/plex_debrid/:/config --net host -ti itstoggle/plex_debrid
-sleep 2
+# rclone-linux mount my-remote: /media --vfs-cache-mode full --dir-cache-time 10s --vfs-cache-max-age 10h --vfs-cache-max-size 200g --allow-other --daemon &
+# sleep 2
+# sudo systemctl start plexmediaserver.service
+# sleep 2 
+# sudo systemctl start docker.service 
+# sleep 2
+# sudo docker-compose -f /home/user/Personal/repos/jackett/docker-compose.yaml up -d &
+# sleep 2
+# docker run -d --name plex_debrid -v /home/user/Personal/repos/plex_debrid/:/config --net host -ti itstoggle/plex_debrid
+# sleep 2
+
+
+# rclone-linux mount my-remote: /media --vfs-cache-mode full --dir-cache-time 10s --vfs-cache-max-age 10h --vfs-cache-max-size 200g --allow-other --daemon &
+# sleep 2
+# podman run -d --name=plex --net=host -e PUID=1000 -e PGID=1000 -e TZ=Etc/UTC -e VERSION=docker -e PLEX_CLAIM= `#optional` -v /home/user/Personal/repos/plex/:/config -v /media/shows:/tv -v /media/movies:/movies --restart unless-stopped lscr.io/linuxserver/plex:latest &
+# sleep 2
+# podman run -d --name=jackett -e PUID=1000 -e PGID=1000 -e TZ=Etc/UTC -e AUTO_UPDATE=true `#optional` -e RUN_OPTS= `#optional` -p 9117:9117 -v /home/user/Personal/repos/jackett/:/config -v /dev/null:/downloads --restart unless-stopped lscr.io/linuxserver/jackett:latest &
+# sleep 2
+# podman run -d --name plex_debrid -v /home/user/Personal/repos/plex_debrid/:/config --net host -ti itstoggle/plex_debrid &
+# sleep 2
+
+
+# Stop shit
+# podman stop -a
+# sleep 12
+# podman ps -a
+# sleep 5
+# podman rm -a

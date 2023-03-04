@@ -145,6 +145,8 @@ case $select in
 		;;
 	$theme8)
 		change_theme iceberg
+		change_gtk_theme Iceberg
+		$HOME/.local/.scripts/gtk2gsetting.sh
 		hyprctl reload # restart hyprland
 		killall -s SIGUSR1 kitty
 		killall dunst
