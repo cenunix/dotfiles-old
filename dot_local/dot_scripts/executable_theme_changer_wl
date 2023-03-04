@@ -24,9 +24,10 @@ theme4=" Dracula"
 theme5=" Gruvbox"
 theme6=" Nord"
 theme7=" Everforest"
+theme8=" Iceberg"
 
 # Variable to pass to dmenu or rofi
-option="$cancel\n$theme1\n$theme2\n$theme3\n$theme4\n$theme5\n$theme6"
+option="$cancel\n$theme1\n$theme2\n$theme3\n$theme4\n$theme5\n$theme6\n$theme7\n$theme8"
 
 
 change_theme()
@@ -138,6 +139,12 @@ case $select in
 		change_theme everforest
 		change_gtk_theme Everforest-Dark-B
 		$HOME/.local/.scripts/gtk2gsetting.sh
+		hyprctl reload # restart hyprland
+		killall -s SIGUSR1 kitty
+		killall dunst
+		;;
+	$theme8)
+		change_theme iceberg
 		hyprctl reload # restart hyprland
 		killall -s SIGUSR1 kitty
 		killall dunst
